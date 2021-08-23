@@ -1,0 +1,154 @@
+CHANGE-LOG.TXT CHANGE HISTORY FOR TRIALMAX
+==========================================
+
+* Create a new clean TrialMax repository from release 81
+cd c:\dev\old
+git clone https://github.com/jameyj/TrialMax.git
+zipped version of this is 65MB
+- get latest branch
+git checkout videoScrubberBarRewindTranscript-crystalReportChanges-7.0.81
+- merge .../TmaxDependencyDownloader/README.txt file from master
+git merge master
+- 61MB zipped
+
+* Create a new repo on github and download it
+cd c:\dev
+git clone https://github.com/indysingh2010/TrialMax.git
+
+* Copy content from old repo
+cd c:\dev\TrialMax
+del README.md
+del .gitignore
+dsync c:\dev\old\TrialMax\sourcecode\Trialmax c:\dev\TrialMax
+C:\dev\TrialMax>copy c:\dev\old\TrialMax\.gitignore
+C:\dev\TrialMax>copy c:\dev\old\TrialMax\README.md
+
+* Upload
+git add .
+git commit -m"This is V7.0.81"
+git push
+- zipped file is 46MB
+<== PUSHED (UPLOADED)
+=======================================
+* Start new branch vs2019-port-7.1.0
+git checkout -b vs2019-port-7.1.0
+
+* Make change below or copy from saved copy
+dsync c:\dev\TrialMax-new c:\dev\TrialMax
+
+* Run add-build-files
+In project Tmactx
+Delete and re-add references to
+AxInterop.TM_VIEW6Lib.dll
+AxInterop.TM_VIEW6Lib.dll
+AxInterop.TM_SHARE6Lib.dll
+Add from c:\program files (x86)\FTI\TrialMax 7
+
+
+* Tmpanes fix broken reference to ADODB
+Expand Tmpanes project, expand References right-click References, click Add References
+On the COM tab, check Microsoft ActiveX Data Objects 2.8 Library, and uncheck the V2.1
+copy w:\dev\TrialMax-save\Tmpanes\Tmpanes.csproj c:\dev\TrialMax\Tmpanes\Tmpanes.csproj
+
+* Tm_movie6 Fix ERROR MESSAGE struct type redefinition
+ren C:\dev\TrialMax\TmaxPresentation\Common\Include\Directx\D3DTYPES.H D3DTYPES.H-REMOVED
+
+
+* Fix error LNK2026 module unsafe for SAFESH image
+Project Tm_movie6 File: quartz.lib
+Project properties, Configuration Properties, Linker, Advanced, Disable  "Image has Safe Exception Handlers"
+
+* TmaxPresentation ERROR: CMemoryException cannot be caught....
+Comment out lines in Dbnet.cpp and Db45.cpp
+copy /y W:\dev\TrialMax-save\TmaxPresentation\Common\Source\Tmdbnet\Dbnet.cpp c:\dev\TrialMax\TmaxPresentation\Common\Source\Tmdbnet\Dbnet.cpp
+copy /y W:\dev\TrialMax-save\TmaxPresentation\Common\Source\Tmdb45\Db45.cpp c:\dev\TrialMax\TmaxPresentation\Common\Source\Tmdb45\Db45.cpp
+
+* Installer (project tmax_Update)
+Create and add Bootstrapper packages for CrystalReports, Klite, VC2005
+May also need windows installer 3.1 (MSI installer for Windows 2000, XP)
+Remove old references and add new ones
+
+* Version number set to 7.1.0.10817
+
+* Clean up Installer project
+Move exteral files here (ffmpeg.exe, ftiore_update.exe)
+- from c:\Prerequisites to SetupExternalFile
+
+Remove TmaxDependencyDownloader.exe, sum.exe, wget.exe -> moved to Trash folder
+Update .gitignore
+
+git config --global core.autocrlf false
+<== DSYNC TrialMax TrialMax-build-7.1.0-save-21-08-19
+<== git commit -m"21-08-19 working port to vs2019"
+=====================================================
+
+TODO
+====
+
+* Clean up duplicate files in tmax_Update project
+Manually delete a few lines at a time to avoid mistakes 
+keep a copy at each step
+Notes:
+Remove all excluded files except msado28.tlb
+-- keep exluded to avoid error
+Move msado28.tlb to top to avoid deleting it
+Remove msjro.dll to avoid warning
+
+* Change "Generating script xxx.xls" to ....xlsx
+- Also updated file Install\ftiore.exe
+- in file C:\dev\TrialMax\Tmreports\RFObjections.cs
+- note: fails with exit code 2 if office is not installed
+- note: Have to build debug code, then release installer
+
+<== DSYNC TrialMax TrialMax-build-7.1.0-save-21-08-20
+<== git commit -m"21-08-19 Clean up installer and xlxs file extension"
+==================================================================
+
+* Installer (in release build) is using some files from bin/Debug
+eg. c:\dev\TrialMax\Bin\Debug\Tmreports.dll
+Properties for this file show a little graphic symbol 
+meaning that it is an automatically added dependency
+Also shows path bin\Debug which cannot be edited
+Fixed by cleaning debug build, then cleaning release build
+- at this point VS runs a code analysis which takes a very long time
+- then the path is changed to bin\release
+. build fails with missing bin\debug\regsvr32.trg
+Could change this to bin\release, but do we need the file?
+I think this is a junk file, so removed
+-- WORKS TESTED
+- Note: Debug build now uses bin\release files
+
+<== DSYNC TrialMax TrialMax-build-7.1.0-save-21-08-21
+=====================================================
+<== git commit -m"21-08-19 Installer Cleanup"
+
+
+
+* Create project folder for ftiore source and executable
+
+* Do we need ftiore_update.exe?
+- This is an installer package
+
+LATER
+=====
+* Clean up tmax_Update project
+Move/copy bin\Debug\_tmax_* files (11) here and update installer
+Rename tmax_Update -> TmaxInstaller or TrialMaxInstaller
+- clean up or rename other installer/update projects
+TmaxInstaller: is installed into app folder title=TrialMax Update Installer.
+Help/Check for updates - > checks for presense of TmaxInstaller.exe before looking for updates (which fail)
+TmaxSetupInsatller: installed as Utilities\TmaxUtilityInsatller.exe
+ - install utilities
+- rename only changed project file and did not rename folder, renamed manually and update sln
+- rename folder does not change files inside, changed manually and update sln
+
+Copy bootstrapper package folders here 
+- from C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages
+
+* Load OCX without registering to allow multiple side-by-side installations
+- Will allow building without Admin rights to register the OCX files
+- See: "Use OCX without registering it"  on stackoverflow
+
+* Allow debugging from release builds
+- eliminate need for debug build
+

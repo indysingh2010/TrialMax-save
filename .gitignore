@@ -192,12 +192,14 @@ Desktop.ini
 $RECYCLE.BIN/
 
 #TrialMax Dependent
+Trash/
+.vs/
 Prerequisites/*
-sourcecode/Trialmax/SetupExternalFile/*
-sourcecode/Trialmax/Reports/*
-sourcecode/Trialmax/Install/*
+SetupExternalFile/
+Reports/
+Install/
 sourcecode/Trialmax/Getschema/*
-sourcecode/Trialmax/PDFManager/*
+PDFManager/*
 sourcecode/Trialmax/TmaxCompactor/*
 sourcecode/Trialmax/TmaxSplitter/*
 TrialMaxDependencies/packages/*
@@ -209,7 +211,5 @@ sourcecode/Trialmax/TmaxDependencyDownloader/packages/*
 sourcecode/Trialmax/Ionic.Zip.xml
 sourcecode/Trialmax/log4net.xml
 *.vshost.exe*
-Packages
-Prerequisites
 sourcecode/Trialmax/build/trash/*
 !sourcecode/Trialmax/build/trash/readme.txt
