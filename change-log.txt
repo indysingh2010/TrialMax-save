@@ -82,8 +82,6 @@ git config --global core.autocrlf false
 <== git commit -m"21-08-19 working port to vs2019"
 =====================================================
 
-TODO
-====
 
 * Clean up duplicate files in tmax_Update project
 Manually delete a few lines at a time to avoid mistakes 
@@ -101,8 +99,8 @@ Remove msjro.dll to avoid warning
 - note: Have to build debug code, then release installer
 
 <== DSYNC TrialMax TrialMax-build-7.1.0-save-21-08-20
-<== git commit -m"21-08-19 Clean up installer and xlxs file extension"
-==================================================================
+<== git commit -m"21-08-19 Installer cleanup and xlxs file extension"
+======================================================================
 
 * Installer (in release build) is using some files from bin/Debug
 eg. c:\dev\TrialMax\Bin\Debug\Tmreports.dll
@@ -123,6 +121,8 @@ I think this is a junk file, so removed
 <== git commit -m"21-08-19 Installer Cleanup"
 
 
+TODO
+====
 
 * Create project folder for ftiore source and executable
 

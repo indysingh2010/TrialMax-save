@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmshared", "Tmshared\Tmshared.csproj", "{2D6B0B34-62EC-4D10-ADF1-43AED7D7787D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmreports", "Tmreports\Tmreports.csproj", "{73D7E2C6-2852-473F-A02B-72436055DF41}"
@@ -443,5 +445,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB08B3F7-F956-453E-9212-6ADA83096B15}
 	EndGlobalSection
 EndGlobal
