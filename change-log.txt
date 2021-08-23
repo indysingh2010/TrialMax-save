@@ -121,16 +121,20 @@ I think this is a junk file, so removed
 <== git commit -m"21-08-19 Installer Cleanup"
 
 
+WIP
+===
+* Add ftiore source code
+- in folder ftiore. Build using makeftiore.bat
+
 TODO
 ====
 
-* Create project folder for ftiore source and executable
-
-* Do we need ftiore_update.exe?
-- This is an installer package
 
 LATER
 =====
+* Allow debugging from release builds
+- eliminate need for debug build
+
 * Clean up tmax_Update project
 Move/copy bin\Debug\_tmax_* files (11) here and update installer
 Rename tmax_Update -> TmaxInstaller or TrialMaxInstaller
@@ -149,6 +153,6 @@ Copy bootstrapper package folders here
 - Will allow building without Admin rights to register the OCX files
 - See: "Use OCX without registering it"  on stackoverflow
 
-* Allow debugging from release builds
-- eliminate need for debug build
+* Do we need ftiore_update.exe?
+- This is an installer package
 
