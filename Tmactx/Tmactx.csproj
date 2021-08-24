@@ -98,18 +98,20 @@
     <Reference Include="AxInterop.TM_MOVIE6Lib">
       <Name>AxInterop.TM_MOVIE6Lib</Name>
       <HintPath>..\Install\Tmactivex\AxInterop.TM_MOVIE6Lib.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="AxInterop.TM_POWER6Lib">
       <Name>AxInterop.TM_POWER6Lib</Name>
       <HintPath>..\Install\Tmactivex\AxInterop.TM_POWER6Lib.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="axinterop.tm_share6lib">
-      <HintPath>..\..\..\Program Files (x86)\FTI\TrialMax 7\axinterop.tm_share6lib.dll</HintPath>
+    <Reference Include="axinterop.tm_share6lib, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Install\Tmactivex\axinterop.tm_share6lib.dll</HintPath>
     </Reference>
-    <Reference Include="AxInterop.TM_VIEW6Lib">
-      <HintPath>..\..\..\Program Files (x86)\FTI\TrialMax 7\AxInterop.TM_VIEW6Lib.dll</HintPath>
+    <Reference Include="AxInterop.TM_VIEW6Lib, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Install\Tmactivex\AxInterop.TM_VIEW6Lib.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics2.Shared.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -122,25 +124,6 @@
     <Reference Include="Infragistics2.Win.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Install\Infragistics\Infragistics2.Win.v8.3.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.TM_MOVIE6Lib">
-      <Name>Interop.TM_MOVIE6Lib</Name>
-      <HintPath>..\Install\Tmactivex\Interop.TM_MOVIE6Lib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Interop.TM_POWER6Lib">
-      <Name>Interop.TM_POWER6Lib</Name>
-      <HintPath>..\Install\Tmactivex\Interop.TM_POWER6Lib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Interop.TM_SHARE6Lib">
-      <Name>Interop.TM_SHARE6Lib</Name>
-      <HintPath>..\Install\Tmactivex\Interop.TM_SHARE6Lib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Interop.TM_VIEW6Lib">
-      <HintPath>..\..\..\Program Files (x86)\FTI\TrialMax 7\Interop.TM_VIEW6Lib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

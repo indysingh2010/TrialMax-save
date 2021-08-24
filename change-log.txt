@@ -78,7 +78,7 @@ Remove TmaxDependencyDownloader.exe, sum.exe, wget.exe -> moved to Trash folder
 Update .gitignore
 
 git config --global core.autocrlf false
-<== DSYNC TrialMax TrialMax-build-7.1.0-save-21-08-19
+<== DSYNC TrialMax TrialMax-7.1.0-save-21-08-19
 <== git commit -m"21-08-19 working port to vs2019"
 =====================================================
 
@@ -98,7 +98,7 @@ Remove msjro.dll to avoid warning
 - note: fails with exit code 2 if office is not installed
 - note: Have to build debug code, then release installer
 
-<== DSYNC TrialMax TrialMax-build-7.1.0-save-21-08-20
+<== DSYNC TrialMax TrialMax-7.1.0-save-21-08-20
 <== git commit -m"21-08-19 Installer cleanup and xlxs file extension"
 ======================================================================
 
@@ -116,15 +116,43 @@ I think this is a junk file, so removed
 -- WORKS TESTED
 - Note: Debug build now uses bin\release files
 
-<== DSYNC TrialMax TrialMax-build-7.1.0-save-21-08-21
+<== DSYNC TrialMax TrialMax-7.1.0-save-21-08-21
 =====================================================
 <== git commit -m"21-08-19 Installer Cleanup"
 
 
-WIP
-===
 * Add ftiore source code
 - in folder ftiore. Build using makeftiore.bat
+<== git commit -m"Added Ftiore folder and code"
+<== DSYNC TrialMax TrialMax-7.1.0-save-21-08-23
+===============================================
+
+
+* Running TmaxManager.exe in bin\Debug folder fails due to missing dll files
+- It works in the installation folder
+- Need these files to work:
+copy c:\dev\TrialMax\Install\Tmactivex\*interop*lib.dll
+copy C:\dev\TrialMax\Install\WMEncoder\Interop.WMEncoderLib.dll
+- Adding folder to PATH does not help
+For each project for each axInterop* reference, set copylocal=TRUE
+For each project for each Interop* reference delete it
+- Build will automatically include it and copy to build folder
+- except Tmencode.csproj, leave Interop.WMEncoderLib.dll
+
+* Some files use hint path c:\program files (x86)\FTI\TrialMax 7...
+  delete and readd from Install\...
+<== git commit -m"21-08-24 Build and installer cleanup"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-08-24
+
+* Build/Installer cleanup
+Add TmaxPresentation/Tmxxx/Tm_xxx.h to .gitignore since these are generated files that are deleted after a clean
+Needed to do: git rm -r --cached . and git add .
+delete C:\dev\TrialMax\Trash\TmaxPresentation\Bin\Release\* 
+except not deleted C:\dev\TrialMax\Trash\TmaxPresentation\Bin\Release\Tminstal.dll
+- this file is used by the installer, likely not needed
+<== git commit -m"21-08-30 Build and installer cleanup"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-08-30
+
 
 TODO
 ====
@@ -132,6 +160,15 @@ TODO
 
 LATER
 =====
+
+* Remove mfc90.dll and m*90.dll (needed ?)
+* Install project warning msjro.dll file not needed
+ - file is C:\Program Files (x86)\Common Files\System\ado\msjro.dll
+* Tmpanes project uses C:\Program Files\Microsoft.NET\Primary Interop Assemblies\stdole.dll
+- use C:\dev\TrialMax\SetupExternalFile\stdole.dll ?
+
+* For some files the installer project says duplicate files
+
 * Allow debugging from release builds
 - eliminate need for debug build
 
