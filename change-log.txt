@@ -154,42 +154,25 @@ except not deleted C:\dev\TrialMax\Trash\TmaxPresentation\Bin\Release\Tminstal.d
 <== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-08-30
 
 
-TODO
-====
+
+* Detect if prerquisits are already installed and don't reinstall them
+- in C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages
+- Add registry checks in bootstrapper pachages
+* Update Installer version number
+- Installer runs as expected during an update or a second run
+- On first run, installs the prerequisits then runs the installer
+- On unchanged number, skips the prerequisits, installer offers a repair
+- On updated verison number, skips the prerequisits, runs the installer
+<== git commit -m "21-09-05 Installer version updated, bootstrapper package registry checks added"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-05
+
+KNOWN ISSUES
+============
+Second run of installer creates a second desktop shortcut
 
 
-LATER
-=====
 
-* Remove mfc90.dll and m*90.dll (needed ?)
-* Install project warning msjro.dll file not needed
- - file is C:\Program Files (x86)\Common Files\System\ado\msjro.dll
-* Tmpanes project uses C:\Program Files\Microsoft.NET\Primary Interop Assemblies\stdole.dll
-- use C:\dev\TrialMax\SetupExternalFile\stdole.dll ?
 
-* For some files the installer project says duplicate files
 
-* Allow debugging from release builds
-- eliminate need for debug build
 
-* Clean up tmax_Update project
-Move/copy bin\Debug\_tmax_* files (11) here and update installer
-Rename tmax_Update -> TmaxInstaller or TrialMaxInstaller
-- clean up or rename other installer/update projects
-TmaxInstaller: is installed into app folder title=TrialMax Update Installer.
-Help/Check for updates - > checks for presense of TmaxInstaller.exe before looking for updates (which fail)
-TmaxSetupInsatller: installed as Utilities\TmaxUtilityInsatller.exe
- - install utilities
-- rename only changed project file and did not rename folder, renamed manually and update sln
-- rename folder does not change files inside, changed manually and update sln
-
-Copy bootstrapper package folders here 
-- from C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages
-
-* Load OCX without registering to allow multiple side-by-side installations
-- Will allow building without Admin rights to register the OCX files
-- See: "Use OCX without registering it"  on stackoverflow
-
-* Do we need ftiore_update.exe?
-- This is an installer package
 
