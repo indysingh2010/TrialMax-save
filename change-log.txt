@@ -29,8 +29,11 @@ git commit -m"This is V7.0.81"
 git push
 - zipped file is 46MB
 <== PUSHED (UPLOADED)
-=======================================
+
+BUILD 01 STARTED
+================
 * Start new branch vs2019-port-7.1.0
+(later renamed to B01)
 git checkout -b vs2019-port-7.1.0
 
 * Make change below or copy from saved copy
@@ -166,13 +169,84 @@ except not deleted C:\dev\TrialMax\Trash\TmaxPresentation\Bin\Release\Tminstal.d
 <== git commit -m "21-09-05 Installer version updated, bootstrapper package registry checks added"
 <== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-05
 
-KNOWN ISSUES
+BUILD 01 END
 ============
-Second run of installer creates a second desktop shortcut
 
 
+BUILD 02 START
+==============
+WIP
+===
+* Branch B02 created
+* Create new single file installer
+  Using NSIS Nullsoft installer
+  Replaces zip file containing multiple files with a single exe file
+  Create a new makefile project trialmax-setup
+  Build command: "c:\Program Files (x86)\NSIS\makensis.exe" trialmax-setup.nsi
+  Create trialmax-setup.nsi script
+  Only show a single UAC (User Access dialog)
+  current installer displays a UAC dialog for each component 
+  (crystal, Reports, k-lite, Vc++, Trialmax, etc)
+
+* Add update capability to the installer
+  The installer will also function as an updater
+  Update mode will be detected if prerequisits are already installed
+  No UAC dialog will be shown in update mode
+  In this mode it will just update TrialMax files with a mimimal user interface
+  Updated supports /S for silent operation
+
+* Remove the "check for updates" dialog on first run
+ 
+* Remove Unused components
+  - ftiore_update.exe is unused
+  - TmaxUtilityInsatller.exe is used to register ActiveX controls during installation, this functionality is moved into new installer.
+  - TmaxInstaller.exe is an install updates helper. Not working and not needed
+
+* Simplify the install file structure
+  move FTI\TrialMax 7 -> TrialMax
+  move FTI\Common -> TrialMax 7 TrialMax\Common
+  move C:\Windows\System32\* -> TrialMax\Common\*
+  move FTI\FTIORE\* -> TrialMax
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-17
+
+TODO
+====
+* Installer properties
+* Need installer logo size 164x314, current logo is 340x240
+
+* Create a test plan
 
 
+LATER
+=====
+* Installer signature
 
+* Remove mfc90.dll and m*90.dll (needed ?)
+* Install project warning msjro.dll file not needed
+ - file is C:\Program Files (x86)\Common Files\System\ado\msjro.dll
+* Tmpanes project uses C:\Program Files\Microsoft.NET\Primary Interop Assemblies\stdole.dll
+- use C:\dev\TrialMax\SetupExternalFile\stdole.dll ?
 
+* For some files the installer project says duplicate files
+
+* Allow debugging from release builds
+- eliminate need for debug build
+
+* Clean up tmax_Update project
+Move/copy bin\Debug\_tmax_* files (11) here and update installer
+Rename tmax_Update -> TmaxInstaller or TrialMaxInstaller
+- clean up or rename other installer/update projects
+TmaxInstaller: is installed into app folder title=TrialMax Update Installer.
+Help/Check for updates - > checks for presense of TmaxInstaller.exe before looking for updates (which fail)
+TmaxSetupInsatller: installed as Utilities\TmaxUtilityInsatller.exe
+ - install utilities
+- rename only changed project file and did not rename folder, renamed manually and update sln
+- rename folder does not change files inside, changed manually and update sln
+
+Copy bootstrapper package folders here 
+- from C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages
+
+* Load OCX without registering to allow multiple side-by-side installations
+- Will allow building without Admin rights to register the OCX files
+- See: "Use OCX without registering it"  on stackoverflow
 

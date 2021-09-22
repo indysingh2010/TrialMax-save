@@ -5694,14 +5694,19 @@ namespace FTI.Trialmax.TmaxManager
                     {
                         //	Prompt for jump to updates
                         strMsg = "Congratulations, TrialMax has been activated !\n\n";
+
+                        MessageBox.Show(strMsg, "Activated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        /*
+                        strMsg = "Congratulations, TrialMax has been activated !\n\n";
                         strMsg += "It is recommended that you check for updates to ensure your product is up to date.";
                         strMsg += "Would you like to check for on-line updates now?";
 
                         if (MessageBox.Show(strMsg, "Update?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
                         {
                             OnAppCheckForUpdates();
                         }
-
+                        */
                     }
                 }
 
@@ -5745,18 +5750,9 @@ namespace FTI.Trialmax.TmaxManager
                     {
                         //	Prompt for jump to updates
                         strMsg = "Congratulations, TrialMax has been activated !\n\n";
-                        strMsg += "It is recommended that you check for updates to ensure your product is up to date.";
-                        strMsg += "Would you like to check for on-line updates now?";
 
-                        if (MessageBox.Show(strMsg, "Update?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            OnAppCheckForUpdates();
-                        }
-
+                        MessageBox.Show(strMsg, "Activated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-
-
                 }
                 else
                 {
