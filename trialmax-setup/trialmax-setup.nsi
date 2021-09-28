@@ -178,7 +178,7 @@ FunctionEnd
 ; Install Prerequisites
 Section "Crystal Reports 2008 Runtime" Crystal_Reports_section_id
     SetOutPath $INSTDIR
-    File "c:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages\Crystal Reports 2008\CRRedist2008_x86.msi"
+    File "..\Install\Bootstrapper-Packages\Crystal Reports 2008\CRRedist2008_x86.msi"
     #ExecWait '"$INSTDIR\CRRedist2008_x86.msi" /passive' -FAILS if you try to run the .msi file
     ExecWait 'msiexec /i "$INSTDIR\CRRedist2008_x86.msi" /passive'
     Delete "$INSTDIR\CRRedist2008_x86.msi"
@@ -187,21 +187,21 @@ SectionEnd
 
 Section "Visual C++ 2015-2019 Runtime" VC2019_section_id
     SetOutPath $INSTDIR
-    File "c:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages\vcredist_x86\VC_redist.x86.exe"
+    File "..\Install\Bootstrapper-Packages\vcredist_x86\VC_redist.x86.exe"
     ExecWait "$INSTDIR\VC_redist.x86.exe /passive"
     Delete "$INSTDIR\VC_redist.x86.exe"
 SectionEnd
 
 Section "Visual C++ 2005 Runtime" VC2005_section_id
     SetOutPath $INSTDIR
-    File "c:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages\VC++ 2005 Runtime Libraries (x86)\vcredist_x86.exe"
+    File "..\Install\Bootstrapper-Packages\VC++ 2005 Runtime Libraries (x86)\vcredist_x86.exe"
     ExecWait "$INSTDIR\vcredist_x86.exe /q"
     Delete "$INSTDIR\vcredist_x86.exe"
 SectionEnd
 
 Section "K-Lite Codec Pack 1105" KLite_section_id
     SetOutPath $INSTDIR
-    File "c:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages\K-Lite Codec Pack\K-Lite_Codec_Pack_1105_Full.exe"
+    File "..\Install\Bootstrapper-Packages\K-Lite Codec Pack\K-Lite_Codec_Pack_1105_Full.exe"
     ExecWait "$INSTDIR\K-Lite_Codec_Pack_1105_Full.exe /silent"
     Delete "$INSTDIR\K-Lite_Codec_Pack_1105_Full.exe"
 SectionEnd

@@ -208,6 +208,61 @@ WIP
   move C:\Windows\System32\* -> TrialMax\Common\*
   move FTI\FTIORE\* -> TrialMax
 <== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-17
+<== git commit -m"Standalone installer working"
+
+
+* Installed Infralogistics 8.3
+
+* Fix error "Cannot find wrapper assembly for type library "ADODB"
+  Occurs on build on clean machine
+  Delete reference and re-add file reference to:
+  C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\adodb.dll
+  ref: https://stackoverflow.com/questions/14237766/error-with-existing-com-reference-or-adding-a-new-one
+  May also work by registering this assembly
+  Changes Tmpanes.csproj
+
+* tmax_Update project warning message:
+WARNING: Unable to find dependency 'INFRAGISTICS2.WIN.ULTRAWINEDITORS.V7.3' of assembly 'Infragistics2.Win.UltraWinToolbars.v7.3.dll'
+Fix by removing file Infragistics2.Win.UltraWinToolbars.v7.3.dll
+from project tmax_Update and trailmax-setup.nsi
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-25
+
+* Update Install\Infralogistics\* to match files from the Infralogistics 8.3
+Source "c:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 3 CLR 2.0\Windows Forms\bin"
+This is hopefully to reduce the crashes when opening TmaxManagerForm.cs in designer
+
+* Created C:\dev\TrialMax\Install\CrystalReports
+from "c:\Program Files (x86)\FTI\TrialMax 7\Crystal*.dll
+This is to allow trailmax-setup project to build even when TrialMax is not installed
+Update dll-files.nsh
+The project tmax_updates does not use this folder, it uses the GAC and requires Crystal Reports to be installed
+
+* Created c:\dev\TrialMax\Install\Bootstrapper-Packages
+From C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages
+For convenience when installing on new machine
+Install with dsync c:\dev\TrialMax\Install\Bootstrapper-Packages "C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-26 - DELETE THIS
+
+* HOW TO setup a clean build machine
+Install VC2019, C#, C++, .MFC
+Add installer projects extension - needed by tmax_Update project
+Install Nullsoft installer, UAC and AccessControl Pluglins
+dsync "E:\Program Files (x86)\NSIS\Plugins" "C:\Program Files (x86)\NSIS\Plugins"
+Install Bootstrapper packages - needed by tmax_Update - it will only look in this location
+dsync c:\dev\TrialMax\Install\Bootstrapper-Packages "C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages"
+Install CrystalReports or TrialMax - CR is needed by the build and maybe by tmax_Update
+Install Infragistics and update toolbar
+Create Infragistics toolbar drag files from c:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 3 CLR 2.0\Windows Forms\bin\*.dll
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-27
+<== git commit -m"Build and installer cleanup and Infragistics update"
+
+
+WIP
+===
+* Crash when open TmaxManager.cs in design view
+SEE: https://www.infragistics.com/community/forums/f/ultimate-ui-for-windows-forms/78232/visual-studio-2010-ultimate-crashes-while-opening-designer-view-in-windows-form-app
+
+
 
 TODO
 ====
