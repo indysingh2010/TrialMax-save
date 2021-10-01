@@ -10749,7 +10749,7 @@ namespace FTI.Trialmax.Database
                     }
                     File.Copy(strFileSpec, System.IO.Path.GetTempPath() + strNewName + ".pdf");
                 }
-                catch (IOException Ex)
+                catch (IOException)
                 {
                     File.Delete(System.IO.Path.GetTempPath() + strNewName + ".pdf");
                     File.Copy(strFileSpec, System.IO.Path.GetTempPath() + strNewName + ".pdf");
@@ -10841,7 +10841,7 @@ namespace FTI.Trialmax.Database
                             File.Delete(strTarget);
                         }
                     }
-                    catch (IOException Ex)
+                    catch (IOException)
                     {
                         //  Do Nothing
                     }
@@ -13892,7 +13892,7 @@ namespace FTI.Trialmax.Database
                     {
                     }
                 }
-                catch (IOException Ex)
+                catch (IOException)
                 {
                     //  Do Nothing
                 }

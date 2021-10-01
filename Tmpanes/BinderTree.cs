@@ -889,7 +889,7 @@ namespace FTI.Trialmax.Panes
                 m_tmaxSorter.Clear();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -2046,7 +2046,7 @@ namespace FTI.Trialmax.Panes
                 m_tmaxSorter.Clear();
                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

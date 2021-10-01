@@ -1246,7 +1246,7 @@ false
                 textIni.Write(TXT_CASE_CODE_INSTRUCTIONS);
                 
             }
-            catch(Exception e)
+            catch(Exception)
             {
 
             }

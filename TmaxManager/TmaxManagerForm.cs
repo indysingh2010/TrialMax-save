@@ -420,7 +420,7 @@ namespace FTI.Trialmax.TmaxManager
                     {
                         Application.Run(new CTmaxManagerForm(args, splashScreen));
                     }
-                    catch (System.ObjectDisposedException e)
+                    catch (System.ObjectDisposedException)
                     {
                     }
                 }

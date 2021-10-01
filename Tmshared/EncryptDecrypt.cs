@@ -76,11 +76,11 @@ namespace FTI.Shared
                 tdes.Clear();
                 return UTF8Encoding.UTF8.GetString(resultArray);
             }
-            catch (CryptographicException ce)
+            catch (CryptographicException)
             {
                 return "";
             }
-            catch (FormatException fe)
+            catch (FormatException)
             {
                 return "";
             }

@@ -256,6 +256,30 @@ Create Infragistics toolbar drag files from c:\Program Files (x86)\Infragistics\
 <== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-27
 <== git commit -m"Build and installer cleanup and Infragistics update"
 
+* Fix error message: The type or namespace name 'Win32' does not exist in the namespace 
+'FTI.Shared' (are you missing an assembly reference?)
+TmaxManager	c:\dev\TrialMax\TmaxManager\TmaxManagerForm.cs	16	Active
+In debug build only
+Dozens of similar errors all through the file
+Solution hint from: https://stackoverflow.com/questions/5567945/type-or-namespace-name-does-not-exist
+Fixed by open properties for each project and change Properties, Application, .Net Framework 4 to 4.5 and back
+End result is to add a prefer 32-bit property with value=false to project
+This fixes the error, don't understand why
+Note: Now the release build is broken in the same way
+Fix by repeating the same steps, which breaks the debug build again
+Reverting to previous build
+
+* Debuggable release build
+For all C# projects
+Project properties, Build, Advanced, debug info: Pdb-only
+<== git commit -m"Debuggable release build"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-01
+
+* Removed unused variables in Catch exception blocks
+<=== git commit -m"Removed unused variables in Catch exception blocks"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-01
+
+
 
 WIP
 ===

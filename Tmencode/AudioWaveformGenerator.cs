@@ -238,7 +238,7 @@ namespace FTI.Trialmax.Encode
                 }
                 return Values;
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
             return new List<float>();
 
         }// private List<float> GetWaveForm
