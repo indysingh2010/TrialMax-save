@@ -128,25 +128,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <Reference Include="Tmctrls, Version=6.3.0.7277, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmdata">
-      <Name>Tmdata</Name>
-      <HintPath>..\Bin\Debug\Tmdata.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmforms">
-      <Name>Tmforms</Name>
-      <HintPath>..\Bin\Debug\Tmforms.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmshared">
-      <Name>Tmshared</Name>
-      <HintPath>..\Bin\Debug\Tmshared.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">
@@ -272,6 +253,24 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tmctrls\Tmctrls.csproj">
+      <Project>{2ccb7c80-c5b7-46de-bcda-1cd647c43664}</Project>
+      <Name>Tmctrls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmdata\Tmdata.csproj">
+      <Project>{40de89d7-3875-4c05-9635-784c5079939f}</Project>
+      <Name>Tmdata</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmforms\Tmforms.csproj">
+      <Project>{a4ede59d-8491-4914-81e0-e7e1b80bc31a}</Project>
+      <Name>Tmforms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmshared\Tmshared.csproj">
+      <Project>{2d6b0b34-62ec-4d10-adf1-43aed7d7787d}</Project>
+      <Name>Tmshared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

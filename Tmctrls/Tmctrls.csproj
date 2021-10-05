@@ -150,16 +150,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <Reference Include="Tmactx">
-      <Name>Tmactx</Name>
-      <HintPath>..\Bin\Debug\Tmactx.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmshared">
-      <Name>Tmshared</Name>
-      <HintPath>..\Bin\Debug\Tmshared.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddPickValue.cs">
@@ -461,6 +451,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tmactx\Tmactx.csproj">
+      <Project>{974f604c-ec81-4782-8312-8b5880d3eb75}</Project>
+      <Name>Tmactx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmshared\Tmshared.csproj">
+      <Project>{2d6b0b34-62ec-4d10-adf1-43aed7d7787d}</Project>
+      <Name>Tmshared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

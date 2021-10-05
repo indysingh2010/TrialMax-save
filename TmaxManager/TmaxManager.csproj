@@ -146,46 +146,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <Reference Include="Tmactx">
-      <Name>Tmactx</Name>
-      <HintPath>..\Bin\Debug\Tmactx.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmctrls">
-      <Name>Tmctrls</Name>
-      <HintPath>..\Bin\Debug\Tmctrls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmencode">
-      <Name>Tmencode</Name>
-      <HintPath>..\Bin\Debug\Tmencode.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmforms">
-      <Name>Tmforms</Name>
-      <HintPath>..\Bin\Debug\Tmforms.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmoffice">
-      <Name>Tmoffice</Name>
-      <HintPath>..\Bin\Debug\Tmoffice.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmpanes">
-      <Name>Tmpanes</Name>
-      <HintPath>..\Bin\Debug\Tmpanes.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmreports">
-      <Name>Tmreports</Name>
-      <HintPath>..\Bin\Debug\Tmreports.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmshared">
-      <Name>Tmshared</Name>
-      <HintPath>..\Bin\Debug\Tmshared.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="licenses.licx" />
@@ -253,14 +213,46 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tmdata\Tmdata.csproj">
-      <Project>{40DE89D7-3875-4C05-9635-784C5079939F}</Project>
-      <Name>Tmdata</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tmactx\Tmactx.csproj">
+      <Project>{974f604c-ec81-4782-8312-8b5880d3eb75}</Project>
+      <Name>Tmactx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmctrls\Tmctrls.csproj">
+      <Project>{2ccb7c80-c5b7-46de-bcda-1cd647c43664}</Project>
+      <Name>Tmctrls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmdata\Tmdata.csproj">
+      <Project>{40de89d7-3875-4c05-9635-784c5079939f}</Project>
+      <Name>Tmdata</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmencode\Tmencode.csproj">
+      <Project>{ddee6e9d-5728-42a4-b78b-9845684e3397}</Project>
+      <Name>Tmencode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmforms\Tmforms.csproj">
+      <Project>{a4ede59d-8491-4914-81e0-e7e1b80bc31a}</Project>
+      <Name>Tmforms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmoffice\Tmoffice.csproj">
+      <Project>{402f89c9-4765-4d77-b0c0-f494af9081f3}</Project>
+      <Name>Tmoffice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmpanes\Tmpanes.csproj">
+      <Project>{c8d60708-17eb-41b4-9df6-973f1ca63f25}</Project>
+      <Name>Tmpanes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmreports\Tmreports.csproj">
+      <Project>{73d7e2c6-2852-473f-a02b-72436055df41}</Project>
+      <Name>Tmreports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmshared\Tmshared.csproj">
+      <Project>{2d6b0b34-62ec-4d10-adf1-43aed7d7787d}</Project>
+      <Name>Tmshared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

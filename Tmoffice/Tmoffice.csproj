@@ -117,11 +117,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <Reference Include="Tmshared">
-      <Name>Tmshared</Name>
-      <HintPath>..\Bin\Debug\Tmshared.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">
@@ -166,6 +161,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tmshared\Tmshared.csproj">
+      <Project>{2d6b0b34-62ec-4d10-adf1-43aed7d7787d}</Project>
+      <Name>Tmshared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
