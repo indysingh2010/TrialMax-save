@@ -175,8 +175,6 @@ BUILD 01 END
 
 BUILD 02 START
 ==============
-WIP
-===
 * Branch B02 created
 * Create new single file installer
   Using NSIS Nullsoft installer
@@ -285,13 +283,17 @@ instead of hard coded to ..\bin\Release\TmActx.dll, etc
 <=== git commit -m"Fix namespace does not exist in debug build"
 <== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-05
 
-* Repository cleanup
+* Repository cleanup DEPRECATED AND REDONE AGAIN
 author email change
 using git rebase -i HEAD~12
 reworded some commits
 merged some commits with 'fixup'
+delete branch B01 and recreted it
+git branch -D B01
+git checkout -bB01 32ba118
+git checkout B02
 <=== git commit -m"Repository cleanup"
-<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-07
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-07 (DEPRECATED)
 
 * Project dependencies updated for TmaxPresentation, trialmax-setup
 * data-files.nsh rearranged for tidyness
@@ -301,16 +303,22 @@ merged some commits with 'fixup'
 * Added vsclean.bat file
 * Install\Infralogistics\* files updated to match Infralogstics installation
 <=== git commit -a -m"Building project cleanup"
-<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-19
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-19 (DEPRECATED)
   
 * Updated trialmax-setup/dll-files.nsh to grab files from crystalreports installation directory
   removed reference to TmaxPresentation\Bin\Release\Tminstal.dll
 <=== git commit -a -m"Building project cleanup" --amend
-<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-B02-21-10-23
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-B02-21-10-23 (DEPRECATED)
   
-
-
 * Change install directory to FTI\TrialMax
 * Copy tmpanes.tpd panel layout file to bin\Release folder
-git add . && git commit -a -m"Install directory changed"
+<=== git commit -a -m"Building project cleanup" --amend
+
+* Installed Infralogistics V21.1
+Update projects
+"c:\Program Files (x86)\Infragistics\2021.1\Version Utility\Infragistics.VersionUtility.CommandLine.exe" /source:TmaxManager_all.sln
+Update trialmax-setup/dll-files.nsh Infralogistics2 -> Infralogistics2 V8.3 -> v21.1
+git commit -a -m"Infragistics V21.1 port"
 <== DSYNC c:\dev\TrialMax-B02 b:\dev\TrialMax-B02-21-11-11
+
+
