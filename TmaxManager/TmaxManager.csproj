@@ -256,11 +256,18 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>SET BaseName=%25date:~10,4%25%25date:~4,2%25%25date:~7,2%25_%25time:~0,2%25%25time:~3,2%25%25time:~6,2%25.%25time:~9,2%25 
-
-if exist "$(TargetPath).locked" move "$(TargetPath).locked" "$(SolutionDir)\build\trash\%25BaseName%25.locked" 
-
-if exist "$(TargetPath)" move /Y "$(TargetPath)" "$(SolutionDir)\build\trash\%25BaseName%25.exe"</PreBuildEvent>
+    <PreBuildEvent>REM Delete the output file, or if it is locked the move it to trash
+REM Current directory is bin\Release
+if exist "$(TargetPath)" del "$(TargetPath)"
+if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+SET BaseName=%25date:~10,4%25%25date:~4,2%25%25date:~7,2%25_%25time:~0,2%25%25time:~3,2%25%25time:~6,2%25.%25time:~9,2%25
+if exist "$(TargetPath).locked" move "$(TargetPath).locked" "$(SolutionDir)\build\trash\%25BaseName%25.locked"
+if exist "$(TargetPath)" move /Y "$(TargetPath)" "$(SolutionDir)\build\trash\%25BaseName%25.exe"
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\data-files" .
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\PDFManager" .\PDFManager
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\Fti.ini" .
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\TmaxManager.xml" .
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\SetupExternalFile\tmaxpanes.tpd" .</PreBuildEvent>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>

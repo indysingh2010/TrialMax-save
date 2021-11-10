@@ -285,58 +285,32 @@ instead of hard coded to ..\bin\Release\TmActx.dll, etc
 <=== git commit -m"Fix namespace does not exist in debug build"
 <== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-05
 
+* Repository cleanup
+author email change
+using git rebase -i HEAD~12
+reworded some commits
+merged some commits with 'fixup'
+<=== git commit -m"Repository cleanup"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-07
+
+* Project dependencies updated for TmaxPresentation, trialmax-setup
+* data-files.nsh rearranged for tidyness
+* Pre-build events script updated for TmaxManager
+  Delete output file if possible instead of moving to build/trash folder
+  Copy Install\data-files\* and PDFManafer\* files
+* Added vsclean.bat file
+* Install\Infralogistics\* files updated to match Infralogstics installation
+<=== git commit -a -m"Building project cleanup"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-19
+  
+* Updated trialmax-setup/dll-files.nsh to grab files from crystalreports installation directory
+  removed reference to TmaxPresentation\Bin\Release\Tminstal.dll
+<=== git commit -a -m"Building project cleanup" --amend
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-B02-21-10-23
+  
 
 
-
-
-
-
-
-WIP
-===
-* Crash when open TmaxManager.cs in design view
-SEE: https://www.infragistics.com/community/forums/f/ultimate-ui-for-windows-forms/78232/visual-studio-2010-ultimate-crashes-while-opening-designer-view-in-windows-form-app
-
-
-
-TODO
-====
-* Installer properties
-* Need installer logo size 164x314, current logo is 340x240
-
-* Create a test plan
-
-
-LATER
-=====
-* Installer signature
-
-* Remove mfc90.dll and m*90.dll (needed ?)
-* Install project warning msjro.dll file not needed
- - file is C:\Program Files (x86)\Common Files\System\ado\msjro.dll
-* Tmpanes project uses C:\Program Files\Microsoft.NET\Primary Interop Assemblies\stdole.dll
-- use C:\dev\TrialMax\SetupExternalFile\stdole.dll ?
-
-* For some files the installer project says duplicate files
-
-* Allow debugging from release builds
-- eliminate need for debug build
-
-* Clean up tmax_Update project
-Move/copy bin\Debug\_tmax_* files (11) here and update installer
-Rename tmax_Update -> TmaxInstaller or TrialMaxInstaller
-- clean up or rename other installer/update projects
-TmaxInstaller: is installed into app folder title=TrialMax Update Installer.
-Help/Check for updates - > checks for presense of TmaxInstaller.exe before looking for updates (which fail)
-TmaxSetupInsatller: installed as Utilities\TmaxUtilityInsatller.exe
- - install utilities
-- rename only changed project file and did not rename folder, renamed manually and update sln
-- rename folder does not change files inside, changed manually and update sln
-
-Copy bootstrapper package folders here 
-- from C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages
-
-* Load OCX without registering to allow multiple side-by-side installations
-- Will allow building without Admin rights to register the OCX files
-- See: "Use OCX without registering it"  on stackoverflow
-
+* Change install directory to FTI\TrialMax
+* Copy tmpanes.tpd panel layout file to bin\Release folder
+git add . && git commit -a -m"Install directory changed"
+<== DSYNC c:\dev\TrialMax-B02 b:\dev\TrialMax-B02-21-11-11

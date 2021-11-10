@@ -111,8 +111,8 @@ SetShellVarContext all
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "Release\trialmax-setup.exe"
-#InstallDir "$PROGRAMFILES\FTI\TrialMax 7"
-InstallDir "$PROGRAMFILES\TrialMax"
+InstallDir "$PROGRAMFILES\FTI\TrialMax"
+#InstallDir "$PROGRAMFILES\TrialMax"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
