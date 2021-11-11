@@ -3900,10 +3900,10 @@ int CDBNET::Open(LPCSTR lpFolder, LPCSTR lpFilename)
 			HandleError(TMDB_OPENDBFAILED, "An archive exception was raised");
 			
 	}
-	catch(CMemoryException e)	//	Memory errors
-	{
-		HandleError(TMDB_OPENDBFAILED, IDS_TMDB_MEMERROR);
-	}
+	//catch(CMemoryException e)	//	Memory errors
+	//{
+	//	HandleError(TMDB_OPENDBFAILED, IDS_TMDB_MEMERROR);
+	//}
 	catch(...)	//	All other errors
 	{
 		HandleError(TMDB_OPENDBFAILED, "A system exception was raised");

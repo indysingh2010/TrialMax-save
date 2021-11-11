@@ -1407,10 +1407,10 @@ int CDB45::Open(LPCSTR lpFolder, LPCSTR lpFilename)
 	{
 		HandleError(TMDB_OPENDBFAILED, e->m_pErrorInfo->m_strDescription);
 	}
-	catch(CMemoryException e)	//	Memory errors
-	{
-		HandleError(TMDB_OPENDBFAILED, IDS_TMDB_MEMERROR);
-	}
+	//catch(CMemoryException e)	//	Memory errors
+	//{
+	//	HandleError(TMDB_OPENDBFAILED, IDS_TMDB_MEMERROR);
+	//}
 	catch(...)	//	All other errors
 	{
 		HandleError(TMDB_OPENDBFAILED, IDS_TMDB_OPENDBFAILED);

@@ -192,12 +192,14 @@ Desktop.ini
 $RECYCLE.BIN/
 
 #TrialMax Dependent
+Trash/
+.vs/
 Prerequisites/*
-sourcecode/Trialmax/SetupExternalFile/*
-sourcecode/Trialmax/Reports/*
-sourcecode/Trialmax/Install/*
+SetupExternalFile/
+Reports/
+Install/
 sourcecode/Trialmax/Getschema/*
-sourcecode/Trialmax/PDFManager/*
+PDFManager/*
 sourcecode/Trialmax/TmaxCompactor/*
 sourcecode/Trialmax/TmaxSplitter/*
 TrialMaxDependencies/packages/*
@@ -209,7 +211,22 @@ sourcecode/Trialmax/TmaxDependencyDownloader/packages/*
 sourcecode/Trialmax/Ionic.Zip.xml
 sourcecode/Trialmax/log4net.xml
 *.vshost.exe*
-Packages
-Prerequisites
 sourcecode/Trialmax/build/trash/*
 !sourcecode/Trialmax/build/trash/readme.txt
+
+# generated files, are deleted after a clean
+TmaxPresentation/Tmbars/Tm_bars6.h
+TmaxPresentation/Tmbrowse/Tm_browse6.h
+TmaxPresentation/Tmgrab/Tm_grab6.h
+TmaxPresentation/Tmlpen/Tm_lpen6.h
+TmaxPresentation/Tmmovie/Tm_movie6.h
+TmaxPresentation/Tmpower/Tm_power6.h
+TmaxPresentation/Tmprint/Tm_print6.h
+TmaxPresentation/Tmsetup/Tm_setup6.h
+TmaxPresentation/Tmshare/Tm_share6.h
+TmaxPresentation/Tmstat/Tm_stat6.h
+TmaxPresentation/Tmtext/Tm_text6.h
+TmaxPresentation/Tmtool/Tm_tool6.h
+TmaxPresentation/Tmview/Tm_view6.h
+TmaxPresentation/Tmxml/Tm_xml6.h
+

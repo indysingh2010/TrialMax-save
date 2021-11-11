@@ -1265,7 +1265,9 @@ namespace FTI.Trialmax.Reports
 
 			try
 			{
-				strGenerating = ("Generating " + System.IO.Path.GetFileName(m_tmaxORETemplate.GetValue(CTmaxORETemplate.ORE_RUNTIME_SAVE_AS)) + " ");
+				string x = System.IO.Path.GetFileName(m_tmaxORETemplate.GetValue(CTmaxORETemplate.ORE_RUNTIME_SAVE_AS));
+				x = x.Replace(".xls", ".xlsx");
+				strGenerating = ("Generating " + x + " ");
 				strStatus = strGenerating;
 
 				SetStatus(strStatus);

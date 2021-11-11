@@ -98,7 +98,7 @@
     <Reference Include="Interop.WMEncoderLib">
       <Name>Interop.WMEncoderLib</Name>
       <HintPath>..\Install\WMEncoder\Interop.WMEncoderLib.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MediaToolkit, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MediaToolkit.1.1.0.1\lib\net40\MediaToolkit.dll</HintPath>
