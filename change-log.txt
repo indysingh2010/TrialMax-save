@@ -29,8 +29,11 @@ git commit -m"This is V7.0.81"
 git push
 - zipped file is 46MB
 <== PUSHED (UPLOADED)
-=======================================
+
+BUILD 01 STARTED
+================
 * Start new branch vs2019-port-7.1.0
+(later renamed to B01)
 git checkout -b vs2019-port-7.1.0
 
 * Make change below or copy from saved copy
@@ -166,13 +169,156 @@ except not deleted C:\dev\TrialMax\Trash\TmaxPresentation\Bin\Release\Tminstal.d
 <== git commit -m "21-09-05 Installer version updated, bootstrapper package registry checks added"
 <== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-05
 
-KNOWN ISSUES
+BUILD 01 END
 ============
-Second run of installer creates a second desktop shortcut
 
 
+BUILD 02 START
+==============
+* Branch B02 created
+* Create new single file installer
+  Using NSIS Nullsoft installer
+  Replaces zip file containing multiple files with a single exe file
+  Create a new makefile project trialmax-setup
+  Build command: "c:\Program Files (x86)\NSIS\makensis.exe" trialmax-setup.nsi
+  Create trialmax-setup.nsi script
+  Only show a single UAC (User Access dialog)
+  current installer displays a UAC dialog for each component 
+  (crystal, Reports, k-lite, Vc++, Trialmax, etc)
+
+* Add update capability to the installer
+  The installer will also function as an updater
+  Update mode will be detected if prerequisits are already installed
+  No UAC dialog will be shown in update mode
+  In this mode it will just update TrialMax files with a mimimal user interface
+  Updated supports /S for silent operation
+
+* Remove the "check for updates" dialog on first run
+ 
+* Remove Unused components
+  - ftiore_update.exe is unused
+  - TmaxUtilityInsatller.exe is used to register ActiveX controls during installation, this functionality is moved into new installer.
+  - TmaxInstaller.exe is an install updates helper. Not working and not needed
+
+* Simplify the install file structure
+  move FTI\TrialMax 7 -> TrialMax
+  move FTI\Common -> TrialMax 7 TrialMax\Common
+  move C:\Windows\System32\* -> TrialMax\Common\*
+  move FTI\FTIORE\* -> TrialMax
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-17
+<== git commit -m"Standalone installer working"
 
 
+* Installed Infralogistics 8.3
 
+* Fix error "Cannot find wrapper assembly for type library "ADODB"
+  Occurs on build on clean machine
+  Delete reference and re-add file reference to:
+  C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\adodb.dll
+  ref: https://stackoverflow.com/questions/14237766/error-with-existing-com-reference-or-adding-a-new-one
+  May also work by registering this assembly
+  Changes Tmpanes.csproj
+
+* tmax_Update project warning message:
+WARNING: Unable to find dependency 'INFRAGISTICS2.WIN.ULTRAWINEDITORS.V7.3' of assembly 'Infragistics2.Win.UltraWinToolbars.v7.3.dll'
+Fix by removing file Infragistics2.Win.UltraWinToolbars.v7.3.dll
+from project tmax_Update and trailmax-setup.nsi
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-25
+
+* Update Install\Infralogistics\* to match files from the Infralogistics 8.3
+Source "c:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 3 CLR 2.0\Windows Forms\bin"
+This is hopefully to reduce the crashes when opening TmaxManagerForm.cs in designer
+
+* Created C:\dev\TrialMax\Install\CrystalReports
+from "c:\Program Files (x86)\FTI\TrialMax 7\Crystal*.dll
+This is to allow trailmax-setup project to build even when TrialMax is not installed
+Update dll-files.nsh
+The project tmax_updates does not use this folder, it uses the GAC and requires Crystal Reports to be installed
+
+* Created c:\dev\TrialMax\Install\Bootstrapper-Packages
+From C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages
+For convenience when installing on new machine
+Install with dsync c:\dev\TrialMax\Install\Bootstrapper-Packages "C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-26 - DELETE THIS
+
+* HOW TO setup a clean build machine
+Install VC2019, C#, C++, .MFC
+Add installer projects extension - needed by tmax_Update project
+Install Nullsoft installer, UAC and AccessControl Pluglins
+dsync "E:\Program Files (x86)\NSIS\Plugins" "C:\Program Files (x86)\NSIS\Plugins"
+Install Bootstrapper packages - needed by tmax_Update - it will only look in this location
+dsync c:\dev\TrialMax\Install\Bootstrapper-Packages "C:\Program Files (x86)\Microsoft SDKs\ClickOnce Bootstrapper\Packages"
+Install CrystalReports or TrialMax - CR is needed by the build and maybe by tmax_Update
+Install Infragistics and update toolbar
+Create Infragistics toolbar drag files from c:\Program Files (x86)\Infragistics\NetAdvantage for .NET 2008 Vol. 3 CLR 2.0\Windows Forms\bin\*.dll
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-09-27
+<== git commit -m"Build and installer cleanup and Infragistics update"
+
+* Debuggable release build
+For all C# projects
+Project properties, Build, Advanced, debug info: Pdb-only
+<== git commit -m"Debuggable release build"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-01
+
+* Removed unused variables in Catch exception blocks
+<=== git commit -m"Removed unused variables in Catch exception blocks"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-01
+
+* Fix error: The type or namespace name 'Win32' does not exist in the namespace 
+'FTI.Shared' (are you missing an assembly reference?)
+TmaxManager	c:\dev\TrialMax\TmaxManager\TmaxManagerForm.cs	16	Active
+In debug build only
+Dozens of similar errors all through the file
+Solution hint from: https://stackoverflow.com/questions/5567945/type-or-namespace-name-does-not-exist
+Fixed by open properties for each project and change Properties, Application, .Net Framework 4 to 4.5 and back
+End result is to add a prefer 32-bit property with value=false to project
+This fixes the error in debug build but now the release build is broken in the same way
+Fix by repeating the same steps, which breaks the debug build again
+-- FINAL Fix
+From each project delete all references to TmActx, TmCtrls, etc
+Readd the references, choosing from the projects list
+Now it is fixed in Debug and Release build
+Comparing old and new project files shows that the references are now to assembly projects, 
+instead of hard coded to ..\bin\Release\TmActx.dll, etc
+<=== git commit -m"Fix namespace does not exist in debug build"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-05
+
+* Repository cleanup DEPRECATED AND REDONE AGAIN
+author email change
+using git rebase -i HEAD~12
+reworded some commits
+merged some commits with 'fixup'
+delete branch B01 and recreted it
+git branch -D B01
+git checkout -bB01 32ba118
+git checkout B02
+<=== git commit -m"Repository cleanup"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-07 (DEPRECATED)
+
+* Project dependencies updated for TmaxPresentation, trialmax-setup
+* data-files.nsh rearranged for tidyness
+* Pre-build events script updated for TmaxManager
+  Delete output file if possible instead of moving to build/trash folder
+  Copy Install\data-files\* and PDFManafer\* files
+* Added vsclean.bat file
+* Install\Infralogistics\* files updated to match Infralogstics installation
+<=== git commit -a -m"Building project cleanup"
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-7.1.0-save-21-10-19 (DEPRECATED)
+  
+* Updated trialmax-setup/dll-files.nsh to grab files from crystalreports installation directory
+  removed reference to TmaxPresentation\Bin\Release\Tminstal.dll
+<=== git commit -a -m"Building project cleanup" --amend
+<== DSYNC c:\dev\TrialMax b:\dev\TrialMax-B02-21-10-23 (DEPRECATED)
+  
+* Change install directory to FTI\TrialMax
+* Copy tmpanes.tpd panel layout file to bin\Release folder
+<=== git commit -a -m"Building project cleanup" --amend
+
+* Installed Infralogistics V21.1
+Update projects
+"c:\Program Files (x86)\Infragistics\2021.1\Version Utility\Infragistics.VersionUtility.CommandLine.exe" /source:TmaxManager_all.sln
+Update trialmax-setup/dll-files.nsh Infralogistics2 -> Infralogistics2 V8.3 -> v21.1
+git commit -a -m"Infragistics V21.1 port"
+<== DSYNC c:\dev\TrialMax-B02 b:\dev\TrialMax-B02-21-11-11
 
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="Windows-1252"?>
+﻿<?xml version="1.0" encoding="Windows-1252"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
@@ -79,7 +79,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <DocumentationFile>
     </DocumentationFile>
-    <DebugSymbols>false</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
     <NoWarn>
@@ -89,11 +89,31 @@
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <WarningLevel>4</WarningLevel>
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <ErrorReport>prompt</ErrorReport>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Infragistics4.Win.v21.1, Version=21.1.20211.62, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Infragistics\2021.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.v21.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v21.1, Version=21.1.20211.62, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Infragistics\2021.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.UltraWinToolbars.v21.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v21.1, Version=21.1.20211.62, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Infragistics\2021.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.UltraWinStatusBar.v21.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinDock.v21.1, Version=21.1.20211.62, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Infragistics\2021.1\Windows Forms\CLR4.0\Bin\Infragistics4.Win.UltraWinDock.v21.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v21.1, Version=21.1.20211.62, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Infragistics\2021.1\Windows Forms\CLR4.0\Bin\Infragistics4.Shared.v21.1.dll</HintPath>
+    </Reference>
     <Reference Include="AxInterop.TM_GRAB6Lib">
       <Name>AxInterop.TM_GRAB6Lib</Name>
       <HintPath>..\Install\Tmactivex\AxInterop.TM_GRAB6Lib.dll</HintPath>
@@ -103,26 +123,6 @@
       <Name>AxInterop.TM_PRINT6Lib</Name>
       <HintPath>..\Install\Tmactivex\AxInterop.TM_PRINT6Lib.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Infragistics2.Shared.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Install\Infragistics\Infragistics2.Shared.v8.3.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinDock.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Install\Infragistics\Infragistics2.Win.UltraWinDock.v8.3.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinStatusBar.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Install\Infragistics\Infragistics2.Win.UltraWinStatusBar.v8.3.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinToolbars.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Install\Infragistics\Infragistics2.Win.UltraWinToolbars.v8.3.dll</HintPath>
-    </Reference>
-    <Reference Include="Infragistics2.Win.v8.3, Version=8.3.20083.1009, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Install\Infragistics\Infragistics2.Win.v8.3.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
@@ -145,46 +145,6 @@
     </Reference>
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
-    </Reference>
-    <Reference Include="Tmactx">
-      <Name>Tmactx</Name>
-      <HintPath>..\Bin\Debug\Tmactx.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmctrls">
-      <Name>Tmctrls</Name>
-      <HintPath>..\Bin\Debug\Tmctrls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmencode">
-      <Name>Tmencode</Name>
-      <HintPath>..\Bin\Debug\Tmencode.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmforms">
-      <Name>Tmforms</Name>
-      <HintPath>..\Bin\Debug\Tmforms.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmoffice">
-      <Name>Tmoffice</Name>
-      <HintPath>..\Bin\Debug\Tmoffice.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmpanes">
-      <Name>Tmpanes</Name>
-      <HintPath>..\Bin\Debug\Tmpanes.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmreports">
-      <Name>Tmreports</Name>
-      <HintPath>..\Bin\Debug\Tmreports.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tmshared">
-      <Name>Tmshared</Name>
-      <HintPath>..\Bin\Debug\Tmshared.dll</HintPath>
-      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -253,22 +213,61 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tmdata\Tmdata.csproj">
-      <Project>{40DE89D7-3875-4C05-9635-784C5079939F}</Project>
-      <Name>Tmdata</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tmactx\Tmactx.csproj">
+      <Project>{974f604c-ec81-4782-8312-8b5880d3eb75}</Project>
+      <Name>Tmactx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmctrls\Tmctrls.csproj">
+      <Project>{2ccb7c80-c5b7-46de-bcda-1cd647c43664}</Project>
+      <Name>Tmctrls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmdata\Tmdata.csproj">
+      <Project>{40de89d7-3875-4c05-9635-784c5079939f}</Project>
+      <Name>Tmdata</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmencode\Tmencode.csproj">
+      <Project>{ddee6e9d-5728-42a4-b78b-9845684e3397}</Project>
+      <Name>Tmencode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmforms\Tmforms.csproj">
+      <Project>{a4ede59d-8491-4914-81e0-e7e1b80bc31a}</Project>
+      <Name>Tmforms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmoffice\Tmoffice.csproj">
+      <Project>{402f89c9-4765-4d77-b0c0-f494af9081f3}</Project>
+      <Name>Tmoffice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmpanes\Tmpanes.csproj">
+      <Project>{c8d60708-17eb-41b4-9df6-973f1ca63f25}</Project>
+      <Name>Tmpanes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmreports\Tmreports.csproj">
+      <Project>{73d7e2c6-2852-473f-a02b-72436055df41}</Project>
+      <Name>Tmreports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tmshared\Tmshared.csproj">
+      <Project>{2d6b0b34-62ec-4d10-adf1-43aed7d7787d}</Project>
+      <Name>Tmshared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>SET BaseName=%25date:~10,4%25%25date:~4,2%25%25date:~7,2%25_%25time:~0,2%25%25time:~3,2%25%25time:~6,2%25.%25time:~9,2%25 
-
-if exist "$(TargetPath).locked" move "$(TargetPath).locked" "$(SolutionDir)\build\trash\%25BaseName%25.locked" 
-
-if exist "$(TargetPath)" move /Y "$(TargetPath)" "$(SolutionDir)\build\trash\%25BaseName%25.exe"</PreBuildEvent>
+    <PreBuildEvent>REM Delete the output file, or if it is locked the move it to trash
+REM Current directory is bin\Release
+if exist "$(TargetPath)" del "$(TargetPath)"
+if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+SET BaseName=%25date:~10,4%25%25date:~4,2%25%25date:~7,2%25_%25time:~0,2%25%25time:~3,2%25%25time:~6,2%25.%25time:~9,2%25
+if exist "$(TargetPath).locked" move "$(TargetPath).locked" "$(SolutionDir)\build\trash\%25BaseName%25.locked"
+if exist "$(TargetPath)" move /Y "$(TargetPath)" "$(SolutionDir)\build\trash\%25BaseName%25.exe"
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\data-files" .
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\PDFManager" .\PDFManager
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\Fti.ini" .
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\TmaxManager.xml" .
+xcopy /d/e/c/i/h/r/k "$(SolutionDir)\SetupExternalFile\tmaxpanes.tpd" .</PreBuildEvent>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>

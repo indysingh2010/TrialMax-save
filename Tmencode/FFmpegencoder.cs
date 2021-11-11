@@ -129,7 +129,7 @@ namespace FTI.Trialmax.Encode
                 bSuccessful = true;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             { }
 
             return bSuccessful;
@@ -322,7 +322,7 @@ namespace FTI.Trialmax.Encode
                 }
                 return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                // MessageBox.Show("Exception in Process " + Environment.NewLine + ex.Message);
                 return;
@@ -414,7 +414,7 @@ namespace FTI.Trialmax.Encode
                             }
                             
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         { }
                     }
                 }
@@ -459,7 +459,7 @@ namespace FTI.Trialmax.Encode
                 m_encodingStatus.Show();
 
             }
-            catch (System.Exception Ex)
+            catch (System.Exception)
             {
                 //m_tmaxEventSource.FireError(this, "CreateStatusForm", m_tmaxErrorBuilder.Message(ERROR_CREATE_STATUS_FORM_EX, strFileSpec), Ex);
                 m_encodingStatus = null;
@@ -653,7 +653,7 @@ namespace FTI.Trialmax.Encode
                     if (System.IO.File.Exists(filename))
                         System.IO.File.Delete(filename);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //System.Windows.Forms.MessageBox.Show(filename + " unable to delete" + Environment.NewLine + ex.Message);
                 }
@@ -680,7 +680,7 @@ namespace FTI.Trialmax.Encode
                 if (System.IO.File.Exists(filename))
                     System.IO.File.Delete(filename);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 
             }            

@@ -1348,7 +1348,7 @@ namespace FTI.Trialmax.Database
 
 
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 AddMessage(ERROR_IMPORT_XML_CASE_CODES_EX, TmaxMessageLevels.FatalError);
             }

@@ -1,0 +1,56 @@
+TRIALMAX-SETUP PROJECT USING NULLSOFT INSTALLER
+===============================================
+
+Install NSIS V3
+Install AccessControl plugin
+  copy w:\Downloads\vol-2021\NULLSOFT-NSIS-AccessControl.zip\Plugins/i386-ansi/AccessControl.dll ->
+  C:\Program Files (x86)\NSIS\Plugins\x86-ansi
+  copy w:\Downloads\vol-2021\NULLSOFT-NSIS-AccessControl.zip\Plugins/i386-unicode/AccessControl.dll ->
+  C:\Program Files (x86)\NSIS\Plugins\x86-unicode
+Install MH NIS EDIT
+Install UAC Plugins
+  copy w:\Downloads\vol-2021\NULLSOFT-PLUGIN-UAC.zip\Plugins/i386-ansi/UAC.dll ->
+  C:\Program Files (x86)\NSIS\Plugins\x86-ansi
+  copy w:\Downloads\vol-2021\NULLSOFT-PLUGIN-UAC.zip\Plugins/i386-unicode/UAC.dll ->
+  C:\Program Files (x86)\NSIS\Plugins\x86-unicode
+
+Run mk.bat to build
+
+
+HOW TO SIGN EXE
+===============
+https://www.thegeekstuff.com/2010/03/microsoft-digital-signatures/
+Also use !finalize command to run an external command to sign the exe
+
+
+
+NOTES:
+Tutorial documentation and resourses and gui editors list
+http://www.fredshack.com/docs/nsis.html
+
+HM NSIS EDIT <==
+http://hmne.sourceforge.net/
+
+
+PAGES:
+Pages statements are used to list and describe the UI dialog pages. 
+E.g 'directory' page to chose installation directory, 
+'components' page to list optional components
+
+SECTIONS:
+Sections are used to group action statements which correspond to each component.
+The name of the sections will appear in in the components page.
+The components page can be used to select or deselect optional components
+Since we have no optional components, we need only one section, the default unnamed section
+
+LEAD TOOLS:
+Dll files must be in c:\Windows\SysWOW64
+If the are in Common directory then register OCX will work, but running TmaxManager.exe fails
+Adding lead-tools directory to path works
+Copying lead-tools to "Common" folder works
+
+
+
+
+
+
