@@ -321,4 +321,70 @@ Update trialmax-setup/dll-files.nsh Infralogistics2 -> Infralogistics2 V8.3 -> v
 git commit -a -m"Infragistics V21.1 port"
 <== DSYNC c:\dev\TrialMax-B02 b:\dev\TrialMax-B02-21-11-11
 
+BUILD 03 STARTED (Register Server)
+================
+* Clean up repository
+After running git rebase on B02 to rename and squash some commits, 
+B01 contains a useless COPY of the orginal commits with the old names
+(squash and fixup means combine commits together)
+Move Ifragistics V21.1 port from B03 to B02 then delete B03
+Merge squashed copy of B01 into main 
+Merge squashed copy of B02 into main
+Created B01
+git checkout main -b B03 (create branch B03 from main)
+
+* Build Update
+Copy files from SetupExternalFile\Common and Install\Lead to Common and register them
+Need this to run tmaxmanger.exe in bin\release directory
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-11-13
+
+* Split TmaxManagerForm.cs file into TmaxManagerForm.Designer.cs
+https://stackoverflow.com/questions/36702760/is-there-a-way-to-generate-a-designer-cs-file-for-legacy-form
+Rename class to TmaxManagerForm from CTmaxManagerForm to match file name
+Rename variables CTmaxManagerForm -> CTmaxManagerForm such as _CTmaxManagerFormxxxx
+
+* Fix Designer crashes when opening TmaxManagerForm.cs
+Add a TmaxManagerForm.Designer.cs file copy from a clean form and edit
+Additional Edits
+1) Designer crashes if m_tmxMovie control is added to form
+this.m_tmxMovie = new FTI.Trialmax.ActiveX.CTmxMovie();
+Work-around: removed references to control on form
+Added the removed code in TmaxManagerForm.cs after call to InitializeComponents()
+According to code comments, this control is used by the database class to extract file information
+during registration process
+2) m_panResults was constructed using a constructor that takes this.m_paneTranscripts as a parameter
+value is used later to preview search results with a right click on the search results
+But this form of constructor causes Designer to discard the line and compilation fails
+Work-around add a no-parameter constructor for use in InitializeComponents during design
+Then call a new method SetTranscriptPan() from TmaxManagerForm.cs after InitializeComponents()
+Updated files: TmaxManagerForm.cs TmaxManagerForm.Designer.cs ResultsPane.cs
+
+Testing preview function by doing a search then right click an item in search results, then click preview
+-- works only sometimes, usually fails and flashes the displays
+-- original binary is the same
+-- works fine when installed from installer on a clean VM
+<== git add . && git commit --amend -m "Designer Fix"
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-11-15-DesignerFix
+
+
+* Fix Error message "Unable to locate the specified pane"
+For Objections, Objection Reports, Script Review panes
+This occurs in the tmaxpanes.tpd file is removed when starting TmaxManager.exe
+Then click on View, Show All
+These three panes are missing the "Key" property
+The property belongs to DockedPane that wraps the control pane
+Select the pane, on the properties window there in an extra button for the properties for DockedPane
+Add the required values
+Temporarily comment out project build evens page line that copies tmaxpanes.tpd" .
+
+* Make default form size a bit bigger, widen left and right areas
+* Shuffle some panes (tabs) to more closely match the production ones in tmaxpanes.tpd
+
+* Uncheck 'Optimize code' under Build tab to make debugging easier
+For TmaxManager project
+Some variable names and code are not visible for debugging
+<== git add . && git commit --amend -m "Designer Fix"
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-11-15-DesignerFix
+
+
 

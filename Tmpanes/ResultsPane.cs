@@ -85,9 +85,20 @@ namespace FTI.Trialmax.Panes
 		private string m_strSaveFileSpec = "_tmax_search_results";
 
 		#endregion Private Members
-		
+
 		#region Public Methods
-		
+
+		/// <summary>A no argument constructor
+		/// Needed for calling from Initialize Components in TmaxManageForm.Designer.cs
+		/// The designer does not like a calling a constructor with a value
+		/// It discards the line
+		/// </summary>
+		public CResultsPane() : this(null) { }
+		public void SetTranscriptPane(CTranscriptPane transPane)
+        {
+			this.transcriptPane = transPane;
+		}
+
 		/// <summary>Constructor</summary>
 		public CResultsPane(CTranscriptPane transPane) : base()
 		{
@@ -983,8 +994,8 @@ namespace FTI.Trialmax.Panes
                     tmaxParameters = new CTmaxParameters();
                     tmaxParameters.Add(TmaxCommandParameters.Viewer, true);
                     FireCommand(TmaxCommands.SetSearchResult, tmaxItem, tmaxParameters);
-                    transcriptPane.PreviewSelectionResultPane();
-                }
+					this.transcriptPane.PreviewSelectionResultPane();
+				}
             }
 
             return true;
