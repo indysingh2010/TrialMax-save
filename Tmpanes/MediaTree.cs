@@ -2152,9 +2152,182 @@ namespace FTI.Trialmax.Panes
 		{
 			get { return m_bShowFiltered; }
 		}
-		
-		#endregion Properties
-		
-	}// public class CMediaTree : FTI.Trialmax.Panes.CTreePane
+
+        #endregion Properties
+
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CMediaTree));
+            ((System.ComponentModel.ISupportInitialize)(this.m_tmaxTreeCtrl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ultraToolbarManager)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // m_tmaxTreeCtrl
+            // 
+            this.m_ultraToolbarManager.SetContextMenuUltra(this.m_tmaxTreeCtrl, "ContextMenu");
+            this.m_tmaxTreeCtrl.Location = new System.Drawing.Point(0, 0);
+            this.m_tmaxTreeCtrl.Size = new System.Drawing.Size(316, 288);
+            // 
+            // m_ultraToolbarManager
+            // 
+            this.m_ultraToolbarManager.MenuSettings.ForceSerialization = true;
+            this.m_ultraToolbarManager.ToolbarSettings.ForceSerialization = true;
+            // 
+            // _CTreePane_Toolbars_Dock_Area_Left
+            // 
+            this._CTreePane_Toolbars_Dock_Area_Left.Location = new System.Drawing.Point(0, 0);
+            this._CTreePane_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 288);
+            // 
+            // _CTreePane_Toolbars_Dock_Area_Right
+            // 
+            this._CTreePane_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(316, 0);
+            this._CTreePane_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 288);
+            // 
+            // m_ctrlMenuImages
+            // 
+            this.m_ctrlMenuImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("m_ctrlMenuImages.ImageStream")));
+            this.m_ctrlMenuImages.Images.SetKeyName(0, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(1, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(2, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(3, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(4, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(5, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(6, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(7, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(8, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(9, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(10, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(11, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(12, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(13, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(14, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(15, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(16, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(17, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(18, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(19, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(20, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(21, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(22, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(23, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(24, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(25, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(26, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(27, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(28, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(29, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(30, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(31, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(32, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(33, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(34, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(35, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(36, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(37, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(38, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(39, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(40, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(41, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(42, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(43, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(44, "open_menu.bmp");
+            this.m_ctrlMenuImages.Images.SetKeyName(45, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(46, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(47, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(48, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(49, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(50, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(51, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(52, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(53, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(54, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(55, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(56, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(57, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(58, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(59, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(60, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(61, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(62, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(63, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(64, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(65, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(66, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(67, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(68, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(69, "");
+            this.m_ctrlMenuImages.Images.SetKeyName(70, "objection_add.bmp");
+            this.m_ctrlMenuImages.Images.SetKeyName(71, "objection_export.bmp");
+            this.m_ctrlMenuImages.Images.SetKeyName(72, "objection_report.bmp");
+            // 
+            // m_ctrlNodeImages
+            // 
+            this.m_ctrlNodeImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("m_ctrlNodeImages.ImageStream")));
+            this.m_ctrlNodeImages.Images.SetKeyName(0, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(1, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(2, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(3, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(4, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(5, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(6, "treatment.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(7, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(8, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(9, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(10, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(11, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(12, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(13, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(14, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(15, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(16, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(17, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(18, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(19, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(20, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(21, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(22, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(23, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(24, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(25, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(26, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(27, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(28, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(29, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(30, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(31, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(32, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(33, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(34, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(35, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(36, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(37, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(38, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(39, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(40, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(41, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(42, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(43, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(44, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(45, "");
+            this.m_ctrlNodeImages.Images.SetKeyName(46, "link_hidden_no_text_tuned.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(47, "link_hidden_no_text_untuned.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(48, "link_hidden_no_video_tuned.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(49, "link_hidden_no_video_untuned.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(50, "link_hidden_blank_tuned.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(51, "link_hidden_blank_untuned.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(52, "link_hidden_tuned.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(53, "link_hidden_untuned.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(54, "treatment_vertical.bmp");
+            this.m_ctrlNodeImages.Images.SetKeyName(55, "treatment_horizontal.bmp");
+            // 
+            // CMediaTree
+            // 
+            this.Name = "CMediaTree";
+            ((System.ComponentModel.ISupportInitialize)(this.m_tmaxTreeCtrl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ultraToolbarManager)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+    }// public class CMediaTree : FTI.Trialmax.Panes.CTreePane
 
 }// namespace FTI.Trialmax.Panes

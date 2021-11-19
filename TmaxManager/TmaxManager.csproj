@@ -169,6 +169,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="MINIMALForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,24 +269,25 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>REM Delete the output file, or if it is locked the move it to trash
+    <PreBuildEvent>REM Delete the output file, or if it is locked the move it to build\trash folder
 REM Current directory is bin\Release
 if exist "$(TargetPath)" del "$(TargetPath)"
 if exist "$(TargetPath).locked" del "$(TargetPath).locked"
 SET BaseName=%25date:~10,4%25%25date:~4,2%25%25date:~7,2%25_%25time:~0,2%25%25time:~3,2%25%25time:~6,2%25.%25time:~9,2%25
 if exist "$(TargetPath).locked" move "$(TargetPath).locked" "$(SolutionDir)\build\trash\%25BaseName%25.locked"
 if exist "$(TargetPath)" move /Y "$(TargetPath)" "$(SolutionDir)\build\trash\%25BaseName%25.exe"
-xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\data-files" .
-xcopy /d/e/c/i/h/r/k "$(SolutionDir)\PDFManager" .\PDFManager
-xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\Fti.ini" .
-xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\TmaxManager.xml" .
-rem xcopy /d/e/c/i/h/r/k "$(SolutionDir)\SetupExternalFile\tmaxpanes.tpd" .
-xcopy /d/e/c/i/h/r/k "$(SolutionDir)\SetupExternalFile\Common" Common
-xcopy /d/e/c/i/h/r/k "$(SolutionDir)\Install\Lead" Common
+</PreBuildEvent>
+    <PostBuildEvent>echo Running post build commands
+xcopy /d/e/c/i/h/r/k/f "$(SolutionDir)\Install\data-files" . |c:\Windows\System32\find /v "File(s) copied"
+xcopy /d/e/c/i/h/r/k/f "$(SolutionDir)\PDFManager" .\PDFManager |c:\Windows\System32\find /v "File(s) copied"
+xcopy /d/e/c/i/h/r/k/f "$(SolutionDir)\Install\Fti.ini" . |c:\Windows\System32\find /v "File(s) copied"
+xcopy /d/e/c/i/h/r/k/f "$(SolutionDir)\Install\TmaxManager.xml" . |c:\Windows\System32\find /v "File(s) copied"
+xcopy /d/e/c/i/h/r/k/f "$(SolutionDir)\SetupExternalFile\Common" Common |c:\Windows\System32\find /v "File(s) copied"
+xcopy /d/e/c/i/h/r/k/f "$(SolutionDir)\Install\Lead" Common |c:\Windows\System32\find /v "File(s) copied"
+rem xcopy /d/e/c/i/h/r/k/f "$(SolutionDir)\SetupExternalFile\tmaxpanes.tpd" .
+
 echo Registering Common\*.ocx
 for %25%25f in (Common\*.ocx) do regsvr32.exe /s %25%25f
-</PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

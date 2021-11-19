@@ -48,6 +48,7 @@ namespace FTI.Shared.Trialmax
 		Objections,
 		ObjectionProperties,
 		ScriptReview,
+		RegistrationServer,
 		MaxPanes,
 	};
 		

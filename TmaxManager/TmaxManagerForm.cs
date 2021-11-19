@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Reflection;
+using System.Collections.Generic;
+using System.Linq;
 
 using Infragistics.Win;
 using Infragistics.Win.UltraWinDock;
@@ -341,11 +343,6 @@ namespace FTI.Trialmax.TmaxManager
         /// <summary>Infragistics dock area component to manage top</summary>
         private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _TmaxManagerForm_Toolbars_Dock_Area_Top;
 
-        void m_paneViewer_OnRequestPresentation(object sender, EventArgs e)
-        {
-            OnAppOpenPresentation();
-        }
-
         /// <summary>Infragistics dock area component to manage bottom</summary>
         private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _TmaxManagerForm_Toolbars_Dock_Area_Bottom;
 
@@ -356,76 +353,31 @@ namespace FTI.Trialmax.TmaxManager
         private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _TmaxManagerForm_Toolbars_Dock_Area_Right;
         private FTI.Trialmax.Panes.CFilteredTree m_paneFiltered;
         private System.Windows.Forms.Panel m_ctrlMainFillPanel;
-        private System.Windows.Forms.Panel m_ctrlFillPanel;
         private AxTM_PRINT6Lib.AxTMPrint6 m_tmxPrint;
         private FTI.Trialmax.ActiveX.CTmxShare m_ctrlPresentation;
         private AxTM_GRAB6Lib.AxTMGrab6 m_ctrlScreenCapture;
         private CObjectionsPane m_paneObjections;
         private CScriptReviewPane m_paneScriptReview;
         private CObjectionPropertiesPane m_paneObjectionProperties;
+        private bool SHOW_REG_SERVER = false;
 
         #endregion Infragistics Docking Internals
 
-        #region Public Methods
-
-        /// <summary>The main entry point for the application</summary>
-        [STAThread]
-        static void Main(string[] args)
+        void m_paneViewer_OnRequestPresentation(object sender, EventArgs e)
         {
-            FTI.Trialmax.Forms.CFSplashScreen splashScreen = null;
+            OnAppOpenPresentation();
+        }
 
-            try
-            {
-                //	Check to see if there's already an active instance
-                if (CTmaxInstanceManager.GetPrevInstance(TmaxApplications.TmaxManager) == true)
-                {
-                    //	Activate the previous instance
-                    CTmaxInstanceManager.ActivatePrevInstance(args, TmaxApplications.TmaxManager);
-                }
-                else
-                {
-                    splashScreen = new CFSplashScreen();
-                    splashScreen.Start();
-                    splashScreen.SetMessage("Starting TmaxManager");
-
-
-                    try
-                    {
-                        Application.Run(new TmaxManagerForm(args, splashScreen));
-                    }
-                    catch (System.ObjectDisposedException)
-                    {
-                    }
-                }
-
-            }
-            catch (System.DllNotFoundException e)
-            {
-                MessageBox.Show(e.Message, "Dll Not Found Exception");
-            }
-            catch (System.IO.FileNotFoundException e)
-            {
-                if ((e.FileName != null) && (e.FileName.Length > 0))
-                    MessageBox.Show(e.Message + ": " + e.FileName, "File Not Found Exception");
-                else
-                    MessageBox.Show(e.ToString(), "File Not Found Exception");
-            }
-            catch (System.Exception e)
-            {
-                MessageBox.Show(e.ToString(), "System Exception");
-            }
-            finally
-            {
-                if (splashScreen != null)
-                    splashScreen.Stop();
-            }
-
-
-        }// static void Main() 
+        #region Public Methods
 
         /// <summary>Constructor</summary>
         public TmaxManagerForm(string[] args, FTI.Trialmax.Forms.CFSplashScreen splashScreen)
         {
+            if (args.Any("/showregserver".Contains)) { SHOW_REG_SERVER = true; }
+            var lst = new List<string>(args);
+            lst.Remove("/showregserver");
+            args = lst.ToArray();
+
             //	Start the splash screen thread
             m_ctrlSplashScreen = splashScreen;
             if (m_ctrlSplashScreen != null)
@@ -1201,7 +1153,6 @@ namespace FTI.Trialmax.TmaxManager
                 case TmaxAppPanes.ScriptReview: return "Script Review";
                 default: return eTmaxPane.ToString();
             }
-
         }// private string GetUltraTitleText(TmaxAppPanes eTmaxPane)
 
         /// <summary>This method will retrieve the application pane identifier associated with the specified command</summary>
@@ -1412,21 +1363,43 @@ namespace FTI.Trialmax.TmaxManager
             tmaxDatabase.WMEncoder = m_mediaEncoder;
             tmaxDatabase.PaneId = (int)(TmaxAppPanes.MaxPanes);
             m_tmaxProductManager.TmaxManagerVersion = this.ProductVersion;
-
         }// private void InitializeDatabase(CTmaxCaseDatabase tmaxDatabase)
 
         /// <summary>This function is called to initialize the screen layout</summary>
         private void InitializeLayout()
         {
             string strFilename;
-
             try
             {
                 //	Initialize the filler group
-                m_ctrlFillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+                // removed this redundant sub-panel
+                // ISFIX m_ctrlFillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
                 //m_ctrlGroupPane.Add(GetUltraPaneKey(TmaxAppPanes.Results), "Results", m_paneResults);
 
-                //	First attempt to load the information from the layout file
+                // All panes are visible initally
+                // hide the ones we don't need
+                SetUltraPaneVisible(TmaxAppPanes.Errors, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.Diagnostics, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.Properties, false, false);
+
+                SetUltraPaneVisible(TmaxAppPanes.Tuner, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.Help, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.Versions, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.Codes, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.Results, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.Objections, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.ObjectionProperties, false, false);
+                SetUltraPaneVisible(TmaxAppPanes.ScriptReview, false, false);
+                if (!SHOW_REG_SERVER)
+                {
+                    SetUltraPaneVisible(TmaxAppPanes.RegistrationServer, false, false);
+                }
+
+                SetUltraPaneVisible(TmaxAppPanes.Viewer, true, false);  // bring to front
+                SetUltraPaneVisible(TmaxAppPanes.Media, true, true);  // bring to front and active
+                // Leaving these visible:  Binders, Media, FilteredTree  | Viewer, Scripts, Transcripts, Source
+
+                //	First attempt to load the information from the last layout file
                 strFilename = m_tmaxAppOptions.LastLayout;
                 if (strFilename.Length > 0)
                 {
@@ -1436,7 +1409,7 @@ namespace FTI.Trialmax.TmaxManager
                         strFilename = "";
                     }
                 }
-                //	Do we need to try the default?
+                //	If no last layout then try default layout file
                 if (strFilename.Length == 0)
                 {
                     strFilename = m_strAppFolder + DEFAULT_LAYOUT_FILENAME;
@@ -1449,7 +1422,6 @@ namespace FTI.Trialmax.TmaxManager
                         return;
                     }
                 }
-
             }
             catch (System.Exception Ex)
             {
@@ -1473,13 +1445,11 @@ namespace FTI.Trialmax.TmaxManager
                 {
                     m_tmaxEventSource.FireDiagnostic(this, "InitializeScreenCapture", m_tmaxErrorBuilder.Message(ERROR_INITIALIZE_SCREEN_CAPTURE_FAIL));
                 }
-
             }
             catch (System.Exception Ex)
             {
                 m_tmaxEventSource.FireError(this, "InitializeScreenCapture", m_tmaxErrorBuilder.Message(ERROR_INITIALIZE_SCREEN_CAPTURE_EX), Ex);
             }
-
         }// private void InitializeScreenCapture()
 
         /// <summary>This function is called to initialize the application's initialization and event log files</summary>
@@ -1519,7 +1489,6 @@ namespace FTI.Trialmax.TmaxManager
             m_xmlDiagnostics.Root = "Diagnostics";
             m_xmlDiagnostics.Comments.Add("TrialMax " + ver.Version + " Diagnostics Log");
             m_xmlDiagnostics.EventSource.ErrorEvent += new FTI.Shared.Trialmax.ErrorEventHandler(this.OnError);
-
         }// InitializeFilenames()
 
         /// <summary>This method is called to initialize the collection of media types</summary>
@@ -5138,8 +5107,12 @@ namespace FTI.Trialmax.TmaxManager
                 SetUltraPaneVisible(TmaxAppPanes.ObjectionProperties, true, false);
                 SetUltraPaneVisible(TmaxAppPanes.ScriptReview, true, false);
 
-                SetPaneStates();
+                if (SHOW_REG_SERVER)
+                {
+                    SetUltraPaneVisible(TmaxAppPanes.RegistrationServer, true, false);
+                }
 
+                SetPaneStates();
             }
             catch
             {

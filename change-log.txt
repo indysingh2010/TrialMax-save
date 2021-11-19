@@ -386,5 +386,26 @@ Some variable names and code are not visible for debugging
 <== git add . && git commit --amend -m "Designer Fix"
 <== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-11-15-DesignerFix
 
+* Add Tmpanes\RegistrationPane.cs
+* Move Main to Program.cs
+* removed m_ctrlFillPanel from the mainfill panel above it - seems to be not needed
+
+* Added drag event handlers in RegistrationPane.cs and set AllowDrop=True property
+Example: https://www.youtube.com/watch?v=FzN8gf3jSLA&t=319s
+In TmaxManager\TmaxManagerForm.cs [Design] add AllowDrop property to Regserver pane - REMOVED NOT NEEDED
+In TmaxManager\TmaxManagerForm.cs add event handlers for - REMOVED
+DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-11-17-RegPaneAdded-backup4
+
+* Added listbox to registration pane to function as inbox
+* Added /nomax option for debugging
+DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-11-18-RegPaneAdded-backup5
+* Added /showregserver option for debugging
+Note: registration sever pane is just a non-functional work-in-progress
+<== git add . && git commit -m "Registration Server Pane Added"
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-11-19-RegistrationServerPaneAdded
+
+
+
+
 
 
