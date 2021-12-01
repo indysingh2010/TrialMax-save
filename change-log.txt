@@ -405,7 +405,39 @@ Note: registration sever pane is just a non-functional work-in-progress
 <== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-11-19-RegistrationServerPaneAdded
 
 
+* Add *.exe.config to trialmax-setup project 			<====
+otherwise fails with error message about crdb_adopluss.dll failed to load
+on Script, Report,Script, Ok
+Don't copy out-of-date tmaxpanes.tpd files
+* Disable optimization in Tmdata
+* Changed new options to /max and /noshowreg
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-save7
 
+* In TmaxCaseDatabase.cs rename 2nd AddSource to AddSource_2
+* Add RegistrationComplete event in TmaxCaseDatabase.cs, in TmaxManagerForm.cs handle the event (does nothing)
+* In TmaxCaseDatabase.cs show progress form modeless and return immidiately (commented out)
+* Set the 'Start In' directory correctly in the shortcut, otherwise complains about missing gsdll32.dll
+  Click Scripts, right click on a script, Reports, Scripts, OK
+  <====
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-save8
 
+* Error when registering a PDF file 2nd or more times.
+  Media folder and file for first registration is deleted but the corresponding media record is left.
+  The new file is not registered.
+  The Registration Progress Dialog shows 100% but is not activated any be hidden behind other windows on the screen.
+  In TmaxCaseDatabase.cs calling m_cfRegisterProgress.Activate() :10738 casues an exception
+  Background thread cannot call this method on a UI control.
+  Exception passes to parent which mishandles it.
+  This only happens when running the code under the debugger.
+  Fixed by wrapping call with BeginInvoke()
+* Add option /showreg  - not currently used
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-save9
 
-
+* Fix error message Can't load leadtools when Tmaxpresentation.exe is started
+   Test with Tmaxpresentation.exe -Q -C:w:\fti\db -B:TRIALMAX.2   
+   Copy lead-files (dll files) to TrialMax directory instead of common
+   Copy ocx files  to TrialMax directory instead of common
+   Moved Ltocxu.ocx from lead-tools.nsh -> ocx-files.nsh
+* Add option /multi (multiple istance)
+<== git add . && git commit -m "Installer fixes"
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-01-InstallerFixes-TESTED

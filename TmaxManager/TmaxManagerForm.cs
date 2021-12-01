@@ -359,7 +359,7 @@ namespace FTI.Trialmax.TmaxManager
         private CObjectionsPane m_paneObjections;
         private CScriptReviewPane m_paneScriptReview;
         private CObjectionPropertiesPane m_paneObjectionProperties;
-        private bool SHOW_REG_SERVER = false;
+        private bool m_showRegServer = false;
 
         #endregion Infragistics Docking Internals
 
@@ -373,9 +373,11 @@ namespace FTI.Trialmax.TmaxManager
         /// <summary>Constructor</summary>
         public TmaxManagerForm(string[] args, FTI.Trialmax.Forms.CFSplashScreen splashScreen)
         {
-            if (args.Any("/showregserver".Contains)) { SHOW_REG_SERVER = true; }
+            if (args.Any("/noshowreg".Contains)) { m_showRegServer = false; }
+            if (args.Any("/showreg".Contains)) { m_showRegServer = true; }
             var lst = new List<string>(args);
-            lst.Remove("/showregserver");
+            lst.Remove("/noshowreg");
+            lst.Remove("/showreg");
             args = lst.ToArray();
 
             //	Start the splash screen thread
@@ -1352,6 +1354,8 @@ namespace FTI.Trialmax.TmaxManager
             tmaxDatabase.EventSource.DiagnosticEvent += new FTI.Shared.Trialmax.DiagnosticEventHandler(this.OnDiagnostic);
             tmaxDatabase.InternalUpdateEvent += new CTmaxCaseDatabase.DatabaseEventHandler(this.OnDbInternalUpdate);
             tmaxDatabase.TmaxCommandEvent += new FTI.Shared.Trialmax.TmaxCommandHandler(this.OnTmaxCommand);
+            tmaxDatabase.RegistrationComplete += this.OnRegistrationComplete;
+
             tmaxDatabase.MediaTypes = m_tmaxMediaTypes;
             tmaxDatabase.SourceTypes = m_tmaxSourceTypes;
             tmaxDatabase.RegistrationOptions = m_tmaxRegOptions;
@@ -1390,7 +1394,7 @@ namespace FTI.Trialmax.TmaxManager
                 SetUltraPaneVisible(TmaxAppPanes.Objections, false, false);
                 SetUltraPaneVisible(TmaxAppPanes.ObjectionProperties, false, false);
                 SetUltraPaneVisible(TmaxAppPanes.ScriptReview, false, false);
-                if (!SHOW_REG_SERVER)
+                if (!m_showRegServer)
                 {
                     SetUltraPaneVisible(TmaxAppPanes.RegistrationServer, false, false);
                 }
@@ -3321,6 +3325,8 @@ namespace FTI.Trialmax.TmaxManager
             //	Register the top-level (parent) item
             if (m_tmaxDatabase.Register(Args.Items[0].SourceFolder, Args.Parameters) == true)
             {
+                // TODO: THIS IS REDUNDANT REMOVE LATER <===
+                //	Notify each pane
                 //	Notify each pane
                 for (int i = 0; i < (int)TmaxAppPanes.MaxPanes; i++)
                 {
@@ -3337,6 +3343,29 @@ namespace FTI.Trialmax.TmaxManager
             m_eDropPane = TmaxAppPanes.Media;
 
         }// OnCmdRegisterSource(CPaneEventArgs Args)
+
+
+        private void OnRegistrationComplete(object sender, CTmaxSourceFolder tmaxSourceFolder)
+        {
+            //TODO: Handle RegistrationComplete EVENT <==
+            return;
+            // THIS EVENT ARRIVES FROM BACKGROUND THREAD
+            // Switch to UI thread
+            if (this.InvokeRequired)
+            {
+                //MethodInvoker m = delegate { OnPdfDecoderStatusUpdate_CALLBACK(sender, e); };
+                MethodInvoker m = delegate { OnRegistrationComplete(sender, tmaxSourceFolder); };
+                this.BeginInvoke(m);
+                return;
+            }
+            foreach (var pane in m_aPanes)
+            {
+                //	Notify each pane
+                if (pane == null) continue;
+                pane.OnRegistered(tmaxSourceFolder, m_eDropPane);
+            }
+        }
+
 
         /// <summary>This method is called to handle pane events where CommandId == Reorder</summary>
         /// <param name="objSender">The object firing the event</param>
@@ -5107,7 +5136,7 @@ namespace FTI.Trialmax.TmaxManager
                 SetUltraPaneVisible(TmaxAppPanes.ObjectionProperties, true, false);
                 SetUltraPaneVisible(TmaxAppPanes.ScriptReview, true, false);
 
-                if (SHOW_REG_SERVER)
+                if (m_showRegServer)
                 {
                     SetUltraPaneVisible(TmaxAppPanes.RegistrationServer, true, false);
                 }

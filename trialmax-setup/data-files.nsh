@@ -50,7 +50,7 @@ File "..\SetupExternalFile\_tmax_importwiz_trialdirector.cfg"
 File "..\SetupExternalFile\_tmax_importwiz_opticon.cfg"
 File "..\SetupExternalFile\_tmax_importwiz_concordance.cfg"
 File "..\SetupExternalFile\_tmax_importwiz_visionary.cfg"
-File "..\SetupExternalFile\tmaxpanes.tpd"
+#File "..\SetupExternalFile\tmaxpanes.tpd"
 File "..\SetupExternalFile\_tmax_importwiz_ringtail.cfg"
 File "..\SetupExternalFile\TM5.5_Emulation.tpl"
 File "..\SetupExternalFile\MSO9.DLL"
@@ -64,4 +64,3 @@ File "..\SetupExternalFile\_tmax_importwiz_summation_dat.cfg"
 
 File "..\Install\WMEncoder\Uninstall_elecard.bat"
 File "..\Install\WMEncoder\Install_elecard.bat"
-

@@ -2121,8 +2121,8 @@ namespace FTI.Trialmax.TmaxManager
             this.Controls.Add(this._TmaxManagerForm_Toolbars_Dock_Area_Top);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TmaxManagerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FTI Consulting - TrialMax Manager";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.m_ctrlUltraDockManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_ctrlUltraToolbarManager)).EndInit();
             this.m_ctrlMainFillPanel.ResumeLayout(false);

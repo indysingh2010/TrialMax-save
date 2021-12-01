@@ -16,15 +16,20 @@ namespace FTI.Trialmax.TmaxManager
         {
             FTI.Trialmax.Forms.CFSplashScreen splashScreen = null;
             var lst = new List<string>(args);
-            lst.Remove("/nomax");
+            lst.Remove("/max");
+            lst.Remove("/multi");
             string[] newArgs = lst.ToArray();
 
-            try
-            {
-                //	Activate previous instance if there is one
-                if (CTmaxInstanceManager.GetPrevInstance(TmaxApplications.TmaxManager) == true)
+            bool multiInstance = args.Any("/multi".Contains);
+
+                try
                 {
-                    CTmaxInstanceManager.ActivatePrevInstance(args, TmaxApplications.TmaxManager);
+                //	Activate previous instance if there is one
+                if (!multiInstance && CTmaxInstanceManager.GetPrevInstance(TmaxApplications.TmaxManager) == true)
+                {
+                    lst.Remove("/showreg");
+                    newArgs = lst.ToArray();
+                    CTmaxInstanceManager.ActivatePrevInstance(newArgs, TmaxApplications.TmaxManager);
                 }
                 else
                 {
@@ -32,16 +37,11 @@ namespace FTI.Trialmax.TmaxManager
                     splashScreen.Start();
                     splashScreen.SetMessage("Starting TmaxManager");
                     var f = new TmaxManagerForm(newArgs, splashScreen);
-                    if (args.Any("/nomax".Contains))
+                    // Screen 0 = middle, 1 = left, 2 = right
+                    if (args.Any("/max".Contains))
                     {
-                        f.WindowState = FormWindowState.Normal;
-
-                        //f.StartPosition = FormStartPosition.CenterScreen;
-                        //Screen 1 = left, 0 = middle, 2 = right
-                        f.StartPosition = FormStartPosition.Manual;   // need this for location to work
-                        f.Location = Screen.AllScreens[2].WorkingArea.Location;
-                        f.Top += 80;
-                        f.Left += 110;
+                        f.WindowState = FormWindowState.Maximized;
+                        // NOTE default property of CenterScreen will center to display where mouse is !!
                     }
                     try
                     {

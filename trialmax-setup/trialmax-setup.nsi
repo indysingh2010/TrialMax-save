@@ -211,19 +211,21 @@ Section "TrialMax" tmax_section_id
   !include "exe-files.nsh"
   !include "dll-files.nsh"
   !include "data-files.nsh"
+  #SetOutPath "$SYSDIR"
+  !include "lead-files.nsh"
+  #SetOutPath "$INSTDIR\Common"
+  !include "ocx-files.nsh"
   SetOutPath "$INSTDIR\PDFManager"
   !include "pdfmanager-files.nsh"
-  SetOutPath "$INSTDIR\Common"
-  !include "ocx-files.nsh"
-  !include "lead-files.nsh"
 
+  SetOutPath "$INSTDIR"		# this has no effect for RegDLL function
   # REGISTER DLLS
+  DetailPrint "REGISTERING *.ocx"
   ${if} $is_admin == 1
-    FindFirst $0 $1 "$INSTDIR\Common\*.ocx"
+    FindFirst $0 $1 "$INSTDIR\*.ocx"
     loop:
       StrCmp $1 "" done
-      #DetailPrint "REG DLL $1"
-      RegDLL "$INSTDIR\Common\$1"
+      RegDLL "$INSTDIR\$1"
       FindNext $0 $1
       Goto loop
     done:
@@ -235,6 +237,7 @@ Section "TrialMax" tmax_section_id
   AccessControl::GrantOnFile  "$INSTDIR\..\FTIORE" "(S-1-5-32-545)" "FullAccess"
   AccessControl::GrantOnFile  "$INSTDIR\..\Common" "(S-1-5-32-545)" "FullAccess"
   
+  SetOutPath "$INSTDIR"			# This sets the 'Start In' directory in the shortcut
   CreateDirectory "$SMPROGRAMS\${PRODUCT_NAME}"
   CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\TrialMax.lnk" "$INSTDIR\TmaxManager.exe"
   CreateShortCut "$DESKTOP\TrialMax.lnk" "$INSTDIR\TmaxManager.exe"
@@ -399,4 +402,13 @@ SectionEnd
   #MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) was successfully removed from your computer."
 #FunctionEnd
 
+# NOTES:
+# We get error message that Lead tools cannot be loaded when tmaxpresentation.exe is run
+# if the Lead tools cannot cannot be found in the PATH in the current (TrialMax) directory
+# Path includes system directory $SYSDIR (C:\Windows\SYSWOW64 on 64 bit systems)
+# At install time the current directory is not TrialMax, it is the directory where the OCX files are
+# The ony directory that works for both install time and run-time is $sysdir
+# Solution is to put the lead tools dlls in the $sysdir or 
+# put the ocx files in the TrialMax directory
+#
 

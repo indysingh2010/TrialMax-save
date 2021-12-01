@@ -28,8 +28,11 @@ File "..\Bin\Release\Tm_grab6.ocx"
 File "..\Bin\Release\Tm_share6.ocx"
 File "..\Bin\Release\Tm_movie6.ocx"
 
+File "..\Install\Lead\Ltocxu.ocx"
+
 File "..\SetupExternalFile\Common\fti_ado.dll"
 File "..\SetupExternalFile\Common\fti_gen.dll"
+
 File "..\Install\License.rtf"
 File "..\Common\Resources\TMsplash_Large.bmp"
 File "..\Common\Resources\TM7splash_.bmp"

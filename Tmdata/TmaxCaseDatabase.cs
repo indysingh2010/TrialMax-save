@@ -457,7 +457,11 @@ namespace FTI.Trialmax.Database
 		
 		/// <summary>This event is fired to propagate command events back to the application</summary>
 		public event FTI.Shared.Trialmax.TmaxCommandHandler TmaxCommandEvent;
-		
+
+		/// <summary>This event is fired when registration is complete</summary>
+		public delegate void RegistrationCompleteEvenHandler(object source, CTmaxSourceFolder sourceFolder);
+		public event RegistrationCompleteEvenHandler RegistrationComplete;
+
 		/// <summary>Constructor</summary>
 		public CTmaxCaseDatabase()
 		{
@@ -1321,9 +1325,10 @@ namespace FTI.Trialmax.Database
 					else
 					{
 						//	Add each of the secondary records
-						AddSource(tmaxSource, dxPrimary, 1);
+						AddSource_2(tmaxSource, dxPrimary, 1);
+						//RegistrationComplete?.Invoke(this, tmaxSource);      // <== THIS 2
 					}
-					
+
 				}// if((dxPrimary = CreatePrimary(tmaxSource)) != null)
 				
 			}// if(tmaxSource.Files.Count > 0)
@@ -5063,7 +5068,7 @@ namespace FTI.Trialmax.Database
 			lBarcodeId = dxPrimary.Secondaries.GetNextBarcodeId();
 			
 			//	Start by adding the new source
-			if(AddSource(tmaxSource, dxPrimary, lBarcodeId) == false)
+			if(AddSource_2(tmaxSource, dxPrimary, lBarcodeId) == false)
 				return false;
 				
 			//	How many children were actually added to the collection
@@ -5689,8 +5694,11 @@ namespace FTI.Trialmax.Database
 			//	Open the progress form
 			if(m_cfRegisterProgress != null)
 			{
+				// TODO: WIP SHOW DIALOG AND RETURN IMMEDIATELY <==
+				// m_cfRegisterProgress.Show(); return true;
+
 				//	Show modal to prevent returning until finished or canceled
-                if (m_cfRegisterProgress.ShowDialog() == DialogResult.Cancel)
+				if (m_cfRegisterProgress.ShowDialog() == DialogResult.Cancel)
                 {
                     m_bRegisterCancelled = true;
                     Cursor.Current = Cursors.WaitCursor;
@@ -9891,7 +9899,7 @@ namespace FTI.Trialmax.Database
 		/// <param name="dxPrimary">The primary record's data exchange object</param>
 		/// <param name="lBarcodeId">The starting barcode identifier for new secondaries added to the database</param>
 		/// <returns>true if successful</returns>
-		private bool AddSource(CTmaxSourceFolder tmaxSource, CDxPrimary dxPrimary, long lBarcodeId)
+		private bool AddSource_2(CTmaxSourceFolder tmaxSource, CDxPrimary dxPrimary, long lBarcodeId)
 		{
 			CDxSecondary	dxSecondary;
 			string			strForeignBarcode = "";
@@ -10622,6 +10630,14 @@ namespace FTI.Trialmax.Database
 
 		}// private bool ExportAdobe(string strAdobeFileSpec, CTmaxSourceFolder tmaxTarget)
 
+
+		private void __InvokeUI(Action a)
+		{
+			m_cfRegisterProgress.BeginInvoke(new MethodInvoker(a));
+		}
+
+
+
 		/// <summary>This method will get the source files for the specified Adobe PDF document</summary>
 		/// <param name="dxPrimary">The primary media object associated with the Adobe PDF</param>
 		/// <param name="tmaxSource">The source folder associated with the Adobe PDF</param>
@@ -10725,8 +10741,15 @@ namespace FTI.Trialmax.Database
                             return bSuccessful;
                         }
                         m_cfRegisterProgress.EnableForm(); // Enable the Progress Form when autoresolve screen is closed
-                        m_cfRegisterProgress.Activate();
-                        if (wndResolve.AutoResolveAll == true)
+
+						// SYSTEM EXCEPTION IF WE CALL ACTIVATE FROM BACKGROUND THREAD
+						//m_cfRegisterProgress.Activate();
+						__InvokeUI(() =>
+						{
+							m_cfRegisterProgress.Activate();
+						});
+
+						if (wndResolve.AutoResolveAll == true)
                             m_bAutoResolve = true;
                         path += @wndResolve.Resolution.Trim();
                         strNewName = wndResolve.Resolution.Trim();
