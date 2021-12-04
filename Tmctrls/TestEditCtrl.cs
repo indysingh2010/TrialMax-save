@@ -36,9 +36,6 @@ namespace FTI.Trialmax.Controls
 			//
 			InitializeComponent();
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
 			CreateMultiLevel();
 			m_ctrlTmaxEdit.MultiLevel = m_tmaxMultiLevel;
 		}

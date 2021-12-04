@@ -294,7 +294,7 @@ typedef struct tag_ObjectDesc {
     #define REMIND(str) __FILE__ "(" QQUOTE(__LINE__) ") :  " str
 #endif
 
-//  Hack to display objects in a useful format
+//  Hackx to display objects in a useful format
 //
 //  eg If you want to display a LONGLONG ll in a debug string do (eg)
 //

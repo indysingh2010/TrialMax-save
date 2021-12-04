@@ -397,9 +397,9 @@ void CBinderList::CleanButtons()
 HBRUSH CBinderList::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = m_brush;//CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	// TODO:  Change any attributes of the DC here
+	// TODOX:  Change any attributes of the DC here
 
-	// TODO:  Return a different brush if the default is not desired
+	// TODOX:  Return a different brush if the default is not desired
 	return hbr;
 }
 
@@ -514,7 +514,7 @@ void CBinderList::OnSize(UINT nType, int cx, int cy)
 	if(m_nListHeight < screenHeight)
 	return;
 
-	// TODO: Add your message handler code here.
+	// TODOX: Add your message handler code here.
 	m_nCurHeight = screenHeight - (BUTTON_HEIGHT * 2);
 	int nScrollMax;
 	if (m_nCurHeight < m_nListHeight)
@@ -548,7 +548,7 @@ void CBinderList::OnSize(UINT nType, int cx, int cy)
 //==============================================================================
 void CBinderList::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {	 
-	// TODO: Add your message handler code here and/or call default.
+	// TODOX: Add your message handler code here and/or call default.
 	int nDelta;
 	int nMaxPos = m_nListHeight - m_nCurHeight;
 
@@ -640,7 +640,7 @@ void CBinderList::HandleMouseClick()
 //==============================================================================
 BOOL CBinderList::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 {
-	// TODO: Add your message handler code here and/or call default
+	// TODOX: Add your message handler code here and/or call default
 	int screenHeight;
 	if (m_parentWindow->GetUseSecondaryMonitor())
 	{

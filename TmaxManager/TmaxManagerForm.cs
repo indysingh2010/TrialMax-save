@@ -1937,7 +1937,7 @@ namespace FTI.Trialmax.TmaxManager
                     if ((tmaxSource = wizard.RegisterSource) != null)
                     {
                         //	Register the top-level (parent) item
-                        if (m_tmaxDatabase.Register(tmaxSource, null) == true)
+                        if (m_tmaxDatabase.Register(tmaxSource, null, m_paneRegistration.RegForm) == true)
                         {
                             //	Notify each pane
                             for (int i = 0; i < (int)TmaxAppPanes.MaxPanes; i++)
@@ -3323,7 +3323,7 @@ namespace FTI.Trialmax.TmaxManager
             if ((Args.Items == null) || (Args.Items.Count == 0)) return;
 
             //	Register the top-level (parent) item
-            if (m_tmaxDatabase.Register(Args.Items[0].SourceFolder, Args.Parameters) == true)
+            if (m_tmaxDatabase.Register(Args.Items[0].SourceFolder, Args.Parameters, m_paneRegistration.RegForm) == true)
             {
                 // TODO: THIS IS REDUNDANT REMOVE LATER <===
                 //	Notify each pane

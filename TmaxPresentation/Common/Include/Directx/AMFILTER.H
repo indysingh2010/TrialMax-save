@@ -1087,7 +1087,7 @@ class AM_NOVTABLE CBaseAllocator : public CUnknown,         // A non delegating 
     class CSampleList;
     friend class CSampleList;
 
-    /*  Hack to get at protected member in CMediaSample */
+    /*  Hackx to get at protected member in CMediaSample */
     static CMediaSample * &NextSample(CMediaSample *pSample)
     {
         return pSample->m_pNext;

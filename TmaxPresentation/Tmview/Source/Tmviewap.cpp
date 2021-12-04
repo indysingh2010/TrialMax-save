@@ -81,7 +81,7 @@ const WORD	_wVerMinor = 4;
 //==============================================================================
 int CTMViewApp::ExitInstance()
 {
-	// TODO: Add your own module termination code here.
+	// TODOX: Add your own module termination code here.
 
 	return COleControlModule::ExitInstance();
 }

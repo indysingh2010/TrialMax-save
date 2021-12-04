@@ -5618,7 +5618,7 @@ namespace FTI.Trialmax.Database
 		/// <param name="tmaxParameters">The parameters passed with the event that triggered the registration</param>
 		/// <returns>true if successful</returns>
 		/// <remarks>This methods executes a thread to run the registration</remarks>
-		public bool Register(CTmaxSourceFolder tmaxSourceFolder, CTmaxParameters tmaxParameters)
+		public bool Register(CTmaxSourceFolder tmaxSourceFolder, CTmaxParameters tmaxParameters, CFRegProgress regForm)
 		{
 			long			lFiles;
 			CTmaxParameter	paramSourceType = null;

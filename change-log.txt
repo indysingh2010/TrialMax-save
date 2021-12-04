@@ -441,3 +441,23 @@ Don't copy out-of-date tmaxpanes.tpd files
 * Add option /multi (multiple istance)
 <== git add . && git commit -m "Installer fixes"
 <== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-01-InstallerFixes-TESTED
+
+* Add Reg form inside reg Pane (RegistrationPane.*.cs)
+  Add RegForm property
+* Change unwanted TODO -> TODOX (Task View = CTRL \, T)
+* Add regForm parameter to Register function in TmxCaseDatabase.cs and pass from TmaxManagerForm.cs
+  So far is unused
+<== git add . && git commit -m "Add RegForm in RegPane"
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-04-Add-RegForm-in-RegPane
+
+* Make registration single threaded in RegisterThreadProc in TmxCaseDatabse.cs
+
+
+
+
+
+
+
+
+
+

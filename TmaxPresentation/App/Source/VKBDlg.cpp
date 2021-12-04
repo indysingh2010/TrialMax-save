@@ -39,7 +39,7 @@ END_MESSAGE_MAP()
 
 void CVKBDlg::OnBnClickedButton1()
 {
-	// TODO: Add your control notification handler code here
+	// TODOX: Add your control notification handler code here
 	CreateProcess(NULL, "C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe", 
 		NULL, NULL, false, 0, NULL, NULL, &si, &pi);
 }
@@ -127,7 +127,6 @@ void CVKBDlg::OnPaint()
 
 void CVKBDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: Add your message handler code here and/or call default
 	CreateProcess(NULL, "C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe", 
 		NULL, NULL, false, 0, NULL, NULL, &si, &pi);
 	CDialog::OnLButtonDown(nFlags, point);

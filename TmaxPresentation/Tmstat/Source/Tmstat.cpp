@@ -1581,7 +1581,7 @@ LONG CTMStatCtrl::GetStatusBarWidth(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 
-	// TODO: Add your dispatch handler code here
+	// TODOX: Add your dispatch handler code here
 	
 	CBrush		brBackground;
 	CFont*		pOldFont;

@@ -79,7 +79,7 @@ END_INTERFACE_MAP()
 //==============================================================================
 CTMDocument::CTMDocument()
 {
-	// TODO: add one-time construction code here
+	// TODOX: add one-time construction code here
 
 	EnableAutomation();
 

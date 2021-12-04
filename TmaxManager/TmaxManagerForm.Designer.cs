@@ -880,7 +880,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneObjections.PresentationOptionsFilename = "";
             this.m_paneObjections.RegistrationOptions = null;
             this.m_paneObjections.ReportManager = null;
-            this.m_paneObjections.Size = new System.Drawing.Size(972, 197);
+            this.m_paneObjections.Size = new System.Drawing.Size(972, 218);
             this.m_paneObjections.SourceTypes = null;
             this.m_paneObjections.StationOptions = null;
             this.m_paneObjections.TabIndex = 34;
@@ -908,7 +908,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneRegistration.PresentationOptionsFilename = "";
             this.m_paneRegistration.RegistrationOptions = null;
             this.m_paneRegistration.ReportManager = null;
-            this.m_paneRegistration.Size = new System.Drawing.Size(972, 126);
+            this.m_paneRegistration.Size = new System.Drawing.Size(972, 140);
             this.m_paneRegistration.SourceTypes = null;
             this.m_paneRegistration.StationOptions = null;
             this.m_paneRegistration.TabIndex = 33;
@@ -1085,7 +1085,7 @@ namespace FTI.Trialmax.TmaxManager
             dockableControlPane18,
             dockableControlPane19});
             dockAreaPane5.SelectedTabIndex = 1;
-            dockAreaPane5.Size = new System.Drawing.Size(980, 376);
+            dockAreaPane5.Size = new System.Drawing.Size(980, 411);
             this.m_ctrlUltraDockManager.DockAreas.AddRange(new Infragistics.Win.UltraWinDock.DockAreaPane[] {
             dockAreaPane1,
             dockAreaPane2,
@@ -1777,9 +1777,9 @@ namespace FTI.Trialmax.TmaxManager
             this.m_ctrlMainFillPanel.Controls.Add(this.m_tmxPrint);
             this.m_ctrlMainFillPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.m_ctrlMainFillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_ctrlMainFillPanel.Location = new System.Drawing.Point(306, 717);
+            this.m_ctrlMainFillPanel.Location = new System.Drawing.Point(306, 752);
             this.m_ctrlMainFillPanel.Name = "m_ctrlMainFillPanel";
-            this.m_ctrlMainFillPanel.Size = new System.Drawing.Size(980, 139);
+            this.m_ctrlMainFillPanel.Size = new System.Drawing.Size(980, 104);
             this.m_ctrlMainFillPanel.TabIndex = 5;
             // 
             // m_tmxView
@@ -2045,7 +2045,7 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow13.Location = new System.Drawing.Point(2, 2);
             this.dockableWindow13.Name = "dockableWindow13";
             this.dockableWindow13.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow13.Size = new System.Drawing.Size(976, 219);
+            this.dockableWindow13.Size = new System.Drawing.Size(976, 240);
             this.dockableWindow13.TabIndex = 75;
             // 
             // windowDockingArea1
@@ -2081,10 +2081,10 @@ namespace FTI.Trialmax.TmaxManager
             // dockableWindow19
             // 
             this.dockableWindow19.Controls.Add(this.m_paneRegistration);
-            this.dockableWindow19.Location = new System.Drawing.Point(2, 226);
+            this.dockableWindow19.Location = new System.Drawing.Point(2, 247);
             this.dockableWindow19.Name = "dockableWindow19";
             this.dockableWindow19.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow19.Size = new System.Drawing.Size(976, 148);
+            this.dockableWindow19.Size = new System.Drawing.Size(976, 162);
             this.dockableWindow19.TabIndex = 76;
             // 
             // windowDockingArea4
@@ -2097,7 +2097,7 @@ namespace FTI.Trialmax.TmaxManager
             this.windowDockingArea4.Name = "windowDockingArea4";
             this.windowDockingArea4.Owner = this.m_ctrlUltraDockManager;
             this.windowDockingArea4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.windowDockingArea4.Size = new System.Drawing.Size(980, 381);
+            this.windowDockingArea4.Size = new System.Drawing.Size(980, 416);
             this.windowDockingArea4.TabIndex = 53;
             // 
             // TmaxManagerForm

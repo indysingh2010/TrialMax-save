@@ -221,9 +221,9 @@ void CColorPickerList::Recieved(int iButtonId)
 HBRUSH CColorPickerList::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = m_brush;//CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-	// TODO:  Change any attributes of the DC here
+	// TODOX:  Change any attributes of the DC here
 
-	// TODO:  Return a different brush if the default is not desired
+	// TODOX:  Return a different brush if the default is not desired
 	return hbr;
 }
 
