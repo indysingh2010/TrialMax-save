@@ -106,9 +106,20 @@ namespace FTI.Trialmax.Database
                 if (!DoConvert)
                     return false;
                 string path = m_outputPath + "\\";
-                var task1 = Task.Factory.StartNew(() => extractPNG());
-                var task2 = Task.Factory.StartNew(() => ProcessPage(path,m_CustomDPI));
-                Task.WaitAll(task1, task2);
+                bool useSingleThread = true;
+                // WIP: USE SINGLE THREAD
+                // Don't create new tasks
+                if (useSingleThread)
+                {
+                    extractPNG();
+                    ProcessPage(path, m_CustomDPI);
+                }
+                else
+                {
+                    var task1 = Task.Factory.StartNew(() => extractPNG());
+                    var task2 = Task.Factory.StartNew(() => ProcessPage(path, m_CustomDPI));
+                    Task.WaitAll(task1, task2);
+                }
             }
             catch (Exception Ex)
             {

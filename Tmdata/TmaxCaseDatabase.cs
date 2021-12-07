@@ -440,8 +440,16 @@ namespace FTI.Trialmax.Database
         /// <summary>Local variable to log user level details</summary>
         private static readonly log4net.ILog logUser = log4net.LogManager.GetLogger("UserLog");
 
-        /// <summary>Local variable to store user input in Waveform message box</summary>
-        private bool GenerateWaveFormForAll = false;
+		/// <summary>current file was a duplicate, resolved automatically or using dialog</summary>
+		private bool m_wasDuplicate = false;
+		/// <summary>current file was a duplicate, resolved automatically or using dialog</summary>
+		private string m_strOrigDesiredId;
+
+
+
+
+		/// <summary>Local variable to store user input in Waveform message box</summary>
+		private bool GenerateWaveFormForAll = false;
 		#endregion Private Members
 		
 		#region Public Methods
@@ -494,7 +502,7 @@ namespace FTI.Trialmax.Database
 			for(int i = 0; i < iPrimaries; i++)
 			{			
 				//	Create a new primary exchange object of the specified type
-				if((dxPrimary = CreatePrimary(eType)) == null) break;
+				if((dxPrimary = CreatePrimary_2(eType)) == null) break;
 
 				//	Add it to the database
 				if(dxPrimary != null)
@@ -1149,7 +1157,7 @@ namespace FTI.Trialmax.Database
 			}
 			
 			//	Create a new primary exchange object of the specified type
-			if((dxPrimary = CreatePrimary(tmaxType)) == null) return null;
+			if((dxPrimary = CreatePrimary_2(tmaxType)) == null) return null;
 
 			//	Add it to the database
 			if(m_dxPrimaries.Add(dxPrimary) == null) return null;
@@ -1326,7 +1334,8 @@ namespace FTI.Trialmax.Database
 					{
 						//	Add each of the secondary records
 						AddSource_2(tmaxSource, dxPrimary, 1);
-						//RegistrationComplete?.Invoke(this, tmaxSource);      // <== THIS 2
+                        // WIP: Send RegistrationComplete EVENT HERE
+                        RegistrationComplete?.Invoke(this, tmaxSource);
 					}
 
 				}// if((dxPrimary = CreatePrimary(tmaxSource)) != null)
@@ -5620,6 +5629,10 @@ namespace FTI.Trialmax.Database
 		/// <remarks>This methods executes a thread to run the registration</remarks>
 		public bool Register(CTmaxSourceFolder tmaxSourceFolder, CTmaxParameters tmaxParameters, CFRegProgress regForm)
 		{
+			// WIP: USE PROVIDED REG FROM
+			m_cfRegisterProgress = regForm;
+			m_cfRegisterProgress.Finished = false;
+
 			long			lFiles;
 			CTmaxParameter	paramSourceType = null;
 			
@@ -5690,13 +5703,13 @@ namespace FTI.Trialmax.Database
                 FireError(this, "Register", this.ExBuilder.Message(ERROR_CASE_DATABASE_REGISTER_THREAD_EX), Ex);
                 return false;
             }
-			
-			//	Open the progress form
-			if(m_cfRegisterProgress != null)
-			{
-				// TODO: WIP SHOW DIALOG AND RETURN IMMEDIATELY <==
-				// m_cfRegisterProgress.Show(); return true;
 
+			// WIP: RETURN IMMEDIATELY USING EMBEDDED REG FORM
+			return true;
+
+			//	Open the progress form
+			if (m_cfRegisterProgress != null)
+			{
 				//	Show modal to prevent returning until finished or canceled
 				if (m_cfRegisterProgress.ShowDialog() == DialogResult.Cancel)
                 {
@@ -10677,7 +10690,9 @@ namespace FTI.Trialmax.Database
             {
                 while (isDuplicate)
                 {
-                    CFResolveConflict wndResolve = new CFResolveConflict();
+					m_wasDuplicate = true;
+					m_strOrigDesiredId = dxPrimary.RelativePath;
+					CFResolveConflict wndResolve = new CFResolveConflict();
                     SetHandlers(wndResolve.EventSource);
                     string tempName = string.Empty;
                     string path = GetCasePath(TmaxMediaTypes.Document);
@@ -13364,11 +13379,11 @@ namespace FTI.Trialmax.Database
 			if(bSuccessful == true)
 			{
                 //	Report the conflict if a resolution was required
-				if(bResolved == true)
+				if(bResolved == true || m_wasDuplicate)
 				{
 					if((m_cfRegisterProgress != null) && (m_cfRegisterProgress.IsDisposed == false))
 					{
-						m_cfRegisterProgress.OnConflict(dxPrimary.AutoId, strDesired, dxPrimary.MediaId);
+						m_cfRegisterProgress.OnConflict(dxPrimary.AutoId, m_strOrigDesiredId, dxPrimary.MediaId);
 					}
 				
 				}// if(bResolved == true)
@@ -13832,7 +13847,7 @@ namespace FTI.Trialmax.Database
                 }// switch(tmaxSource.SourceType)
 
                 //	Create a default object
-                if ((dxPrimary = CreatePrimary(tmaxSource.MediaType)) == null)
+                if ((dxPrimary = CreatePrimary_2(tmaxSource.MediaType)) == null)
                     return null;
 
                 //	Make sure the media id field is unique when we initially add the record
@@ -13932,7 +13947,7 @@ namespace FTI.Trialmax.Database
 		/// <summary>This method allocate and initalize a default primary exchange object</summary>
 		/// <param name="tmaxType">The media type associated with the new record</param>
 		/// <returns>An new primary exchange object if successful</returns>
-		private CDxPrimary CreatePrimary(TmaxMediaTypes tmaxType)
+		private CDxPrimary CreatePrimary_2(TmaxMediaTypes tmaxType)
 		{
 			CDxPrimary dxPrimary = null;
 
@@ -14595,11 +14610,14 @@ namespace FTI.Trialmax.Database
 		/// <param name="lMaximum">Maximum value for the operation</param>
 		private void CreateRegisterProgress(string strTitle, string strDescription, long lMaximum)
 		{
+			// WIP: CreateRegisterProgress USE EXISTING regForm
+
 			//	Clear the cancellation flag
 			m_bRegisterCancelled = false;
 			
 			try
 			{
+				/*
 				//	Make sure the previous instance is disposed
 				if(m_cfRegisterProgress != null) 
 				{
@@ -14609,6 +14627,7 @@ namespace FTI.Trialmax.Database
 				
 				//	Create a new instance
 				m_cfRegisterProgress = new FTI.Trialmax.Forms.CFRegProgress(strTitle);
+				*/
 			
 				//	Set the properties
 				m_cfRegisterProgress.Description = strDescription;

@@ -3325,8 +3325,7 @@ namespace FTI.Trialmax.TmaxManager
             //	Register the top-level (parent) item
             if (m_tmaxDatabase.Register(Args.Items[0].SourceFolder, Args.Parameters, m_paneRegistration.RegForm) == true)
             {
-                // TODO: THIS IS REDUNDANT REMOVE LATER <===
-                //	Notify each pane
+                // WIP: REMOVE PANE NOTIFICATION FROM HERE - REDUNDANT BUT HARMLESS
                 //	Notify each pane
                 for (int i = 0; i < (int)TmaxAppPanes.MaxPanes; i++)
                 {
@@ -3347,8 +3346,7 @@ namespace FTI.Trialmax.TmaxManager
 
         private void OnRegistrationComplete(object sender, CTmaxSourceFolder tmaxSourceFolder)
         {
-            //TODO: Handle RegistrationComplete EVENT <==
-            return;
+            // WIP: Handle RegistrationComplete EVENT
             // THIS EVENT ARRIVES FROM BACKGROUND THREAD
             // Switch to UI thread
             if (this.InvokeRequired)

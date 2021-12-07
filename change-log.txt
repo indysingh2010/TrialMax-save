@@ -450,14 +450,27 @@ Don't copy out-of-date tmaxpanes.tpd files
 <== git add . && git commit -m "Add RegForm in RegPane"
 <== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-04-Add-RegForm-in-RegPane
 
-* Make registration single threaded in RegisterThreadProc in TmxCaseDatabse.cs
+* Make registration single threaded in RegisterThreadProc in MuPdfManager.cs
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-04-Single-Thread-Reg
 
+* Use embedded regform in TmxCaseDatabase.cs
+  Use regForm param passed in instead of creating a new form
+  Send regComplete Event
+  Remove initial Pane notification
+  Handle regComplete Event
 
+* Remove OK button and enable/disable cancel button when registering
+In RegProgress.cs if finished disable Cancel button
+In TmaxCaseDatabase.cs set m_cfRegisterProgress.Finished = true; when starting
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-04-use-embedded-regform
 
+* Fix: Media conflicts do not show in Registration Progress form
 
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-06-use-embedded-regform-save1
 
+* Click Cancel while registering should not close dialog (RegProgress.cs)
+  And should send a cancelled event
+  TmaxCaseDatabase.cs should hook and handle the cancel by setting m_cancelled? = true
 
-
-
-
+  
 

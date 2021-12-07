@@ -266,7 +266,7 @@ namespace FTI.Trialmax.Forms
 				DialogResult = DialogResult.Cancel;
 				
 			//	Close the form
-			this.Close();
+			//this.Close();
 		}	
 			
 		/// <summary>Called to initilize local class members</summary>
@@ -297,159 +297,169 @@ namespace FTI.Trialmax.Forms
 		/// </summary>
 		protected virtual void InitializeComponent()
 		{
-			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(CFRegProgress));
-			this.m_ctrlErrorMessages = new FTI.Trialmax.Controls.CTmaxMessageCtrl();
-			this.m_ctrlDescription = new System.Windows.Forms.Label();
-			this.m_ctrlStatus = new System.Windows.Forms.Label();
-			this.m_ctrlErrorsLabel = new System.Windows.Forms.Label();
-			this.m_ctrlProgressBar = new Infragistics.Win.UltraWinProgressBar.UltraProgressBar();
-			this.m_ctrlClose = new System.Windows.Forms.Button();
-			this.m_ctrlIgnore = new System.Windows.Forms.Button();
-			this.m_ctrlConflictsLabel = new System.Windows.Forms.Label();
-			this.m_ctrlConflicts = new FTI.Trialmax.Controls.CTmaxMessageCtrl();
-			this.m_ctrlIgnoreAll = new System.Windows.Forms.Button();
-			this.m_ctrlErrorPending = new System.Windows.Forms.Label();
-			this.SuspendLayout();
-			// 
-			// m_ctrlErrorMessages
-			// 
-			this.m_ctrlErrorMessages.AddTop = false;
-			this.m_ctrlErrorMessages.ClearOnDblClick = false;
-			this.m_ctrlErrorMessages.Format = FTI.Trialmax.Controls.TmaxMessageFormats.ErrorArgs;
-			this.m_ctrlErrorMessages.Location = new System.Drawing.Point(8, 228);
-			this.m_ctrlErrorMessages.MaxRows = 0;
-			this.m_ctrlErrorMessages.Name = "m_ctrlErrorMessages";
-			this.m_ctrlErrorMessages.Size = new System.Drawing.Size(420, 88);
-			this.m_ctrlErrorMessages.TabIndex = 1;
-			// 
-			// m_ctrlDescription
-			// 
-			this.m_ctrlDescription.Location = new System.Drawing.Point(8, 8);
-			this.m_ctrlDescription.Name = "m_ctrlDescription";
-			this.m_ctrlDescription.Size = new System.Drawing.Size(420, 20);
-			this.m_ctrlDescription.TabIndex = 2;
-			this.m_ctrlDescription.Text = "Description";
-			this.m_ctrlDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_ctrlDescription.UseMnemonic = false;
-			// 
-			// m_ctrlStatus
-			// 
-			this.m_ctrlStatus.Location = new System.Drawing.Point(8, 68);
-			this.m_ctrlStatus.Name = "m_ctrlStatus";
-			this.m_ctrlStatus.Size = new System.Drawing.Size(420, 36);
-			this.m_ctrlStatus.TabIndex = 3;
-			this.m_ctrlStatus.Text = "Status";
-			this.m_ctrlStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_ctrlStatus.UseMnemonic = false;
-			// 
-			// m_ctrlErrorsLabel
-			// 
-			this.m_ctrlErrorsLabel.Location = new System.Drawing.Point(8, 216);
-			this.m_ctrlErrorsLabel.Name = "m_ctrlErrorsLabel";
-			this.m_ctrlErrorsLabel.Size = new System.Drawing.Size(420, 12);
-			this.m_ctrlErrorsLabel.TabIndex = 4;
-			this.m_ctrlErrorsLabel.Text = "Errors:";
-			this.m_ctrlErrorsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_ctrlErrorsLabel.UseMnemonic = false;
-			// 
-			// m_ctrlProgressBar
-			// 
-			this.m_ctrlProgressBar.Location = new System.Drawing.Point(8, 36);
-			this.m_ctrlProgressBar.Name = "m_ctrlProgressBar";
-			this.m_ctrlProgressBar.Size = new System.Drawing.Size(420, 20);
-			this.m_ctrlProgressBar.TabIndex = 6;
-			this.m_ctrlProgressBar.Text = "[Formatted]";
-			// 
-			// m_ctrlClose
-			// 
-			this.m_ctrlClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.m_ctrlClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_ctrlClose.Location = new System.Drawing.Point(348, 324);
-			this.m_ctrlClose.Name = "m_ctrlClose";
-			this.m_ctrlClose.TabIndex = 0;
-			this.m_ctrlClose.Text = "&Cancel";
-			this.m_ctrlClose.Click += new System.EventHandler(this.OnClickClose);
-			// 
-			// m_ctrlIgnore
-			// 
-			this.m_ctrlIgnore.Enabled = false;
-			this.m_ctrlIgnore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_ctrlIgnore.Location = new System.Drawing.Point(168, 324);
-			this.m_ctrlIgnore.Name = "m_ctrlIgnore";
-			this.m_ctrlIgnore.TabIndex = 5;
-			this.m_ctrlIgnore.Text = "&Ignore";
-			this.m_ctrlIgnore.Click += new System.EventHandler(this.OnClickIgnore);
-			// 
-			// m_ctrlConflictsLabel
-			// 
-			this.m_ctrlConflictsLabel.Location = new System.Drawing.Point(8, 112);
-			this.m_ctrlConflictsLabel.Name = "m_ctrlConflictsLabel";
-			this.m_ctrlConflictsLabel.Size = new System.Drawing.Size(392, 12);
-			this.m_ctrlConflictsLabel.TabIndex = 8;
-			this.m_ctrlConflictsLabel.Text = "MediaId Conflicts:";
-			this.m_ctrlConflictsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_ctrlConflictsLabel.UseMnemonic = false;
-			// 
-			// m_ctrlConflicts
-			// 
-			this.m_ctrlConflicts.AddTop = false;
-			this.m_ctrlConflicts.ClearOnDblClick = false;
-			this.m_ctrlConflicts.Format = FTI.Trialmax.Controls.TmaxMessageFormats.UserDefined;
-			this.m_ctrlConflicts.Location = new System.Drawing.Point(4, 124);
-			this.m_ctrlConflicts.MaxRows = 0;
-			this.m_ctrlConflicts.Name = "m_ctrlConflicts";
-			this.m_ctrlConflicts.Size = new System.Drawing.Size(424, 88);
-			this.m_ctrlConflicts.TabIndex = 7;
-			// 
-			// m_ctrlIgnoreAll
-			// 
-			this.m_ctrlIgnoreAll.Enabled = false;
-			this.m_ctrlIgnoreAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_ctrlIgnoreAll.Location = new System.Drawing.Point(258, 324);
-			this.m_ctrlIgnoreAll.Name = "m_ctrlIgnoreAll";
-			this.m_ctrlIgnoreAll.TabIndex = 9;
-			this.m_ctrlIgnoreAll.Text = "Ignore &All";
-			this.m_ctrlIgnoreAll.Click += new System.EventHandler(this.OnClickIgnoreAll);
-			// 
-			// m_ctrlErrorPending
-			// 
-			this.m_ctrlErrorPending.BackColor = System.Drawing.Color.Red;
-			this.m_ctrlErrorPending.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-			this.m_ctrlErrorPending.ForeColor = System.Drawing.Color.White;
-			this.m_ctrlErrorPending.Location = new System.Drawing.Point(12, 324);
-			this.m_ctrlErrorPending.Name = "m_ctrlErrorPending";
-			this.m_ctrlErrorPending.Size = new System.Drawing.Size(148, 23);
-			this.m_ctrlErrorPending.TabIndex = 10;
-			this.m_ctrlErrorPending.Text = "ERROR PENDING";
-			this.m_ctrlErrorPending.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.m_ctrlErrorPending.Visible = false;
-			// 
-			// CFRegProgress
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(434, 353);
-			this.ControlBox = false;
-			this.Controls.Add(this.m_ctrlErrorPending);
-			this.Controls.Add(this.m_ctrlIgnoreAll);
-			this.Controls.Add(this.m_ctrlConflictsLabel);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CFRegProgress));
+            this.m_ctrlErrorMessages = new FTI.Trialmax.Controls.CTmaxMessageCtrl();
+            this.m_ctrlDescription = new System.Windows.Forms.Label();
+            this.m_ctrlStatus = new System.Windows.Forms.Label();
+            this.m_ctrlErrorsLabel = new System.Windows.Forms.Label();
+            this.m_ctrlProgressBar = new Infragistics.Win.UltraWinProgressBar.UltraProgressBar();
+            this.m_ctrlClose = new System.Windows.Forms.Button();
+            this.m_ctrlIgnore = new System.Windows.Forms.Button();
+            this.m_ctrlConflictsLabel = new System.Windows.Forms.Label();
+            this.m_ctrlConflicts = new FTI.Trialmax.Controls.CTmaxMessageCtrl();
+            this.m_ctrlIgnoreAll = new System.Windows.Forms.Button();
+            this.m_ctrlErrorPending = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // m_ctrlErrorMessages
+            // 
+            this.m_ctrlErrorMessages.AddTop = false;
+            this.m_ctrlErrorMessages.ClearOnDblClick = false;
+            this.m_ctrlErrorMessages.Format = FTI.Trialmax.Controls.TmaxMessageFormats.ErrorArgs;
+            this.m_ctrlErrorMessages.Location = new System.Drawing.Point(8, 228);
+            this.m_ctrlErrorMessages.MaxRows = 0;
+            this.m_ctrlErrorMessages.Name = "m_ctrlErrorMessages";
+            this.m_ctrlErrorMessages.SelectedIndex = -1;
+            this.m_ctrlErrorMessages.ShowHeaders = true;
+            this.m_ctrlErrorMessages.ShowImage = false;
+            this.m_ctrlErrorMessages.Size = new System.Drawing.Size(420, 88);
+            this.m_ctrlErrorMessages.TabIndex = 1;
+            // 
+            // m_ctrlDescription
+            // 
+            this.m_ctrlDescription.Location = new System.Drawing.Point(8, 8);
+            this.m_ctrlDescription.Name = "m_ctrlDescription";
+            this.m_ctrlDescription.Size = new System.Drawing.Size(420, 20);
+            this.m_ctrlDescription.TabIndex = 2;
+            this.m_ctrlDescription.Text = "Description";
+            this.m_ctrlDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.m_ctrlDescription.UseMnemonic = false;
+            // 
+            // m_ctrlStatus
+            // 
+            this.m_ctrlStatus.Location = new System.Drawing.Point(8, 68);
+            this.m_ctrlStatus.Name = "m_ctrlStatus";
+            this.m_ctrlStatus.Size = new System.Drawing.Size(420, 36);
+            this.m_ctrlStatus.TabIndex = 3;
+            this.m_ctrlStatus.Text = "Status";
+            this.m_ctrlStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.m_ctrlStatus.UseMnemonic = false;
+            // 
+            // m_ctrlErrorsLabel
+            // 
+            this.m_ctrlErrorsLabel.Location = new System.Drawing.Point(8, 216);
+            this.m_ctrlErrorsLabel.Name = "m_ctrlErrorsLabel";
+            this.m_ctrlErrorsLabel.Size = new System.Drawing.Size(420, 12);
+            this.m_ctrlErrorsLabel.TabIndex = 4;
+            this.m_ctrlErrorsLabel.Text = "Errors:";
+            this.m_ctrlErrorsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.m_ctrlErrorsLabel.UseMnemonic = false;
+            // 
+            // m_ctrlProgressBar
+            // 
+            this.m_ctrlProgressBar.Location = new System.Drawing.Point(8, 36);
+            this.m_ctrlProgressBar.Name = "m_ctrlProgressBar";
+            this.m_ctrlProgressBar.Size = new System.Drawing.Size(420, 20);
+            this.m_ctrlProgressBar.TabIndex = 6;
+            this.m_ctrlProgressBar.Text = "[Formatted]";
+            // 
+            // m_ctrlClose
+            // 
+            this.m_ctrlClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.m_ctrlClose.Enabled = false;
+            this.m_ctrlClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.m_ctrlClose.Location = new System.Drawing.Point(348, 324);
+            this.m_ctrlClose.Name = "m_ctrlClose";
+            this.m_ctrlClose.Size = new System.Drawing.Size(75, 23);
+            this.m_ctrlClose.TabIndex = 0;
+            this.m_ctrlClose.Text = "&Cancel";
+            this.m_ctrlClose.Click += new System.EventHandler(this.OnClickClose);
+            // 
+            // m_ctrlIgnore
+            // 
+            this.m_ctrlIgnore.Enabled = false;
+            this.m_ctrlIgnore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.m_ctrlIgnore.Location = new System.Drawing.Point(168, 324);
+            this.m_ctrlIgnore.Name = "m_ctrlIgnore";
+            this.m_ctrlIgnore.Size = new System.Drawing.Size(75, 23);
+            this.m_ctrlIgnore.TabIndex = 5;
+            this.m_ctrlIgnore.Text = "&Ignore";
+            this.m_ctrlIgnore.Click += new System.EventHandler(this.OnClickIgnore);
+            // 
+            // m_ctrlConflictsLabel
+            // 
+            this.m_ctrlConflictsLabel.Location = new System.Drawing.Point(8, 112);
+            this.m_ctrlConflictsLabel.Name = "m_ctrlConflictsLabel";
+            this.m_ctrlConflictsLabel.Size = new System.Drawing.Size(392, 12);
+            this.m_ctrlConflictsLabel.TabIndex = 8;
+            this.m_ctrlConflictsLabel.Text = "MediaId Conflicts:";
+            this.m_ctrlConflictsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.m_ctrlConflictsLabel.UseMnemonic = false;
+            // 
+            // m_ctrlConflicts
+            // 
+            this.m_ctrlConflicts.AddTop = false;
+            this.m_ctrlConflicts.ClearOnDblClick = false;
+            this.m_ctrlConflicts.Format = FTI.Trialmax.Controls.TmaxMessageFormats.UserDefined;
+            this.m_ctrlConflicts.Location = new System.Drawing.Point(4, 124);
+            this.m_ctrlConflicts.MaxRows = 0;
+            this.m_ctrlConflicts.Name = "m_ctrlConflicts";
+            this.m_ctrlConflicts.SelectedIndex = -1;
+            this.m_ctrlConflicts.ShowHeaders = true;
+            this.m_ctrlConflicts.ShowImage = false;
+            this.m_ctrlConflicts.Size = new System.Drawing.Size(424, 88);
+            this.m_ctrlConflicts.TabIndex = 7;
+            // 
+            // m_ctrlIgnoreAll
+            // 
+            this.m_ctrlIgnoreAll.Enabled = false;
+            this.m_ctrlIgnoreAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.m_ctrlIgnoreAll.Location = new System.Drawing.Point(258, 324);
+            this.m_ctrlIgnoreAll.Name = "m_ctrlIgnoreAll";
+            this.m_ctrlIgnoreAll.Size = new System.Drawing.Size(75, 23);
+            this.m_ctrlIgnoreAll.TabIndex = 9;
+            this.m_ctrlIgnoreAll.Text = "Ignore &All";
+            this.m_ctrlIgnoreAll.Click += new System.EventHandler(this.OnClickIgnoreAll);
+            // 
+            // m_ctrlErrorPending
+            // 
+            this.m_ctrlErrorPending.BackColor = System.Drawing.Color.Red;
+            this.m_ctrlErrorPending.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_ctrlErrorPending.ForeColor = System.Drawing.Color.White;
+            this.m_ctrlErrorPending.Location = new System.Drawing.Point(12, 324);
+            this.m_ctrlErrorPending.Name = "m_ctrlErrorPending";
+            this.m_ctrlErrorPending.Size = new System.Drawing.Size(148, 23);
+            this.m_ctrlErrorPending.TabIndex = 10;
+            this.m_ctrlErrorPending.Text = "ERROR PENDING";
+            this.m_ctrlErrorPending.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.m_ctrlErrorPending.Visible = false;
+            // 
+            // CFRegProgress
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(434, 353);
+            this.ControlBox = false;
+            this.Controls.Add(this.m_ctrlErrorPending);
+            this.Controls.Add(this.m_ctrlIgnoreAll);
+            this.Controls.Add(this.m_ctrlConflictsLabel);
             this.Controls.Add(this.m_ctrlConflicts);
-			this.Controls.Add(this.m_ctrlProgressBar);
-			this.Controls.Add(this.m_ctrlIgnore);
-			this.Controls.Add(this.m_ctrlErrorsLabel);
-			this.Controls.Add(this.m_ctrlStatus);
-			this.Controls.Add(this.m_ctrlDescription);
-			this.Controls.Add(this.m_ctrlErrorMessages);
-			this.Controls.Add(this.m_ctrlClose);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(300, 248);
-			this.Name = "CFRegProgress";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Registration Progress";
-			this.Load += new System.EventHandler(this.OnLoad);
-			this.ResumeLayout(false);
+            this.Controls.Add(this.m_ctrlProgressBar);
+            this.Controls.Add(this.m_ctrlIgnore);
+            this.Controls.Add(this.m_ctrlErrorsLabel);
+            this.Controls.Add(this.m_ctrlStatus);
+            this.Controls.Add(this.m_ctrlDescription);
+            this.Controls.Add(this.m_ctrlErrorMessages);
+            this.Controls.Add(this.m_ctrlClose);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(300, 248);
+            this.Name = "CFRegProgress";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registration Progress";
+            this.Load += new System.EventHandler(this.OnLoad);
+            this.ResumeLayout(false);
 
 		}
 
@@ -582,10 +592,7 @@ namespace FTI.Trialmax.Forms
 				m_bFinished = value;
 				
 				//	Change the text on the Close button
-				if(m_ctrlClose != null)
-				{
-                    UpdateCloseButton();
-				}
+                UpdateCloseButton();
 				
 				//	Update the progress bar
 				m_lCompleted = m_lMaximum;
@@ -612,10 +619,19 @@ namespace FTI.Trialmax.Forms
                 m_ctrlClose.ImageIndex = m_bFinished ? 1 : 0;
                 try
                 {
-                    m_ctrlClose.Text = m_bFinished ? "&OK" : "&Cancel";
-
-                }
-                catch (Exception exc)
+					// WIP: When finished disable cancel button
+					// leave text as Cancel
+					//m_ctrlClose.Text = m_bFinished ? "&OK" : "&Cancel";
+					if (m_bFinished)
+                    {
+						m_ctrlClose.Enabled = false;
+					}
+					else
+                    {
+						m_ctrlClose.Enabled = true;
+					}
+				}
+				catch (Exception exc)
                 {
                     Console.WriteLine(exc.ToString());
                 }
