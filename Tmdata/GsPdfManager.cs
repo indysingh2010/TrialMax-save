@@ -106,7 +106,7 @@ namespace FTI.Trialmax.Database
             try
             {
                 processor = new GhostscriptProcessor(m_gvi, true);
-                processor.Processing += new GhostscriptProcessorProcessingEventHandler(processor_Processing);
+                processor.Processing += new GhostscriptProcessorProcessingEventHandler(processor_ProcessingEventHandler);
                 processor.StartProcessing(m_switches.ToArray(), null);
 
             }
@@ -142,26 +142,36 @@ namespace FTI.Trialmax.Database
                 SetColorSwitch(true);
                 // Set 200 dpi as default -BW is converted in the next condition.
                 SetResolutionSwitch(true);
-                processor.Processing += new GhostscriptProcessorProcessingEventHandler(processor_Processing);
+                processor.Processing += new GhostscriptProcessorProcessingEventHandler(processor_ProcessingEventHandler);
+                var threadId = Thread.CurrentThread.ManagedThreadId;
+                // This does not come back until it is finished
+                // unless StopProcessing is called
                 processor.StartProcessing(m_switches.ToArray(), null);
                 // Extraction successfully completed
                 m_IsExtracted = true;
+                processor.Dispose();
+                processor = null;
             }
         }
 
         ///<summary>TmaxPdfManager signalled to stop the conversion process</summary>
         public void StopProcess()
         {
+            var threadId = Thread.CurrentThread.ManagedThreadId;
             try
             {
                 DoConvert = false;
                 if (processor != null)
                 {
+                    // This will cause the StartProcessing function to return
                     processor.StopProcessing();
+                    return;
+                    // WIP THIS just hangs
                     while (processor.IsRunning) // Wait until processor stops and then proceed
                     {
                         Thread.Sleep(1000);
                     }
+                    //
                     processor.Dispose();
                 }
             }
@@ -324,12 +334,12 @@ namespace FTI.Trialmax.Database
         }// private void AddErrorLogSwitch()
 
         ///<summary>Progress of the current task if performing any</summary>
-        private void processor_Processing(object sender, GhostscriptProcessorProcessingEventArgs e)
+        private void processor_ProcessingEventHandler(object sender, GhostscriptProcessorProcessingEventArgs e)
         {
             if (notifyPDFManager != null)
                 notifyPDFManager(sender, e);
             //Console.WriteLine(e.CurrentPage.ToString() + " / " + e.TotalPages.ToString());
-        }// private void processor_Processing(object sender, GhostscriptProcessorProcessingEventArgs e)
+        }// private void processor_ProcessingEventHandler(object sender, GhostscriptProcessorProcessingEventArgs e)
 
         ///<summary>Add PDF open switch</summary>
         private void AddPageSwitch(int pageNum, bool isColor)

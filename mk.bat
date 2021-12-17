@@ -1,2 +1,2 @@
-@echo ADDPATH c:\dev
-@set PATH=c:\dev;%PATH%
+@echo ADDPATH W:\FTI\bin
+@set PATH=W:\FTI\bin;%PATH%

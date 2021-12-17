@@ -282,107 +282,102 @@ namespace FTI.Trialmax.Panes
 		/// </summary>
 		protected override void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CResultsPane));
-			Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool1 = new Infragistics.Win.UltraWinToolbars.ButtonTool("CopyAll");
-			Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
-			Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool2 = new Infragistics.Win.UltraWinToolbars.ButtonTool("CopySelection");
-			Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
-			Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool3 = new Infragistics.Win.UltraWinToolbars.ButtonTool("SaveAll");
-			Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
-			Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool4 = new Infragistics.Win.UltraWinToolbars.ButtonTool("SaveSelection");
-            Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
+            this.components = new System.ComponentModel.Container();
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CResultsPane));
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool1 = new Infragistics.Win.UltraWinToolbars.ButtonTool("CopyAll");
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool2 = new Infragistics.Win.UltraWinToolbars.ButtonTool("CopySelection");
+            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool3 = new Infragistics.Win.UltraWinToolbars.ButtonTool("SaveAll");
+            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool4 = new Infragistics.Win.UltraWinToolbars.ButtonTool("SaveSelection");
+            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool6 = new Infragistics.Win.UltraWinToolbars.ButtonTool("PreviewSelection");
-            Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
-			Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool1 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("ContextMenu");
-			Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool5 = new Infragistics.Win.UltraWinToolbars.ButtonTool("CopyAll");
-			Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool9 = new Infragistics.Win.UltraWinToolbars.ButtonTool("SaveAll");
-			Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool10 = new Infragistics.Win.UltraWinToolbars.ButtonTool("CopySelection");
-			Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool8 = new Infragistics.Win.UltraWinToolbars.ButtonTool("SaveSelection");
+            Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool1 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("ContextMenu");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool5 = new Infragistics.Win.UltraWinToolbars.ButtonTool("CopyAll");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool9 = new Infragistics.Win.UltraWinToolbars.ButtonTool("SaveAll");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool10 = new Infragistics.Win.UltraWinToolbars.ButtonTool("CopySelection");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool8 = new Infragistics.Win.UltraWinToolbars.ButtonTool("SaveSelection");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool7 = new Infragistics.Win.UltraWinToolbars.ButtonTool("PreviewSelection");
-
-			
             this.m_ctrlStatus = new Infragistics.Win.UltraWinStatusBar.UltraStatusBar();
-			this.m_ctrlGrid = new FTI.Trialmax.Controls.CTmaxResultsGridCtrl();
-			this.m_ctrlToolbarImages = new System.Windows.Forms.ImageList(this.components);
-			this.m_ctrlToolbarManager = new Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(this.components);
-			this._CResultsPane_Toolbars_Dock_Area_Left = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
-			this._CResultsPane_Toolbars_Dock_Area_Right = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
-			this._CResultsPane_Toolbars_Dock_Area_Top = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
-			this._CResultsPane_Toolbars_Dock_Area_Bottom = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
-			((System.ComponentModel.ISupportInitialize)(this.m_ctrlToolbarManager)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// m_ctrlStatus
-			// 
-			appearance1.BackColor = System.Drawing.SystemColors.Control;
-			appearance1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.m_ctrlStatus.Appearance = appearance1;
-			this.m_ctrlStatus.BorderStyle = Infragistics.Win.UIElementBorderStyle.InsetSoft;
-			this.m_ctrlStatus.Location = new System.Drawing.Point(0, 108);
-			this.m_ctrlStatus.Name = "m_ctrlStatus";
-			this.m_ctrlStatus.Size = new System.Drawing.Size(344, 16);
-			this.m_ctrlStatus.TabIndex = 1;
-			this.m_ctrlStatus.WrapText = false;
-			// 
-			// m_ctrlGrid
-			// 
-			this.m_ctrlToolbarManager.SetContextMenuUltra(this.m_ctrlGrid, "ContextMenu");
-			this.m_ctrlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_ctrlGrid.Location = new System.Drawing.Point(0, 25);
-			this.m_ctrlGrid.Name = "m_ctrlGrid";
-			this.m_ctrlGrid.PaneId = 0;
-			this.m_ctrlGrid.Size = new System.Drawing.Size(344, 83);
-			this.m_ctrlGrid.TabIndex = 3;
-			this.m_ctrlGrid.DblClick += new System.EventHandler(this.OnGridDblClick);
-			this.m_ctrlGrid.SelectionChanged += new System.EventHandler(this.OnGridSelectionChanged);
-			// 
-			// m_ctrlToolbarImages
-			// 
-			this.m_ctrlToolbarImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("m_ctrlToolbarImages.ImageStream")));
-			this.m_ctrlToolbarImages.TransparentColor = System.Drawing.Color.Magenta;
-			this.m_ctrlToolbarImages.Images.SetKeyName(0, "results_all_copy.bmp");
-			this.m_ctrlToolbarImages.Images.SetKeyName(1, "results_all_print.bmp");
-			this.m_ctrlToolbarImages.Images.SetKeyName(2, "results_all_save.bmp");
-			this.m_ctrlToolbarImages.Images.SetKeyName(3, "results_selection_copy.bmp");
-			this.m_ctrlToolbarImages.Images.SetKeyName(4, "results_selection_print.bmp");
+            this.m_ctrlGrid = new FTI.Trialmax.Controls.CTmaxResultsGridCtrl();
+            this.m_ctrlToolbarImages = new System.Windows.Forms.ImageList(this.components);
+            this.m_ctrlToolbarManager = new Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(this.components);
+            this._CResultsPane_Toolbars_Dock_Area_Left = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
+            this._CResultsPane_Toolbars_Dock_Area_Right = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
+            this._CResultsPane_Toolbars_Dock_Area_Top = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
+            this._CResultsPane_Toolbars_Dock_Area_Bottom = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ctrlStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ctrlToolbarManager)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // m_ctrlStatus
+            // 
+            appearance1.BackColor = System.Drawing.SystemColors.Control;
+            appearance1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.m_ctrlStatus.Appearance = appearance1;
+            this.m_ctrlStatus.BorderStyle = Infragistics.Win.UIElementBorderStyle.InsetSoft;
+            this.m_ctrlStatus.Location = new System.Drawing.Point(0, 108);
+            this.m_ctrlStatus.Name = "m_ctrlStatus";
+            this.m_ctrlStatus.Size = new System.Drawing.Size(344, 16);
+            this.m_ctrlStatus.TabIndex = 1;
+            this.m_ctrlStatus.WrapText = false;
+            // 
+            // m_ctrlGrid
+            // 
+            this.m_ctrlToolbarManager.SetContextMenuUltra(this.m_ctrlGrid, "ContextMenu");
+            this.m_ctrlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.m_ctrlGrid.Location = new System.Drawing.Point(0, 0);
+            this.m_ctrlGrid.Name = "m_ctrlGrid";
+            this.m_ctrlGrid.PaneId = 0;
+            this.m_ctrlGrid.Size = new System.Drawing.Size(344, 108);
+            this.m_ctrlGrid.TabIndex = 3;
+            this.m_ctrlGrid.SelectionChanged += new System.EventHandler(this.OnGridSelectionChanged);
+            this.m_ctrlGrid.DblClick += new System.EventHandler(this.OnGridDblClick);
+            // 
+            // m_ctrlToolbarImages
+            // 
+            this.m_ctrlToolbarImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("m_ctrlToolbarImages.ImageStream")));
+            this.m_ctrlToolbarImages.TransparentColor = System.Drawing.Color.Magenta;
+            this.m_ctrlToolbarImages.Images.SetKeyName(0, "results_all_copy.bmp");
+            this.m_ctrlToolbarImages.Images.SetKeyName(1, "results_all_print.bmp");
+            this.m_ctrlToolbarImages.Images.SetKeyName(2, "results_all_save.bmp");
+            this.m_ctrlToolbarImages.Images.SetKeyName(3, "results_selection_copy.bmp");
+            this.m_ctrlToolbarImages.Images.SetKeyName(4, "results_selection_print.bmp");
             this.m_ctrlToolbarImages.Images.SetKeyName(5, "results_selection_save.bmp");
             this.m_ctrlToolbarImages.Images.SetKeyName(6, "preview_selection.bmp");
-			// 
-			// m_ctrlToolbarManager
-			// 
-			this.m_ctrlToolbarManager.DesignerFlags = 1;
-			this.m_ctrlToolbarManager.DockWithinContainer = this;
-			this.m_ctrlToolbarManager.ImageListSmall = this.m_ctrlToolbarImages;
-			this.m_ctrlToolbarManager.ShowFullMenusDelay = 500;
-			appearance12.Image = 0;
-			buttonTool1.SharedProps.AppearancesSmall.Appearance = appearance12;
-			buttonTool1.SharedProps.Caption = "Copy All";
-			appearance13.Image = 3;
-			buttonTool2.SharedProps.AppearancesSmall.Appearance = appearance13;
-			buttonTool2.SharedProps.Caption = "Copy Selection(s)";
-			appearance14.Image = 2;
-			buttonTool3.SharedProps.AppearancesSmall.Appearance = appearance14;
-			buttonTool3.SharedProps.Caption = "Save All As ...";
-			appearance15.Image = 5;
-			buttonTool4.SharedProps.AppearancesSmall.Appearance = appearance15;
-			buttonTool4.SharedProps.Caption = "Save Selection(s) As ...";
-            appearance16.Image = 6;
-            buttonTool6.SharedProps.AppearancesSmall.Appearance = appearance16;
-            buttonTool6.SharedProps.Caption = "Preview Selection";
-            buttonTool6.SharedProps.Enabled = true;
-            //ToolDisplayStyle.ImageAndText
-            popupMenuTool1.SharedProps.Caption = "ContextMenu";
-			buttonTool10.InstanceProps.IsFirstInGroup = true;
-			popupMenuTool1.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
+            // 
+            // m_ctrlToolbarManager
+            // 
+            this.m_ctrlToolbarManager.DesignerFlags = 1;
+            this.m_ctrlToolbarManager.DockWithinContainer = this;
+            this.m_ctrlToolbarManager.ImageListSmall = this.m_ctrlToolbarImages;
+            this.m_ctrlToolbarManager.ShowFullMenusDelay = 500;
+            appearance2.Image = 0;
+            buttonTool1.SharedPropsInternal.AppearancesSmall.Appearance = appearance2;
+            buttonTool1.SharedPropsInternal.Caption = "Copy All";
+            appearance3.Image = 3;
+            buttonTool2.SharedPropsInternal.AppearancesSmall.Appearance = appearance3;
+            buttonTool2.SharedPropsInternal.Caption = "Copy Selection(s)";
+            appearance4.Image = 2;
+            buttonTool3.SharedPropsInternal.AppearancesSmall.Appearance = appearance4;
+            buttonTool3.SharedPropsInternal.Caption = "Save All As ...";
+            appearance5.Image = 5;
+            buttonTool4.SharedPropsInternal.AppearancesSmall.Appearance = appearance5;
+            buttonTool4.SharedPropsInternal.Caption = "Save Selection(s) As ...";
+            appearance6.Image = 6;
+            buttonTool6.SharedPropsInternal.AppearancesSmall.Appearance = appearance6;
+            buttonTool6.SharedPropsInternal.Caption = "Preview Selection";
+            popupMenuTool1.SharedPropsInternal.Caption = "ContextMenu";
+            buttonTool10.InstanceProps.IsFirstInGroup = true;
+            popupMenuTool1.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
             buttonTool5,
             buttonTool9,
             buttonTool10,
             buttonTool8,
-            buttonTool7,
-            });
-
+            buttonTool7});
             this.m_ctrlToolbarManager.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
             buttonTool1,
             buttonTool2,
@@ -390,68 +385,69 @@ namespace FTI.Trialmax.Panes
             buttonTool4,
             buttonTool6,
             popupMenuTool1});
-			this.m_ctrlToolbarManager.BeforeToolDropdown += new Infragistics.Win.UltraWinToolbars.BeforeToolDropdownEventHandler(this.OnUltraBeforeDropDown);
-			this.m_ctrlToolbarManager.ToolClick += new Infragistics.Win.UltraWinToolbars.ToolClickEventHandler(this.OnUltraToolClick);
-			this.m_ctrlToolbarManager.AfterToolCloseup += new Infragistics.Win.UltraWinToolbars.ToolDropdownEventHandler(this.OnUltraAfterCloseup);
-			this.m_ctrlToolbarManager.BeforeToolbarListDropdown += new Infragistics.Win.UltraWinToolbars.BeforeToolbarListDropdownEventHandler(this.OnUltraBeforeToolbarListDropdown);
-			// 
-			// _CResultsPane_Toolbars_Dock_Area_Left
-			// 
-			this._CResultsPane_Toolbars_Dock_Area_Left.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-			this._CResultsPane_Toolbars_Dock_Area_Left.BackColor = System.Drawing.SystemColors.Control;
-			this._CResultsPane_Toolbars_Dock_Area_Left.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Left;
-			this._CResultsPane_Toolbars_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._CResultsPane_Toolbars_Dock_Area_Left.Location = new System.Drawing.Point(0, 25);
-			this._CResultsPane_Toolbars_Dock_Area_Left.Name = "_CResultsPane_Toolbars_Dock_Area_Left";
-			this._CResultsPane_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 83);
-			this._CResultsPane_Toolbars_Dock_Area_Left.ToolbarsManager = this.m_ctrlToolbarManager;
-			// 
-			// _CResultsPane_Toolbars_Dock_Area_Right
-			// 
-			this._CResultsPane_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-			this._CResultsPane_Toolbars_Dock_Area_Right.BackColor = System.Drawing.SystemColors.Control;
-			this._CResultsPane_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right;
-			this._CResultsPane_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._CResultsPane_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(344, 25);
-			this._CResultsPane_Toolbars_Dock_Area_Right.Name = "_CResultsPane_Toolbars_Dock_Area_Right";
-			this._CResultsPane_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 83);
-			this._CResultsPane_Toolbars_Dock_Area_Right.ToolbarsManager = this.m_ctrlToolbarManager;
-			// 
-			// _CResultsPane_Toolbars_Dock_Area_Top
-			// 
-			this._CResultsPane_Toolbars_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-			this._CResultsPane_Toolbars_Dock_Area_Top.BackColor = System.Drawing.SystemColors.Control;
-			this._CResultsPane_Toolbars_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Top;
-			this._CResultsPane_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._CResultsPane_Toolbars_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
-			this._CResultsPane_Toolbars_Dock_Area_Top.Name = "_CResultsPane_Toolbars_Dock_Area_Top";
-			this._CResultsPane_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(344, 25);
-			this._CResultsPane_Toolbars_Dock_Area_Top.ToolbarsManager = this.m_ctrlToolbarManager;
-			// 
-			// _CResultsPane_Toolbars_Dock_Area_Bottom
-			// 
-			this._CResultsPane_Toolbars_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-			this._CResultsPane_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.SystemColors.Control;
-			this._CResultsPane_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom;
-			this._CResultsPane_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
-			this._CResultsPane_Toolbars_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 108);
-			this._CResultsPane_Toolbars_Dock_Area_Bottom.Name = "_CResultsPane_Toolbars_Dock_Area_Bottom";
-			this._CResultsPane_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(344, 0);
-			this._CResultsPane_Toolbars_Dock_Area_Bottom.ToolbarsManager = this.m_ctrlToolbarManager;
-			// 
-			// CResultsPane
-			// 
-			this.Controls.Add(this.m_ctrlGrid);
-			this.Controls.Add(this._CResultsPane_Toolbars_Dock_Area_Left);
-			this.Controls.Add(this._CResultsPane_Toolbars_Dock_Area_Right);
-			this.Controls.Add(this._CResultsPane_Toolbars_Dock_Area_Top);
-			this.Controls.Add(this._CResultsPane_Toolbars_Dock_Area_Bottom);
-			this.Controls.Add(this.m_ctrlStatus);
-			this.Name = "CResultsPane";
-			this.PaneName = "Search Results";
-			this.Size = new System.Drawing.Size(344, 124);
-			((System.ComponentModel.ISupportInitialize)(this.m_ctrlToolbarManager)).EndInit();
-			this.ResumeLayout(false);
+            this.m_ctrlToolbarManager.AfterToolCloseup += new Infragistics.Win.UltraWinToolbars.ToolDropdownEventHandler(this.OnUltraAfterCloseup);
+            this.m_ctrlToolbarManager.BeforeToolbarListDropdown += new Infragistics.Win.UltraWinToolbars.BeforeToolbarListDropdownEventHandler(this.OnUltraBeforeToolbarListDropdown);
+            this.m_ctrlToolbarManager.BeforeToolDropdown += new Infragistics.Win.UltraWinToolbars.BeforeToolDropdownEventHandler(this.OnUltraBeforeDropDown);
+            this.m_ctrlToolbarManager.ToolClick += new Infragistics.Win.UltraWinToolbars.ToolClickEventHandler(this.OnUltraToolClick);
+            // 
+            // _CResultsPane_Toolbars_Dock_Area_Left
+            // 
+            this._CResultsPane_Toolbars_Dock_Area_Left.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this._CResultsPane_Toolbars_Dock_Area_Left.BackColor = System.Drawing.SystemColors.Control;
+            this._CResultsPane_Toolbars_Dock_Area_Left.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Left;
+            this._CResultsPane_Toolbars_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._CResultsPane_Toolbars_Dock_Area_Left.Location = new System.Drawing.Point(0, 0);
+            this._CResultsPane_Toolbars_Dock_Area_Left.Name = "_CResultsPane_Toolbars_Dock_Area_Left";
+            this._CResultsPane_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 108);
+            this._CResultsPane_Toolbars_Dock_Area_Left.ToolbarsManager = this.m_ctrlToolbarManager;
+            // 
+            // _CResultsPane_Toolbars_Dock_Area_Right
+            // 
+            this._CResultsPane_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this._CResultsPane_Toolbars_Dock_Area_Right.BackColor = System.Drawing.SystemColors.Control;
+            this._CResultsPane_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right;
+            this._CResultsPane_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._CResultsPane_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(344, 0);
+            this._CResultsPane_Toolbars_Dock_Area_Right.Name = "_CResultsPane_Toolbars_Dock_Area_Right";
+            this._CResultsPane_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 108);
+            this._CResultsPane_Toolbars_Dock_Area_Right.ToolbarsManager = this.m_ctrlToolbarManager;
+            // 
+            // _CResultsPane_Toolbars_Dock_Area_Top
+            // 
+            this._CResultsPane_Toolbars_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this._CResultsPane_Toolbars_Dock_Area_Top.BackColor = System.Drawing.SystemColors.Control;
+            this._CResultsPane_Toolbars_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Top;
+            this._CResultsPane_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._CResultsPane_Toolbars_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
+            this._CResultsPane_Toolbars_Dock_Area_Top.Name = "_CResultsPane_Toolbars_Dock_Area_Top";
+            this._CResultsPane_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(344, 0);
+            this._CResultsPane_Toolbars_Dock_Area_Top.ToolbarsManager = this.m_ctrlToolbarManager;
+            // 
+            // _CResultsPane_Toolbars_Dock_Area_Bottom
+            // 
+            this._CResultsPane_Toolbars_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this._CResultsPane_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.SystemColors.Control;
+            this._CResultsPane_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom;
+            this._CResultsPane_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._CResultsPane_Toolbars_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 108);
+            this._CResultsPane_Toolbars_Dock_Area_Bottom.Name = "_CResultsPane_Toolbars_Dock_Area_Bottom";
+            this._CResultsPane_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(344, 0);
+            this._CResultsPane_Toolbars_Dock_Area_Bottom.ToolbarsManager = this.m_ctrlToolbarManager;
+            // 
+            // CResultsPane
+            // 
+            this.Controls.Add(this.m_ctrlGrid);
+            this.Controls.Add(this._CResultsPane_Toolbars_Dock_Area_Left);
+            this.Controls.Add(this._CResultsPane_Toolbars_Dock_Area_Right);
+            this.Controls.Add(this._CResultsPane_Toolbars_Dock_Area_Bottom);
+            this.Controls.Add(this.m_ctrlStatus);
+            this.Controls.Add(this._CResultsPane_Toolbars_Dock_Area_Top);
+            this.Name = "CResultsPane";
+            this.PaneName = "Search Results";
+            this.Size = new System.Drawing.Size(344, 124);
+            ((System.ComponentModel.ISupportInitialize)(this.m_ctrlStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ctrlToolbarManager)).EndInit();
+            this.ResumeLayout(false);
 
 		}
 		

@@ -29,30 +29,31 @@ namespace FTI.Trialmax.TmaxManager
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinDock.DockAreaPane dockAreaPane1 = new Infragistics.Win.UltraWinDock.DockAreaPane(Infragistics.Win.UltraWinDock.DockedLocation.DockedRight, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"));
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane1 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("6780c3bc-0feb-49b3-acc7-3ec8ab9e0343"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane2 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("ce563e1b-fa30-4ed9-8fb6-df12b8ff5223"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane3 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("04b172cf-8686-4f0e-b62e-bbe4dd3b339c"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane4 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("e6924544-31ee-49df-8529-d92f683b0ee0"), new System.Guid("de049042-f47f-4c9f-b0ee-2eb5df5a37d8"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane5 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("95101d18-0367-4a99-a97e-e415555de34b"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane6 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("7493530a-30a2-4b3a-97b5-e23484adabf8"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane1 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("1c818855-4b7a-4157-85aa-b613295f62b8"), new System.Guid("202de6cb-040e-4107-bc73-3b1865ce0cfd"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), 1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane2 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("6780c3bc-0feb-49b3-acc7-3ec8ab9e0343"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane3 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("ce563e1b-fa30-4ed9-8fb6-df12b8ff5223"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane4 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("04b172cf-8686-4f0e-b62e-bbe4dd3b339c"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane5 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("e6924544-31ee-49df-8529-d92f683b0ee0"), new System.Guid("de049042-f47f-4c9f-b0ee-2eb5df5a37d8"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane6 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("95101d18-0367-4a99-a97e-e415555de34b"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane7 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("7493530a-30a2-4b3a-97b5-e23484adabf8"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("ca1f80c4-a2e3-430a-b556-dfbceb97651a"), -1);
             Infragistics.Win.UltraWinDock.DockAreaPane dockAreaPane2 = new Infragistics.Win.UltraWinDock.DockAreaPane(Infragistics.Win.UltraWinDock.DockedLocation.DockedLeft, new System.Guid("eed94c05-0eec-456e-9f0f-41ce99f52eab"));
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane7 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("a6c4c7d4-72e0-4395-84dd-e27e4e6ea07b"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("eed94c05-0eec-456e-9f0f-41ce99f52eab"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane8 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("a6c4c7d4-72e0-4395-84dd-e27e4e6ea07b"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("eed94c05-0eec-456e-9f0f-41ce99f52eab"), -1);
             Infragistics.Win.UltraWinDock.DockableGroupPane dockableGroupPane1 = new Infragistics.Win.UltraWinDock.DockableGroupPane(new System.Guid("45038e1b-01af-481a-be8f-7c8851b934b9"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("eed94c05-0eec-456e-9f0f-41ce99f52eab"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane8 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("6edb9228-5163-4921-8ac9-06d20efcc96e"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("45038e1b-01af-481a-be8f-7c8851b934b9"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane9 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("975f580a-551b-4d47-bfd7-22e4b01e6897"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("45038e1b-01af-481a-be8f-7c8851b934b9"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane9 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("6edb9228-5163-4921-8ac9-06d20efcc96e"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("45038e1b-01af-481a-be8f-7c8851b934b9"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane10 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("975f580a-551b-4d47-bfd7-22e4b01e6897"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("45038e1b-01af-481a-be8f-7c8851b934b9"), -1);
             Infragistics.Win.UltraWinDock.DockAreaPane dockAreaPane3 = new Infragistics.Win.UltraWinDock.DockAreaPane(Infragistics.Win.UltraWinDock.DockedLocation.DockedTop, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"));
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane10 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("9cdd6990-95fb-41b3-8a64-7aae1527fccc"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane11 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("fdb49793-d741-4d70-bc2c-cc4bce3afb33"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane12 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("aa0ff010-f91f-4b80-91ba-81d00d60f58c"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane13 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("8f886d34-b910-430e-8074-e449d4c21460"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane14 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("7fa9ffa3-0442-4ad8-b4fb-c9e87618146b"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane15 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("d2d25e5a-6b66-4d54-ae86-baabf89bb9f4"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane16 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("cb62c32a-0b6c-4f29-93ad-76963a4e5d65"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane17 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("ef7302e7-48cf-429c-a0a9-ddec0129b6b3"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane11 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("7c893a6e-fbb0-4fbf-9492-6c6fcc4413ba"), new System.Guid("2733a411-3799-4537-acec-6b7203c51f83"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), 0);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane12 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("9cdd6990-95fb-41b3-8a64-7aae1527fccc"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane13 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("fdb49793-d741-4d70-bc2c-cc4bce3afb33"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane14 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("aa0ff010-f91f-4b80-91ba-81d00d60f58c"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane15 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("8f886d34-b910-430e-8074-e449d4c21460"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane16 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("7fa9ffa3-0442-4ad8-b4fb-c9e87618146b"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane17 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("d2d25e5a-6b66-4d54-ae86-baabf89bb9f4"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane18 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("cb62c32a-0b6c-4f29-93ad-76963a4e5d65"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
+            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane19 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("ef7302e7-48cf-429c-a0a9-ddec0129b6b3"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e"), -1);
             Infragistics.Win.UltraWinDock.DockAreaPane dockAreaPane4 = new Infragistics.Win.UltraWinDock.DockAreaPane(Infragistics.Win.UltraWinDock.DockedLocation.Floating, new System.Guid("de049042-f47f-4c9f-b0ee-2eb5df5a37d8"));
-            Infragistics.Win.UltraWinDock.DockAreaPane dockAreaPane5 = new Infragistics.Win.UltraWinDock.DockAreaPane(Infragistics.Win.UltraWinDock.DockedLocation.DockedTop, new System.Guid("3dfcad66-44db-436d-8649-0889a4580296"));
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane18 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("7c893a6e-fbb0-4fbf-9492-6c6fcc4413ba"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("3dfcad66-44db-436d-8649-0889a4580296"), -1);
-            Infragistics.Win.UltraWinDock.DockableControlPane dockableControlPane19 = new Infragistics.Win.UltraWinDock.DockableControlPane(new System.Guid("1c818855-4b7a-4157-85aa-b613295f62b8"), new System.Guid("00000000-0000-0000-0000-000000000000"), -1, new System.Guid("3dfcad66-44db-436d-8649-0889a4580296"), -1);
+            Infragistics.Win.UltraWinDock.DockAreaPane dockAreaPane5 = new Infragistics.Win.UltraWinDock.DockAreaPane(Infragistics.Win.UltraWinDock.DockedLocation.Floating, new System.Guid("202de6cb-040e-4107-bc73-3b1865ce0cfd"));
+            Infragistics.Win.UltraWinDock.DockAreaPane dockAreaPane6 = new Infragistics.Win.UltraWinDock.DockAreaPane(Infragistics.Win.UltraWinDock.DockedLocation.Floating, new System.Guid("2733a411-3799-4537-acec-6b7203c51f83"));
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinToolbars.UltraToolbar ultraToolbar1 = new Infragistics.Win.UltraWinToolbars.UltraToolbar("MainMenu");
             Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool1 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("FileMenu");
@@ -271,6 +272,7 @@ namespace FTI.Trialmax.TmaxManager
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool100 = new Infragistics.Win.UltraWinToolbars.ButtonTool("ShowActiveUsers");
             Infragistics.Win.Appearance appearance55 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TmaxManagerForm));
+            this.m_paneRegistration = new FTI.Trialmax.Panes.RegistrationPane();
             this.m_paneTuner = new FTI.Trialmax.Panes.CTunePane();
             this.m_paneProperties = new FTI.Trialmax.Panes.CPropertiesPane();
             this.m_paneVersions = new FTI.Trialmax.Panes.CMessagePane();
@@ -280,6 +282,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneBinders = new FTI.Trialmax.Panes.CBinderTree();
             this.m_paneMedia = new FTI.Trialmax.Panes.CMediaTree();
             this.m_paneFiltered = new FTI.Trialmax.Panes.CFilteredTree();
+            this.m_paneObjections = new FTI.Trialmax.Panes.CObjectionsPane();
             this.m_paneViewer = new FTI.Trialmax.Panes.CMediaViewer();
             this.m_paneScripts = new FTI.Trialmax.Panes.CScriptBuilder();
             this.m_paneTranscripts = new FTI.Trialmax.Panes.CTranscriptPane();
@@ -288,8 +291,6 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneScriptReview = new FTI.Trialmax.Panes.CScriptReviewPane();
             this.m_paneErrors = new FTI.Trialmax.Panes.CMessagePane();
             this.m_paneDiagnostics = new FTI.Trialmax.Panes.CMessagePane();
-            this.m_paneObjections = new FTI.Trialmax.Panes.CObjectionsPane();
-            this.m_paneRegistration = new FTI.Trialmax.Panes.RegistrationPane();
             this.m_ctrlUltraDockManager = new Infragistics.Win.UltraWinDock.UltraDockManager(this.components);
             this._TmaxManagerFormUnpinnedTabAreaLeft = new Infragistics.Win.UltraWinDock.UnpinnedTabArea();
             this._TmaxManagerFormUnpinnedTabAreaRight = new Infragistics.Win.UltraWinDock.UnpinnedTabArea();
@@ -314,6 +315,7 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow4 = new Infragistics.Win.UltraWinDock.DockableWindow();
             this.dockableWindow5 = new Infragistics.Win.UltraWinDock.DockableWindow();
             this.dockableWindow12 = new Infragistics.Win.UltraWinDock.DockableWindow();
+            this.dockableWindow19 = new Infragistics.Win.UltraWinDock.DockableWindow();
             this.dockableWindow8 = new Infragistics.Win.UltraWinDock.DockableWindow();
             this.dockableWindow10 = new Infragistics.Win.UltraWinDock.DockableWindow();
             this.dockableWindow11 = new Infragistics.Win.UltraWinDock.DockableWindow();
@@ -329,8 +331,8 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow13 = new Infragistics.Win.UltraWinDock.DockableWindow();
             this.windowDockingArea1 = new Infragistics.Win.UltraWinDock.WindowDockingArea();
             this.windowDockingArea3 = new Infragistics.Win.UltraWinDock.WindowDockingArea();
-            this.dockableWindow19 = new Infragistics.Win.UltraWinDock.DockableWindow();
-            this.windowDockingArea4 = new Infragistics.Win.UltraWinDock.WindowDockingArea();
+            this.windowDockingArea5 = new Infragistics.Win.UltraWinDock.WindowDockingArea();
+            this.windowDockingArea7 = new Infragistics.Win.UltraWinDock.WindowDockingArea();
             ((System.ComponentModel.ISupportInitialize)(this.m_ctrlUltraDockManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_ctrlUltraToolbarManager)).BeginInit();
             this.m_ctrlMainFillPanel.SuspendLayout();
@@ -343,6 +345,7 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow4.SuspendLayout();
             this.dockableWindow5.SuspendLayout();
             this.dockableWindow12.SuspendLayout();
+            this.dockableWindow19.SuspendLayout();
             this.dockableWindow8.SuspendLayout();
             this.dockableWindow10.SuspendLayout();
             this.dockableWindow11.SuspendLayout();
@@ -357,9 +360,35 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow9.SuspendLayout();
             this.dockableWindow13.SuspendLayout();
             this.windowDockingArea1.SuspendLayout();
-            this.dockableWindow19.SuspendLayout();
-            this.windowDockingArea4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // m_paneRegistration
+            // 
+            this.m_paneRegistration.AllowDrop = true;
+            this.m_paneRegistration.ApplicationOptions = null;
+            this.m_paneRegistration.AsyncCommandArgs = null;
+            this.m_paneRegistration.BackColor = System.Drawing.SystemColors.Control;
+            this.m_paneRegistration.CaseCodes = null;
+            this.m_paneRegistration.CaseOptions = null;
+            this.m_paneRegistration.Database = null;
+            this.m_paneRegistration.Filtered = null;
+            this.m_paneRegistration.Location = new System.Drawing.Point(2, 28);
+            this.m_paneRegistration.MediaTypes = null;
+            this.m_paneRegistration.Name = "m_paneRegistration";
+            this.m_paneRegistration.PaneId = 0;
+            this.m_paneRegistration.PaneName = "";
+            this.m_paneRegistration.PaneVisible = false;
+            this.m_paneRegistration.PresentationOptions = null;
+            this.m_paneRegistration.PresentationOptionsFilename = "";
+            this.m_paneRegistration.RegistrationOptions = null;
+            this.m_paneRegistration.ReportManager = null;
+            this.m_paneRegistration.Size = new System.Drawing.Size(446, 859);
+            this.m_paneRegistration.SourceTypes = null;
+            this.m_paneRegistration.StationOptions = null;
+            this.m_paneRegistration.TabIndex = 33;
+            this.m_paneRegistration.TmaxClipboard = null;
+            this.m_paneRegistration.TmaxProductManager = null;
+            this.m_paneRegistration.TmaxRegistry = null;
             // 
             // m_paneTuner
             // 
@@ -369,7 +398,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneTuner.CaseOptions = null;
             this.m_paneTuner.Database = null;
             this.m_paneTuner.Filtered = null;
-            this.m_paneTuner.Location = new System.Drawing.Point(2, 20);
+            this.m_paneTuner.Location = new System.Drawing.Point(2, 28);
             this.m_paneTuner.MediaTypes = null;
             this.m_paneTuner.Name = "m_paneTuner";
             this.m_paneTuner.PaneId = 0;
@@ -379,7 +408,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneTuner.PresentationOptionsFilename = "";
             this.m_paneTuner.RegistrationOptions = null;
             this.m_paneTuner.ReportManager = null;
-            this.m_paneTuner.Size = new System.Drawing.Size(272, 469);
+            this.m_paneTuner.Size = new System.Drawing.Size(272, 470);
             this.m_paneTuner.SourceTypes = null;
             this.m_paneTuner.StationOptions = null;
             this.m_paneTuner.TabIndex = 24;
@@ -395,7 +424,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneProperties.CaseOptions = null;
             this.m_paneProperties.Database = null;
             this.m_paneProperties.Filtered = null;
-            this.m_paneProperties.Location = new System.Drawing.Point(2, 20);
+            this.m_paneProperties.Location = new System.Drawing.Point(2, 28);
             this.m_paneProperties.MediaTypes = null;
             this.m_paneProperties.Name = "m_paneProperties";
             this.m_paneProperties.PaneId = 0;
@@ -405,7 +434,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneProperties.PresentationOptionsFilename = "";
             this.m_paneProperties.RegistrationOptions = null;
             this.m_paneProperties.ReportManager = null;
-            this.m_paneProperties.Size = new System.Drawing.Size(272, 478);
+            this.m_paneProperties.Size = new System.Drawing.Size(272, 470);
             this.m_paneProperties.SourceTypes = null;
             this.m_paneProperties.StationOptions = null;
             this.m_paneProperties.TabIndex = 20;
@@ -424,7 +453,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneVersions.Database = null;
             this.m_paneVersions.Filtered = null;
             this.m_paneVersions.Format = FTI.Trialmax.Controls.TmaxMessageFormats.Version;
-            this.m_paneVersions.Location = new System.Drawing.Point(2, 20);
+            this.m_paneVersions.Location = new System.Drawing.Point(2, 28);
             this.m_paneVersions.MaxRows = 64;
             this.m_paneVersions.MediaTypes = null;
             this.m_paneVersions.Name = "m_paneVersions";
@@ -435,7 +464,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneVersions.PresentationOptionsFilename = "";
             this.m_paneVersions.RegistrationOptions = null;
             this.m_paneVersions.ReportManager = null;
-            this.m_paneVersions.Size = new System.Drawing.Size(272, 478);
+            this.m_paneVersions.Size = new System.Drawing.Size(272, 470);
             this.m_paneVersions.SourceTypes = null;
             this.m_paneVersions.StationOptions = null;
             this.m_paneVersions.TabIndex = 18;
@@ -451,7 +480,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneCodes.CaseOptions = null;
             this.m_paneCodes.Database = null;
             this.m_paneCodes.Filtered = null;
-            this.m_paneCodes.Location = new System.Drawing.Point(2, 20);
+            this.m_paneCodes.Location = new System.Drawing.Point(2, 28);
             this.m_paneCodes.MediaTypes = null;
             this.m_paneCodes.Name = "m_paneCodes";
             this.m_paneCodes.PaneId = 0;
@@ -461,7 +490,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneCodes.PresentationOptionsFilename = "";
             this.m_paneCodes.RegistrationOptions = null;
             this.m_paneCodes.ReportManager = null;
-            this.m_paneCodes.Size = new System.Drawing.Size(272, 478);
+            this.m_paneCodes.Size = new System.Drawing.Size(272, 796);
             this.m_paneCodes.SourceTypes = null;
             this.m_paneCodes.StationOptions = null;
             this.m_paneCodes.TabIndex = 31;
@@ -477,7 +506,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneObjectionProperties.CaseOptions = null;
             this.m_paneObjectionProperties.Database = null;
             this.m_paneObjectionProperties.Filtered = null;
-            this.m_paneObjectionProperties.Location = new System.Drawing.Point(2, 20);
+            this.m_paneObjectionProperties.Location = new System.Drawing.Point(2, 28);
             this.m_paneObjectionProperties.MediaTypes = null;
             this.m_paneObjectionProperties.Name = "m_paneObjectionProperties";
             this.m_paneObjectionProperties.PaneId = 0;
@@ -487,7 +516,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneObjectionProperties.PresentationOptionsFilename = "";
             this.m_paneObjectionProperties.RegistrationOptions = null;
             this.m_paneObjectionProperties.ReportManager = null;
-            this.m_paneObjectionProperties.Size = new System.Drawing.Size(272, 782);
+            this.m_paneObjectionProperties.Size = new System.Drawing.Size(272, 461);
             this.m_paneObjectionProperties.SourceTypes = null;
             this.m_paneObjectionProperties.StationOptions = null;
             this.m_paneObjectionProperties.TabIndex = 34;
@@ -504,7 +533,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneHelp.CaseOptions = null;
             this.m_paneHelp.Database = null;
             this.m_paneHelp.Filtered = null;
-            this.m_paneHelp.Location = new System.Drawing.Point(2, 20);
+            this.m_paneHelp.Location = new System.Drawing.Point(2, 28);
             this.m_paneHelp.MediaTypes = null;
             this.m_paneHelp.Name = "m_paneHelp";
             this.m_paneHelp.PaneId = 0;
@@ -514,7 +543,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneHelp.PresentationOptionsFilename = "";
             this.m_paneHelp.RegistrationOptions = null;
             this.m_paneHelp.ReportManager = null;
-            this.m_paneHelp.Size = new System.Drawing.Size(272, 469);
+            this.m_paneHelp.Size = new System.Drawing.Size(446, 796);
             this.m_paneHelp.SourceTypes = null;
             this.m_paneHelp.StationOptions = null;
             this.m_paneHelp.TabIndex = 29;
@@ -537,7 +566,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneBinders.EnableDragDrop = true;
             this.m_paneBinders.Filtered = null;
             this.m_paneBinders.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.m_paneBinders.Location = new System.Drawing.Point(2, 20);
+            this.m_paneBinders.Location = new System.Drawing.Point(2, 28);
             this.m_paneBinders.MediaTypes = null;
             this.m_paneBinders.Name = "m_paneBinders";
             this.m_paneBinders.PaneId = 3;
@@ -550,7 +579,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneBinders.RegistrationOptions = null;
             this.m_paneBinders.ReportManager = null;
             this.m_paneBinders.SecondaryTextMode = FTI.Shared.Trialmax.TmaxTextModes.Barcode;
-            this.m_paneBinders.Size = new System.Drawing.Size(293, 252);
+            this.m_paneBinders.Size = new System.Drawing.Size(293, 272);
             this.m_paneBinders.SourceTypes = null;
             this.m_paneBinders.StationOptions = null;
             this.m_paneBinders.SuperNodeSize = 0;
@@ -574,7 +603,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneMedia.EnableDragDrop = true;
             this.m_paneMedia.Filtered = null;
             this.m_paneMedia.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.m_paneMedia.Location = new System.Drawing.Point(2, 20);
+            this.m_paneMedia.Location = new System.Drawing.Point(2, 28);
             this.m_paneMedia.MediaTypes = null;
             this.m_paneMedia.Name = "m_paneMedia";
             this.m_paneMedia.PaneId = 1;
@@ -587,7 +616,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneMedia.RegistrationOptions = null;
             this.m_paneMedia.ReportManager = null;
             this.m_paneMedia.SecondaryTextMode = FTI.Shared.Trialmax.TmaxTextModes.Name;
-            this.m_paneMedia.Size = new System.Drawing.Size(289, 499);
+            this.m_paneMedia.Size = new System.Drawing.Size(289, 548);
             this.m_paneMedia.SourceTypes = null;
             this.m_paneMedia.StationOptions = null;
             this.m_paneMedia.SuperNodeSize = 0;
@@ -610,7 +639,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneFiltered.EnableContextMenu = true;
             this.m_paneFiltered.EnableDragDrop = true;
             this.m_paneFiltered.Filtered = null;
-            this.m_paneFiltered.Location = new System.Drawing.Point(2, 20);
+            this.m_paneFiltered.Location = new System.Drawing.Point(2, 28);
             this.m_paneFiltered.MediaTypes = null;
             this.m_paneFiltered.Name = "m_paneFiltered";
             this.m_paneFiltered.PaneId = 0;
@@ -623,7 +652,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneFiltered.RegistrationOptions = null;
             this.m_paneFiltered.ReportManager = null;
             this.m_paneFiltered.SecondaryTextMode = FTI.Shared.Trialmax.TmaxTextModes.Barcode;
-            this.m_paneFiltered.Size = new System.Drawing.Size(293, 146);
+            this.m_paneFiltered.Size = new System.Drawing.Size(293, 138);
             this.m_paneFiltered.SourceTypes = null;
             this.m_paneFiltered.StationOptions = null;
             this.m_paneFiltered.SuperNodeSize = 0;
@@ -633,6 +662,32 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneFiltered.TmaxProductManager = null;
             this.m_paneFiltered.TmaxRegistry = null;
             // 
+            // m_paneObjections
+            // 
+            this.m_paneObjections.ApplicationOptions = null;
+            this.m_paneObjections.AsyncCommandArgs = null;
+            this.m_paneObjections.CaseCodes = null;
+            this.m_paneObjections.CaseOptions = null;
+            this.m_paneObjections.Database = null;
+            this.m_paneObjections.Filtered = null;
+            this.m_paneObjections.Location = new System.Drawing.Point(2, 28);
+            this.m_paneObjections.MediaTypes = null;
+            this.m_paneObjections.Name = "m_paneObjections";
+            this.m_paneObjections.PaneId = 0;
+            this.m_paneObjections.PaneName = "Objections Pane";
+            this.m_paneObjections.PaneVisible = false;
+            this.m_paneObjections.PresentationOptions = null;
+            this.m_paneObjections.PresentationOptionsFilename = "";
+            this.m_paneObjections.RegistrationOptions = null;
+            this.m_paneObjections.ReportManager = null;
+            this.m_paneObjections.Size = new System.Drawing.Size(993, 634);
+            this.m_paneObjections.SourceTypes = null;
+            this.m_paneObjections.StationOptions = null;
+            this.m_paneObjections.TabIndex = 34;
+            this.m_paneObjections.TmaxClipboard = null;
+            this.m_paneObjections.TmaxProductManager = null;
+            this.m_paneObjections.TmaxRegistry = null;
+            // 
             // m_paneViewer
             // 
             this.m_paneViewer.ApplicationOptions = null;
@@ -641,7 +696,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneViewer.CaseOptions = null;
             this.m_paneViewer.Database = null;
             this.m_paneViewer.Filtered = null;
-            this.m_paneViewer.Location = new System.Drawing.Point(2, 20);
+            this.m_paneViewer.Location = new System.Drawing.Point(2, 28);
             this.m_paneViewer.MediaTypes = null;
             this.m_paneViewer.Name = "m_paneViewer";
             this.m_paneViewer.PaneId = 0;
@@ -651,7 +706,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneViewer.PresentationOptionsFilename = "";
             this.m_paneViewer.RegistrationOptions = null;
             this.m_paneViewer.ReportManager = null;
-            this.m_paneViewer.Size = new System.Drawing.Size(634, 257);
+            this.m_paneViewer.Size = new System.Drawing.Size(632, 314);
             this.m_paneViewer.SourceTypes = null;
             this.m_paneViewer.StationOptions = null;
             this.m_paneViewer.TabIndex = 21;
@@ -670,7 +725,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneScripts.Columns = 2;
             this.m_paneScripts.Database = null;
             this.m_paneScripts.Filtered = null;
-            this.m_paneScripts.Location = new System.Drawing.Point(2, 20);
+            this.m_paneScripts.Location = new System.Drawing.Point(2, 28);
             this.m_paneScripts.MediaTypes = null;
             this.m_paneScripts.Name = "m_paneScripts";
             this.m_paneScripts.PaneId = 0;
@@ -682,7 +737,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneScripts.ReportManager = null;
             this.m_paneScripts.SceneSeparatorSize = 8;
             this.m_paneScripts.SceneTextMode = FTI.Shared.Trialmax.TmaxTextModes.Barcode;
-            this.m_paneScripts.Size = new System.Drawing.Size(632, 322);
+            this.m_paneScripts.Size = new System.Drawing.Size(632, 314);
             this.m_paneScripts.SourceTypes = null;
             this.m_paneScripts.StationOptions = null;
             this.m_paneScripts.StatusTextMode = FTI.Shared.Trialmax.TmaxTextModes.Barcode;
@@ -699,7 +754,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneTranscripts.CaseOptions = null;
             this.m_paneTranscripts.Database = null;
             this.m_paneTranscripts.Filtered = null;
-            this.m_paneTranscripts.Location = new System.Drawing.Point(2, 20);
+            this.m_paneTranscripts.Location = new System.Drawing.Point(2, 28);
             this.m_paneTranscripts.MediaTypes = null;
             this.m_paneTranscripts.Name = "m_paneTranscripts";
             this.m_paneTranscripts.PaneId = 0;
@@ -709,7 +764,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneTranscripts.PresentationOptionsFilename = "";
             this.m_paneTranscripts.RegistrationOptions = null;
             this.m_paneTranscripts.ReportManager = null;
-            this.m_paneTranscripts.Size = new System.Drawing.Size(632, 322);
+            this.m_paneTranscripts.Size = new System.Drawing.Size(1032, 310);
             this.m_paneTranscripts.SourceTypes = null;
             this.m_paneTranscripts.StationOptions = null;
             this.m_paneTranscripts.TabIndex = 23;
@@ -728,7 +783,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneSource.Database = null;
             this.m_paneSource.Filtered = null;
             this.m_paneSource.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.m_paneSource.Location = new System.Drawing.Point(2, 20);
+            this.m_paneSource.Location = new System.Drawing.Point(2, 28);
             this.m_paneSource.MediaTypes = null;
             this.m_paneSource.Name = "m_paneSource";
             this.m_paneSource.PaneId = 2;
@@ -740,7 +795,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneSource.ReportManager = null;
             this.m_paneSource.ShowHidden = false;
             this.m_paneSource.ShowTree = true;
-            this.m_paneSource.Size = new System.Drawing.Size(972, 257);
+            this.m_paneSource.Size = new System.Drawing.Size(972, 249);
             this.m_paneSource.SourceType = FTI.Shared.Trialmax.RegSourceTypes.AllFiles;
             this.m_paneSource.SourceTypes = null;
             this.m_paneSource.StationOptions = null;
@@ -758,7 +813,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneResults.CaseOptions = null;
             this.m_paneResults.Database = null;
             this.m_paneResults.Filtered = null;
-            this.m_paneResults.Location = new System.Drawing.Point(2, 20);
+            this.m_paneResults.Location = new System.Drawing.Point(2, 28);
             this.m_paneResults.MediaTypes = null;
             this.m_paneResults.Name = "m_paneResults";
             this.m_paneResults.PaneId = 0;
@@ -768,7 +823,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneResults.PresentationOptionsFilename = "";
             this.m_paneResults.RegistrationOptions = null;
             this.m_paneResults.ReportManager = null;
-            this.m_paneResults.Size = new System.Drawing.Size(972, 257);
+            this.m_paneResults.Size = new System.Drawing.Size(634, 249);
             this.m_paneResults.SourceTypes = null;
             this.m_paneResults.StationOptions = null;
             this.m_paneResults.TabIndex = 28;
@@ -784,7 +839,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneScriptReview.CaseOptions = null;
             this.m_paneScriptReview.Database = null;
             this.m_paneScriptReview.Filtered = null;
-            this.m_paneScriptReview.Location = new System.Drawing.Point(2, 20);
+            this.m_paneScriptReview.Location = new System.Drawing.Point(2, 28);
             this.m_paneScriptReview.MediaTypes = null;
             this.m_paneScriptReview.Name = "m_paneScriptReview";
             this.m_paneScriptReview.PaneId = 0;
@@ -794,7 +849,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneScriptReview.PresentationOptionsFilename = "";
             this.m_paneScriptReview.RegistrationOptions = null;
             this.m_paneScriptReview.ReportManager = null;
-            this.m_paneScriptReview.Size = new System.Drawing.Size(634, 257);
+            this.m_paneScriptReview.Size = new System.Drawing.Size(632, 314);
             this.m_paneScriptReview.SourceTypes = null;
             this.m_paneScriptReview.StationOptions = null;
             this.m_paneScriptReview.TabIndex = 34;
@@ -813,7 +868,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneErrors.Database = null;
             this.m_paneErrors.Filtered = null;
             this.m_paneErrors.Format = FTI.Trialmax.Controls.TmaxMessageFormats.ErrorArgs;
-            this.m_paneErrors.Location = new System.Drawing.Point(2, 20);
+            this.m_paneErrors.Location = new System.Drawing.Point(2, 28);
             this.m_paneErrors.MaxRows = 32;
             this.m_paneErrors.MediaTypes = null;
             this.m_paneErrors.Name = "m_paneErrors";
@@ -824,7 +879,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneErrors.PresentationOptionsFilename = "";
             this.m_paneErrors.RegistrationOptions = null;
             this.m_paneErrors.ReportManager = null;
-            this.m_paneErrors.Size = new System.Drawing.Size(632, 322);
+            this.m_paneErrors.Size = new System.Drawing.Size(972, 249);
             this.m_paneErrors.SourceTypes = null;
             this.m_paneErrors.StationOptions = null;
             this.m_paneErrors.TabIndex = 15;
@@ -843,7 +898,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneDiagnostics.Database = null;
             this.m_paneDiagnostics.Filtered = null;
             this.m_paneDiagnostics.Format = FTI.Trialmax.Controls.TmaxMessageFormats.DiagnosticArgs;
-            this.m_paneDiagnostics.Location = new System.Drawing.Point(2, 20);
+            this.m_paneDiagnostics.Location = new System.Drawing.Point(2, 28);
             this.m_paneDiagnostics.MaxRows = 64;
             this.m_paneDiagnostics.MediaTypes = null;
             this.m_paneDiagnostics.Name = "m_paneDiagnostics";
@@ -854,67 +909,13 @@ namespace FTI.Trialmax.TmaxManager
             this.m_paneDiagnostics.PresentationOptionsFilename = "";
             this.m_paneDiagnostics.RegistrationOptions = null;
             this.m_paneDiagnostics.ReportManager = null;
-            this.m_paneDiagnostics.Size = new System.Drawing.Size(972, 257);
+            this.m_paneDiagnostics.Size = new System.Drawing.Size(1032, 634);
             this.m_paneDiagnostics.SourceTypes = null;
             this.m_paneDiagnostics.StationOptions = null;
             this.m_paneDiagnostics.TabIndex = 14;
             this.m_paneDiagnostics.TmaxClipboard = null;
             this.m_paneDiagnostics.TmaxProductManager = null;
             this.m_paneDiagnostics.TmaxRegistry = null;
-            // 
-            // m_paneObjections
-            // 
-            this.m_paneObjections.ApplicationOptions = null;
-            this.m_paneObjections.AsyncCommandArgs = null;
-            this.m_paneObjections.CaseCodes = null;
-            this.m_paneObjections.CaseOptions = null;
-            this.m_paneObjections.Database = null;
-            this.m_paneObjections.Filtered = null;
-            this.m_paneObjections.Location = new System.Drawing.Point(2, 20);
-            this.m_paneObjections.MediaTypes = null;
-            this.m_paneObjections.Name = "m_paneObjections";
-            this.m_paneObjections.PaneId = 0;
-            this.m_paneObjections.PaneName = "Objections Pane";
-            this.m_paneObjections.PaneVisible = false;
-            this.m_paneObjections.PresentationOptions = null;
-            this.m_paneObjections.PresentationOptionsFilename = "";
-            this.m_paneObjections.RegistrationOptions = null;
-            this.m_paneObjections.ReportManager = null;
-            this.m_paneObjections.Size = new System.Drawing.Size(972, 218);
-            this.m_paneObjections.SourceTypes = null;
-            this.m_paneObjections.StationOptions = null;
-            this.m_paneObjections.TabIndex = 34;
-            this.m_paneObjections.TmaxClipboard = null;
-            this.m_paneObjections.TmaxProductManager = null;
-            this.m_paneObjections.TmaxRegistry = null;
-            // 
-            // m_paneRegistration
-            // 
-            this.m_paneRegistration.AllowDrop = true;
-            this.m_paneRegistration.ApplicationOptions = null;
-            this.m_paneRegistration.AsyncCommandArgs = null;
-            this.m_paneRegistration.BackColor = System.Drawing.SystemColors.Control;
-            this.m_paneRegistration.CaseCodes = null;
-            this.m_paneRegistration.CaseOptions = null;
-            this.m_paneRegistration.Database = null;
-            this.m_paneRegistration.Filtered = null;
-            this.m_paneRegistration.Location = new System.Drawing.Point(2, 20);
-            this.m_paneRegistration.MediaTypes = null;
-            this.m_paneRegistration.Name = "m_paneRegistration";
-            this.m_paneRegistration.PaneId = 0;
-            this.m_paneRegistration.PaneName = "";
-            this.m_paneRegistration.PaneVisible = false;
-            this.m_paneRegistration.PresentationOptions = null;
-            this.m_paneRegistration.PresentationOptionsFilename = "";
-            this.m_paneRegistration.RegistrationOptions = null;
-            this.m_paneRegistration.ReportManager = null;
-            this.m_paneRegistration.Size = new System.Drawing.Size(972, 140);
-            this.m_paneRegistration.SourceTypes = null;
-            this.m_paneRegistration.StationOptions = null;
-            this.m_paneRegistration.TabIndex = 33;
-            this.m_paneRegistration.TmaxClipboard = null;
-            this.m_paneRegistration.TmaxProductManager = null;
-            this.m_paneRegistration.TmaxRegistry = null;
             // 
             // m_ctrlUltraDockManager
             // 
@@ -930,171 +931,173 @@ namespace FTI.Trialmax.TmaxManager
             this.m_ctrlUltraDockManager.DefaultPaneSettings.TabAppearance = appearance2;
             dockAreaPane1.ChildPaneStyle = Infragistics.Win.UltraWinDock.ChildPaneStyle.TabGroup;
             dockAreaPane1.DockedBefore = new System.Guid("eed94c05-0eec-456e-9f0f-41ce99f52eab");
-            dockableControlPane1.Control = this.m_paneTuner;
-            dockableControlPane1.Key = "Tuner";
-            dockableControlPane1.OriginalControlBounds = new System.Drawing.Rectangle(108, 10, 140, 44);
-            dockableControlPane1.Size = new System.Drawing.Size(285, 240);
-            dockableControlPane1.Text = "Tuner";
-            dockableControlPane1.TextTab = "Tuner";
-            dockableControlPane2.Control = this.m_paneProperties;
-            dockableControlPane2.Key = "Properties";
-            dockableControlPane2.OriginalControlBounds = new System.Drawing.Rectangle(158, 8, 140, 44);
+            dockableControlPane1.Control = this.m_paneRegistration;
+            dockableControlPane1.Key = "RegistrationServer";
+            dockableControlPane1.OriginalControlBounds = new System.Drawing.Rectangle(134, 80, 576, 258);
+            dockableControlPane1.Size = new System.Drawing.Size(980, 81);
+            dockableControlPane1.Text = "Registration Server";
+            dockableControlPane1.TextTab = "Registration";
+            dockableControlPane2.Control = this.m_paneTuner;
+            dockableControlPane2.Key = "Tuner";
+            dockableControlPane2.OriginalControlBounds = new System.Drawing.Rectangle(108, 10, 140, 44);
             dockableControlPane2.Size = new System.Drawing.Size(285, 240);
-            dockableControlPane2.Text = "Properties";
-            dockableControlPane2.TextTab = "Properties";
-            dockableControlPane3.Control = this.m_paneVersions;
-            dockableControlPane3.Key = "Versions";
-            dockableControlPane3.OriginalControlBounds = new System.Drawing.Rectangle(8, 228, 140, 44);
+            dockableControlPane2.Text = "Tuner";
+            dockableControlPane2.TextTab = "Tuner";
+            dockableControlPane3.Control = this.m_paneProperties;
+            dockableControlPane3.Key = "Properties";
+            dockableControlPane3.OriginalControlBounds = new System.Drawing.Rectangle(158, 8, 140, 44);
             dockableControlPane3.Size = new System.Drawing.Size(285, 240);
-            dockableControlPane3.Text = "Versions";
-            dockableControlPane3.TextTab = "Versions";
-            dockableControlPane4.Control = this.m_paneCodes;
-            dockableControlPane4.Key = "Codes";
-            dockableControlPane4.OriginalControlBounds = new System.Drawing.Rectangle(128, 128, 316, 288);
+            dockableControlPane3.Text = "Properties";
+            dockableControlPane3.TextTab = "Properties";
+            dockableControlPane4.Control = this.m_paneVersions;
+            dockableControlPane4.Key = "Versions";
+            dockableControlPane4.OriginalControlBounds = new System.Drawing.Rectangle(8, 228, 140, 44);
             dockableControlPane4.Size = new System.Drawing.Size(285, 240);
-            dockableControlPane4.Text = "Fielded Data";
-            dockableControlPane4.TextTab = "Fielded";
-            dockableControlPane4.ToolTipTab = "";
-            dockableControlPane5.Control = this.m_paneObjectionProperties;
-            dockableControlPane5.Key = "ObjectionProperties";
-            dockableControlPane5.OriginalControlBounds = new System.Drawing.Rectangle(216, 8, 79, 98);
-            dockableControlPane5.Size = new System.Drawing.Size(100, 100);
-            dockableControlPane5.Text = "Objection Props";
-            dockableControlPane5.TextTab = "Objection Props";
+            dockableControlPane4.Text = "Versions";
+            dockableControlPane4.TextTab = "Versions";
+            dockableControlPane5.Control = this.m_paneCodes;
+            dockableControlPane5.Key = "Codes";
+            dockableControlPane5.OriginalControlBounds = new System.Drawing.Rectangle(128, 128, 316, 288);
+            dockableControlPane5.Size = new System.Drawing.Size(285, 240);
+            dockableControlPane5.Text = "Fielded Data";
+            dockableControlPane5.TextTab = "Fielded";
             dockableControlPane5.ToolTipTab = "";
-            dockableControlPane6.Control = this.m_paneHelp;
-            dockableControlPane6.Key = "Help";
-            dockableControlPane6.OriginalControlBounds = new System.Drawing.Rectangle(92, 76, 140, 44);
-            dockableControlPane6.Size = new System.Drawing.Size(285, 240);
-            dockableControlPane6.Text = "Help";
-            dockableControlPane6.TextTab = "Help";
+            dockableControlPane6.Control = this.m_paneObjectionProperties;
+            dockableControlPane6.Key = "ObjectionProperties";
+            dockableControlPane6.OriginalControlBounds = new System.Drawing.Rectangle(216, 8, 79, 98);
+            dockableControlPane6.Size = new System.Drawing.Size(100, 100);
+            dockableControlPane6.Text = "Objection Props";
+            dockableControlPane6.TextTab = "Objection Props";
+            dockableControlPane6.ToolTipTab = "";
+            dockableControlPane7.Control = this.m_paneHelp;
+            dockableControlPane7.Key = "Help";
+            dockableControlPane7.OriginalControlBounds = new System.Drawing.Rectangle(92, 76, 140, 44);
+            dockableControlPane7.Size = new System.Drawing.Size(285, 240);
+            dockableControlPane7.Text = "Help";
+            dockableControlPane7.TextTab = "Help";
             dockAreaPane1.Panes.AddRange(new Infragistics.Win.UltraWinDock.DockablePaneBase[] {
             dockableControlPane1,
             dockableControlPane2,
             dockableControlPane3,
             dockableControlPane4,
             dockableControlPane5,
-            dockableControlPane6});
-            dockAreaPane1.SelectedTabIndex = 4;
-            dockAreaPane1.Size = new System.Drawing.Size(280, 830);
+            dockableControlPane6,
+            dockableControlPane7});
+            dockAreaPane1.Size = new System.Drawing.Size(454, 915);
             dockAreaPane2.DockedBefore = new System.Guid("86f34a60-f2d5-497f-bc73-c4091785de8e");
-            dockableControlPane7.Control = this.m_paneBinders;
-            dockableControlPane7.Key = "Binders";
-            dockableControlPane7.OriginalControlBounds = new System.Drawing.Rectangle(8, 8, 140, 44);
-            dockableControlPane7.Size = new System.Drawing.Size(301, 258);
-            dockableControlPane7.Text = "Binder Tree";
-            dockableControlPane7.TextTab = "Binders";
+            dockableControlPane8.Control = this.m_paneBinders;
+            dockableControlPane8.Key = "Binders";
+            dockableControlPane8.OriginalControlBounds = new System.Drawing.Rectangle(8, 8, 140, 44);
+            dockableControlPane8.Size = new System.Drawing.Size(301, 258);
+            dockableControlPane8.Text = "Binder Tree";
+            dockableControlPane8.TextTab = "Binders";
             dockableGroupPane1.ChildPaneStyle = Infragistics.Win.UltraWinDock.ChildPaneStyle.TabGroup;
-            dockableControlPane8.Control = this.m_paneMedia;
-            dockableControlPane8.Key = "Media";
-            dockableControlPane8.OriginalControlBounds = new System.Drawing.Rectangle(8, 63, 140, 44);
-            dockableControlPane8.Size = new System.Drawing.Size(163, 240);
-            dockableControlPane8.Text = "Media Tree";
-            dockableControlPane8.TextTab = "Media";
-            dockableControlPane9.Control = this.m_paneFiltered;
-            dockableControlPane9.Key = "FilteredTree";
-            dockableControlPane9.OriginalControlBounds = new System.Drawing.Rectangle(36, 64, 92, 48);
+            dockableControlPane9.Control = this.m_paneMedia;
+            dockableControlPane9.Key = "Media";
+            dockableControlPane9.OriginalControlBounds = new System.Drawing.Rectangle(8, 63, 140, 44);
             dockableControlPane9.Size = new System.Drawing.Size(163, 240);
-            dockableControlPane9.Text = "Filtered Tree";
-            dockableControlPane9.TextTab = "Filtered";
+            dockableControlPane9.Text = "Media Tree";
+            dockableControlPane9.TextTab = "Media";
+            dockableControlPane10.Control = this.m_paneFiltered;
+            dockableControlPane10.Key = "FilteredTree";
+            dockableControlPane10.OriginalControlBounds = new System.Drawing.Rectangle(36, 64, 92, 48);
+            dockableControlPane10.Size = new System.Drawing.Size(163, 240);
+            dockableControlPane10.Text = "Filtered Tree";
+            dockableControlPane10.TextTab = "Filtered";
             dockableGroupPane1.Panes.AddRange(new Infragistics.Win.UltraWinDock.DockablePaneBase[] {
-            dockableControlPane8,
-            dockableControlPane9});
+            dockableControlPane9,
+            dockableControlPane10});
             dockableGroupPane1.Size = new System.Drawing.Size(301, 517);
             dockAreaPane2.Panes.AddRange(new Infragistics.Win.UltraWinDock.DockablePaneBase[] {
-            dockableControlPane7,
+            dockableControlPane8,
             dockableGroupPane1});
-            dockAreaPane2.Size = new System.Drawing.Size(301, 830);
+            dockAreaPane2.Size = new System.Drawing.Size(301, 915);
             dockAreaPane3.ChildPaneStyle = Infragistics.Win.UltraWinDock.ChildPaneStyle.TabGroup;
             dockAreaPane3.DockedBefore = new System.Guid("de049042-f47f-4c9f-b0ee-2eb5df5a37d8");
-            dockableControlPane10.Control = this.m_paneViewer;
-            dockableControlPane10.Key = "Viewer";
-            dockableControlPane10.OriginalControlBounds = new System.Drawing.Rectangle(184, 96, 140, 44);
-            dockableControlPane10.Size = new System.Drawing.Size(142, 122);
-            dockableControlPane10.Text = "Media Viewer";
-            dockableControlPane10.TextTab = "Viewer";
-            dockableControlPane11.Control = this.m_paneScripts;
-            dockableControlPane11.Key = "Scripts";
-            dockableControlPane11.OriginalControlBounds = new System.Drawing.Rectangle(156, 44, 140, 68);
-            dockableControlPane11.Size = new System.Drawing.Size(142, 122);
-            dockableControlPane11.Text = "Script Builder";
-            dockableControlPane11.TextTab = "Scripts";
-            dockableControlPane12.Control = this.m_paneTranscripts;
-            dockableControlPane12.Key = "Transcripts";
-            dockableControlPane12.OriginalControlBounds = new System.Drawing.Rectangle(32, 64, 140, 44);
+            dockableControlPane11.Control = this.m_paneObjections;
+            dockableControlPane11.Key = "Objections";
+            dockableControlPane11.OriginalControlBounds = new System.Drawing.Rectangle(90, 12, 226, 230);
+            dockableControlPane11.Size = new System.Drawing.Size(100, 119);
+            dockableControlPane11.Text = "Objections";
+            dockableControlPane11.TextTab = "Objections";
+            dockableControlPane12.Control = this.m_paneViewer;
+            dockableControlPane12.Key = "Viewer";
+            dockableControlPane12.OriginalControlBounds = new System.Drawing.Rectangle(184, 96, 140, 44);
             dockableControlPane12.Size = new System.Drawing.Size(142, 122);
-            dockableControlPane12.Text = "Transcripts";
-            dockableControlPane12.TextTab = "Transcripts";
-            dockableControlPane13.Control = this.m_paneSource;
-            dockableControlPane13.Key = "Source";
-            dockableControlPane13.OriginalControlBounds = new System.Drawing.Rectangle(160, 164, 140, 44);
+            dockableControlPane12.Text = "Media Viewer";
+            dockableControlPane12.TextTab = "Viewer";
+            dockableControlPane13.Control = this.m_paneScripts;
+            dockableControlPane13.Key = "Scripts";
+            dockableControlPane13.OriginalControlBounds = new System.Drawing.Rectangle(156, 44, 140, 68);
             dockableControlPane13.Size = new System.Drawing.Size(142, 122);
-            dockableControlPane13.Text = "Source Explorer";
-            dockableControlPane13.TextTab = "Source";
-            dockableControlPane14.Control = this.m_paneResults;
-            dockableControlPane14.Key = "Results";
-            dockableControlPane14.OriginalControlBounds = new System.Drawing.Rectangle(132, 48, 32, 44);
-            dockableControlPane14.Size = new System.Drawing.Size(163, 240);
-            dockableControlPane14.Text = "Search Results";
-            dockableControlPane14.TextTab = "Results";
-            dockableControlPane15.Control = this.m_paneScriptReview;
-            dockableControlPane15.Key = "ScriptReview";
-            dockableControlPane15.OriginalControlBounds = new System.Drawing.Rectangle(-41, 28, 208, 90);
-            dockableControlPane15.Size = new System.Drawing.Size(100, 100);
-            dockableControlPane15.Text = "Script Review";
-            dockableControlPane15.TextTab = "Script Review";
-            dockableControlPane16.Control = this.m_paneErrors;
-            dockableControlPane16.Key = "Errors";
-            dockableControlPane16.OriginalControlBounds = new System.Drawing.Rectangle(8, 118, 140, 44);
-            dockableControlPane16.Size = new System.Drawing.Size(285, 240);
-            dockableControlPane16.Text = "Error Messages";
-            dockableControlPane16.TextTab = "Errors";
-            dockableControlPane17.Control = this.m_paneDiagnostics;
-            dockableControlPane17.Key = "Diagnostics";
-            dockableControlPane17.OriginalControlBounds = new System.Drawing.Rectangle(8, 173, 140, 44);
-            dockableControlPane17.Size = new System.Drawing.Size(285, 240);
-            dockableControlPane17.Text = "Diagnostic Messages";
-            dockableControlPane17.TextTab = "Diagnostics";
+            dockableControlPane13.Text = "Script Builder";
+            dockableControlPane13.TextTab = "Scripts";
+            dockableControlPane14.Control = this.m_paneTranscripts;
+            dockableControlPane14.Key = "Transcripts";
+            dockableControlPane14.OriginalControlBounds = new System.Drawing.Rectangle(32, 64, 140, 44);
+            dockableControlPane14.Size = new System.Drawing.Size(142, 122);
+            dockableControlPane14.Text = "Transcripts";
+            dockableControlPane14.TextTab = "Transcripts";
+            dockableControlPane15.Control = this.m_paneSource;
+            dockableControlPane15.Key = "Source";
+            dockableControlPane15.OriginalControlBounds = new System.Drawing.Rectangle(160, 164, 140, 44);
+            dockableControlPane15.Size = new System.Drawing.Size(142, 122);
+            dockableControlPane15.Text = "Source Explorer";
+            dockableControlPane15.TextTab = "Source";
+            dockableControlPane16.Control = this.m_paneResults;
+            dockableControlPane16.Key = "Results";
+            dockableControlPane16.OriginalControlBounds = new System.Drawing.Rectangle(132, 48, 32, 44);
+            dockableControlPane16.Size = new System.Drawing.Size(163, 240);
+            dockableControlPane16.Text = "Search Results";
+            dockableControlPane16.TextTab = "Results";
+            dockableControlPane17.Control = this.m_paneScriptReview;
+            dockableControlPane17.Key = "ScriptReview";
+            dockableControlPane17.OriginalControlBounds = new System.Drawing.Rectangle(-41, 28, 208, 90);
+            dockableControlPane17.Size = new System.Drawing.Size(100, 100);
+            dockableControlPane17.Text = "Script Review";
+            dockableControlPane17.TextTab = "Script Review";
+            dockableControlPane18.Control = this.m_paneErrors;
+            dockableControlPane18.Key = "Errors";
+            dockableControlPane18.OriginalControlBounds = new System.Drawing.Rectangle(8, 118, 140, 44);
+            dockableControlPane18.Size = new System.Drawing.Size(285, 240);
+            dockableControlPane18.Text = "Error Messages";
+            dockableControlPane18.TextTab = "Errors";
+            dockableControlPane19.Control = this.m_paneDiagnostics;
+            dockableControlPane19.Key = "Diagnostics";
+            dockableControlPane19.OriginalControlBounds = new System.Drawing.Rectangle(8, 173, 140, 44);
+            dockableControlPane19.Size = new System.Drawing.Size(285, 240);
+            dockableControlPane19.Text = "Diagnostic Messages";
+            dockableControlPane19.TextTab = "Diagnostics";
             dockAreaPane3.Panes.AddRange(new Infragistics.Win.UltraWinDock.DockablePaneBase[] {
-            dockableControlPane10,
             dockableControlPane11,
             dockableControlPane12,
             dockableControlPane13,
             dockableControlPane14,
             dockableControlPane15,
             dockableControlPane16,
-            dockableControlPane17});
-            dockAreaPane3.SelectedTabIndex = 3;
-            dockAreaPane3.Size = new System.Drawing.Size(980, 305);
-            dockAreaPane4.DockedBefore = new System.Guid("3dfcad66-44db-436d-8649-0889a4580296");
-            dockAreaPane4.FloatingLocation = new System.Drawing.Point(485, 156);
-            dockAreaPane4.Size = new System.Drawing.Size(100, 100);
-            dockableControlPane18.Control = this.m_paneObjections;
-            dockableControlPane18.Key = "Objections";
-            dockableControlPane18.OriginalControlBounds = new System.Drawing.Rectangle(90, 12, 226, 230);
-            dockableControlPane18.Size = new System.Drawing.Size(100, 119);
-            dockableControlPane18.Text = "Objections";
-            dockableControlPane18.TextTab = "Objections";
-            dockableControlPane19.Control = this.m_paneRegistration;
-            dockableControlPane19.Key = "RegistrationServer";
-            dockableControlPane19.OriginalControlBounds = new System.Drawing.Rectangle(134, 80, 576, 258);
-            dockableControlPane19.Size = new System.Drawing.Size(980, 81);
-            dockableControlPane19.Text = "Registration Server";
-            dockableControlPane19.TextTab = "Registration";
-            dockAreaPane5.Panes.AddRange(new Infragistics.Win.UltraWinDock.DockablePaneBase[] {
+            dockableControlPane17,
             dockableControlPane18,
             dockableControlPane19});
-            dockAreaPane5.SelectedTabIndex = 1;
-            dockAreaPane5.Size = new System.Drawing.Size(980, 411);
+            dockAreaPane3.Size = new System.Drawing.Size(1001, 690);
+            dockAreaPane4.DockedBefore = new System.Guid("202de6cb-040e-4107-bc73-3b1865ce0cfd");
+            dockAreaPane4.FloatingLocation = new System.Drawing.Point(485, 156);
+            dockAreaPane4.Size = new System.Drawing.Size(100, 100);
+            dockAreaPane5.DockedBefore = new System.Guid("2733a411-3799-4537-acec-6b7203c51f83");
+            dockAreaPane5.FloatingLocation = new System.Drawing.Point(1518, 519);
+            dockAreaPane5.Size = new System.Drawing.Size(1206, 158);
+            dockAreaPane6.FloatingLocation = new System.Drawing.Point(864, 482);
+            dockAreaPane6.Size = new System.Drawing.Size(1032, 403);
             this.m_ctrlUltraDockManager.DockAreas.AddRange(new Infragistics.Win.UltraWinDock.DockAreaPane[] {
             dockAreaPane1,
             dockAreaPane2,
             dockAreaPane3,
             dockAreaPane4,
-            dockAreaPane5});
-            this.m_ctrlUltraDockManager.DragWindowStyle = Infragistics.Win.UltraWinDock.DragWindowStyle.LayeredWindow;
+            dockAreaPane5,
+            dockAreaPane6});
+            this.m_ctrlUltraDockManager.DragWindowStyle = Infragistics.Win.UltraWinDock.DragWindowStyle.LayeredWindowWithIndicators;
             this.m_ctrlUltraDockManager.HostControl = this;
             this.m_ctrlUltraDockManager.ShowPinButton = false;
+            this.m_ctrlUltraDockManager.WindowStyle = Infragistics.Win.UltraWinDock.WindowStyle.Office2003;
             this.m_ctrlUltraDockManager.AfterPaneButtonClick += new Infragistics.Win.UltraWinDock.PaneButtonEventHandler(this.OnUltraPaneButtonClick);
             this.m_ctrlUltraDockManager.PaneActivate += new Infragistics.Win.UltraWinDock.ControlPaneEventHandler(this.OnUltraPaneActivate);
             this.m_ctrlUltraDockManager.PaneDeactivate += new Infragistics.Win.UltraWinDock.ControlPaneEventHandler(this.OnUltraPaneDectivate);
@@ -1107,18 +1110,18 @@ namespace FTI.Trialmax.TmaxManager
             this._TmaxManagerFormUnpinnedTabAreaLeft.Name = "_TmaxManagerFormUnpinnedTabAreaLeft";
             this._TmaxManagerFormUnpinnedTabAreaLeft.Owner = this.m_ctrlUltraDockManager;
             this._TmaxManagerFormUnpinnedTabAreaLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this._TmaxManagerFormUnpinnedTabAreaLeft.Size = new System.Drawing.Size(0, 830);
+            this._TmaxManagerFormUnpinnedTabAreaLeft.Size = new System.Drawing.Size(0, 852);
             this._TmaxManagerFormUnpinnedTabAreaLeft.TabIndex = 1;
             // 
             // _TmaxManagerFormUnpinnedTabAreaRight
             // 
             this._TmaxManagerFormUnpinnedTabAreaRight.Dock = System.Windows.Forms.DockStyle.Right;
             this._TmaxManagerFormUnpinnedTabAreaRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._TmaxManagerFormUnpinnedTabAreaRight.Location = new System.Drawing.Point(1571, 26);
+            this._TmaxManagerFormUnpinnedTabAreaRight.Location = new System.Drawing.Point(1805, 26);
             this._TmaxManagerFormUnpinnedTabAreaRight.Name = "_TmaxManagerFormUnpinnedTabAreaRight";
             this._TmaxManagerFormUnpinnedTabAreaRight.Owner = this.m_ctrlUltraDockManager;
             this._TmaxManagerFormUnpinnedTabAreaRight.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this._TmaxManagerFormUnpinnedTabAreaRight.Size = new System.Drawing.Size(0, 830);
+            this._TmaxManagerFormUnpinnedTabAreaRight.Size = new System.Drawing.Size(0, 852);
             this._TmaxManagerFormUnpinnedTabAreaRight.TabIndex = 2;
             // 
             // _TmaxManagerFormUnpinnedTabAreaTop
@@ -1129,18 +1132,18 @@ namespace FTI.Trialmax.TmaxManager
             this._TmaxManagerFormUnpinnedTabAreaTop.Name = "_TmaxManagerFormUnpinnedTabAreaTop";
             this._TmaxManagerFormUnpinnedTabAreaTop.Owner = this.m_ctrlUltraDockManager;
             this._TmaxManagerFormUnpinnedTabAreaTop.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this._TmaxManagerFormUnpinnedTabAreaTop.Size = new System.Drawing.Size(1571, 0);
+            this._TmaxManagerFormUnpinnedTabAreaTop.Size = new System.Drawing.Size(1805, 0);
             this._TmaxManagerFormUnpinnedTabAreaTop.TabIndex = 3;
             // 
             // _TmaxManagerFormUnpinnedTabAreaBottom
             // 
             this._TmaxManagerFormUnpinnedTabAreaBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._TmaxManagerFormUnpinnedTabAreaBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._TmaxManagerFormUnpinnedTabAreaBottom.Location = new System.Drawing.Point(0, 856);
+            this._TmaxManagerFormUnpinnedTabAreaBottom.Location = new System.Drawing.Point(0, 878);
             this._TmaxManagerFormUnpinnedTabAreaBottom.Name = "_TmaxManagerFormUnpinnedTabAreaBottom";
             this._TmaxManagerFormUnpinnedTabAreaBottom.Owner = this.m_ctrlUltraDockManager;
             this._TmaxManagerFormUnpinnedTabAreaBottom.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this._TmaxManagerFormUnpinnedTabAreaBottom.Size = new System.Drawing.Size(1571, 0);
+            this._TmaxManagerFormUnpinnedTabAreaBottom.Size = new System.Drawing.Size(1805, 0);
             this._TmaxManagerFormUnpinnedTabAreaBottom.TabIndex = 4;
             // 
             // _TmaxManagerFormAutoHideControl
@@ -1213,7 +1216,7 @@ namespace FTI.Trialmax.TmaxManager
             this._TmaxManagerForm_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._TmaxManagerForm_Toolbars_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
             this._TmaxManagerForm_Toolbars_Dock_Area_Top.Name = "_TmaxManagerForm_Toolbars_Dock_Area_Top";
-            this._TmaxManagerForm_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(1571, 26);
+            this._TmaxManagerForm_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(1766, 26);
             this._TmaxManagerForm_Toolbars_Dock_Area_Top.ToolbarsManager = this.m_ctrlUltraToolbarManager;
             // 
             // m_ctrlUltraToolbarManager
@@ -1741,9 +1744,9 @@ namespace FTI.Trialmax.TmaxManager
             this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(190)))), ((int)(((byte)(245)))));
             this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom;
             this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 856);
+            this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 941);
             this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.Name = "_TmaxManagerForm_Toolbars_Dock_Area_Bottom";
-            this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(1571, 0);
+            this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(1766, 0);
             this._TmaxManagerForm_Toolbars_Dock_Area_Bottom.ToolbarsManager = this.m_ctrlUltraToolbarManager;
             // 
             // _TmaxManagerForm_Toolbars_Dock_Area_Left
@@ -1754,7 +1757,7 @@ namespace FTI.Trialmax.TmaxManager
             this._TmaxManagerForm_Toolbars_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
             this._TmaxManagerForm_Toolbars_Dock_Area_Left.Location = new System.Drawing.Point(0, 26);
             this._TmaxManagerForm_Toolbars_Dock_Area_Left.Name = "_TmaxManagerForm_Toolbars_Dock_Area_Left";
-            this._TmaxManagerForm_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 830);
+            this._TmaxManagerForm_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 915);
             this._TmaxManagerForm_Toolbars_Dock_Area_Left.ToolbarsManager = this.m_ctrlUltraToolbarManager;
             // 
             // _TmaxManagerForm_Toolbars_Dock_Area_Right
@@ -1763,9 +1766,9 @@ namespace FTI.Trialmax.TmaxManager
             this._TmaxManagerForm_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(190)))), ((int)(((byte)(245)))));
             this._TmaxManagerForm_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right;
             this._TmaxManagerForm_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._TmaxManagerForm_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(1571, 26);
+            this._TmaxManagerForm_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(1766, 26);
             this._TmaxManagerForm_Toolbars_Dock_Area_Right.Name = "_TmaxManagerForm_Toolbars_Dock_Area_Right";
-            this._TmaxManagerForm_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 830);
+            this._TmaxManagerForm_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 915);
             this._TmaxManagerForm_Toolbars_Dock_Area_Right.ToolbarsManager = this.m_ctrlUltraToolbarManager;
             // 
             // m_ctrlMainFillPanel
@@ -1777,9 +1780,9 @@ namespace FTI.Trialmax.TmaxManager
             this.m_ctrlMainFillPanel.Controls.Add(this.m_tmxPrint);
             this.m_ctrlMainFillPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.m_ctrlMainFillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.m_ctrlMainFillPanel.Location = new System.Drawing.Point(306, 752);
+            this.m_ctrlMainFillPanel.Location = new System.Drawing.Point(306, 721);
             this.m_ctrlMainFillPanel.Name = "m_ctrlMainFillPanel";
-            this.m_ctrlMainFillPanel.Size = new System.Drawing.Size(980, 104);
+            this.m_ctrlMainFillPanel.Size = new System.Drawing.Size(1001, 220);
             this.m_ctrlMainFillPanel.TabIndex = 5;
             // 
             // m_tmxView
@@ -1863,68 +1866,78 @@ namespace FTI.Trialmax.TmaxManager
             this.windowDockingArea6.Controls.Add(this.dockableWindow4);
             this.windowDockingArea6.Controls.Add(this.dockableWindow5);
             this.windowDockingArea6.Controls.Add(this.dockableWindow12);
+            this.windowDockingArea6.Controls.Add(this.dockableWindow19);
             this.windowDockingArea6.Dock = System.Windows.Forms.DockStyle.Right;
             this.windowDockingArea6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.windowDockingArea6.Location = new System.Drawing.Point(1286, 26);
+            this.windowDockingArea6.Location = new System.Drawing.Point(1307, 26);
             this.windowDockingArea6.Name = "windowDockingArea6";
             this.windowDockingArea6.Owner = this.m_ctrlUltraDockManager;
             this.windowDockingArea6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.windowDockingArea6.Size = new System.Drawing.Size(285, 830);
+            this.windowDockingArea6.Size = new System.Drawing.Size(459, 915);
             this.windowDockingArea6.TabIndex = 38;
             // 
             // dockableWindow1
             // 
-            this.dockableWindow1.Controls.Add(this.m_paneTuner);
-            this.dockableWindow1.Location = new System.Drawing.Point(-10000, 2);
+            this.dockableWindow1.Controls.Add(this.m_paneRegistration);
+            this.dockableWindow1.Location = new System.Drawing.Point(7, 2);
             this.dockableWindow1.Name = "dockableWindow1";
             this.dockableWindow1.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow1.Size = new System.Drawing.Size(276, 493);
-            this.dockableWindow1.TabIndex = 58;
+            this.dockableWindow1.Size = new System.Drawing.Size(450, 891);
+            this.dockableWindow1.TabIndex = 43;
             // 
             // dockableWindow2
             // 
-            this.dockableWindow2.Controls.Add(this.m_paneProperties);
+            this.dockableWindow2.Controls.Add(this.m_paneTuner);
             this.dockableWindow2.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow2.Name = "dockableWindow2";
             this.dockableWindow2.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow2.Size = new System.Drawing.Size(276, 502);
-            this.dockableWindow2.TabIndex = 59;
+            this.dockableWindow2.TabIndex = 44;
             // 
             // dockableWindow3
             // 
-            this.dockableWindow3.Controls.Add(this.m_paneVersions);
+            this.dockableWindow3.Controls.Add(this.m_paneProperties);
             this.dockableWindow3.Location = new System.Drawing.Point(-10000, 0);
             this.dockableWindow3.Name = "dockableWindow3";
             this.dockableWindow3.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow3.Size = new System.Drawing.Size(0, 0);
-            this.dockableWindow3.TabIndex = 60;
+            this.dockableWindow3.TabIndex = 45;
             // 
             // dockableWindow4
             // 
-            this.dockableWindow4.Controls.Add(this.m_paneCodes);
+            this.dockableWindow4.Controls.Add(this.m_paneVersions);
             this.dockableWindow4.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow4.Name = "dockableWindow4";
             this.dockableWindow4.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow4.Size = new System.Drawing.Size(276, 502);
-            this.dockableWindow4.TabIndex = 61;
+            this.dockableWindow4.TabIndex = 46;
             // 
             // dockableWindow5
             // 
-            this.dockableWindow5.Controls.Add(this.m_paneObjectionProperties);
-            this.dockableWindow5.Location = new System.Drawing.Point(7, 2);
+            this.dockableWindow5.Controls.Add(this.m_paneCodes);
+            this.dockableWindow5.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow5.Name = "dockableWindow5";
             this.dockableWindow5.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow5.Size = new System.Drawing.Size(276, 806);
-            this.dockableWindow5.TabIndex = 62;
+            this.dockableWindow5.Size = new System.Drawing.Size(276, 828);
+            this.dockableWindow5.TabIndex = 47;
             // 
             // dockableWindow12
             // 
-            this.dockableWindow12.Controls.Add(this.m_paneHelp);
+            this.dockableWindow12.Controls.Add(this.m_paneObjectionProperties);
             this.dockableWindow12.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow12.Name = "dockableWindow12";
             this.dockableWindow12.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow12.Size = new System.Drawing.Size(276, 493);
-            this.dockableWindow12.TabIndex = 63;
+            this.dockableWindow12.TabIndex = 48;
+            // 
+            // dockableWindow19
+            // 
+            this.dockableWindow19.Controls.Add(this.m_paneHelp);
+            this.dockableWindow19.Location = new System.Drawing.Point(-10000, 2);
+            this.dockableWindow19.Name = "dockableWindow19";
+            this.dockableWindow19.Owner = this.m_ctrlUltraDockManager;
+            this.dockableWindow19.Size = new System.Drawing.Size(450, 828);
+            this.dockableWindow19.TabIndex = 49;
             // 
             // dockableWindow8
             // 
@@ -1932,17 +1945,17 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow8.Location = new System.Drawing.Point(2, 2);
             this.dockableWindow8.Name = "dockableWindow8";
             this.dockableWindow8.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow8.Size = new System.Drawing.Size(297, 274);
-            this.dockableWindow8.TabIndex = 64;
+            this.dockableWindow8.Size = new System.Drawing.Size(297, 302);
+            this.dockableWindow8.TabIndex = 50;
             // 
             // dockableWindow10
             // 
             this.dockableWindow10.Controls.Add(this.m_paneMedia);
-            this.dockableWindow10.Location = new System.Drawing.Point(4, 283);
+            this.dockableWindow10.Location = new System.Drawing.Point(4, 311);
             this.dockableWindow10.Name = "dockableWindow10";
             this.dockableWindow10.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow10.Size = new System.Drawing.Size(293, 523);
-            this.dockableWindow10.TabIndex = 65;
+            this.dockableWindow10.Size = new System.Drawing.Size(293, 580);
+            this.dockableWindow10.TabIndex = 51;
             // 
             // dockableWindow11
             // 
@@ -1951,7 +1964,7 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow11.Name = "dockableWindow11";
             this.dockableWindow11.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow11.Size = new System.Drawing.Size(297, 170);
-            this.dockableWindow11.TabIndex = 66;
+            this.dockableWindow11.TabIndex = 52;
             // 
             // windowDockingArea2
             // 
@@ -1964,89 +1977,89 @@ namespace FTI.Trialmax.TmaxManager
             this.windowDockingArea2.Name = "windowDockingArea2";
             this.windowDockingArea2.Owner = this.m_ctrlUltraDockManager;
             this.windowDockingArea2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.windowDockingArea2.Size = new System.Drawing.Size(306, 830);
+            this.windowDockingArea2.Size = new System.Drawing.Size(306, 915);
             this.windowDockingArea2.TabIndex = 11;
             // 
             // dockableWindow14
             // 
-            this.dockableWindow14.Controls.Add(this.m_paneViewer);
-            this.dockableWindow14.Location = new System.Drawing.Point(-10000, 2);
+            this.dockableWindow14.Controls.Add(this.m_paneObjections);
+            this.dockableWindow14.Location = new System.Drawing.Point(2, 2);
             this.dockableWindow14.Name = "dockableWindow14";
             this.dockableWindow14.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow14.Size = new System.Drawing.Size(638, 281);
-            this.dockableWindow14.TabIndex = 67;
+            this.dockableWindow14.Size = new System.Drawing.Size(997, 666);
+            this.dockableWindow14.TabIndex = 53;
             // 
             // dockableWindow15
             // 
-            this.dockableWindow15.Controls.Add(this.m_paneScripts);
+            this.dockableWindow15.Controls.Add(this.m_paneViewer);
             this.dockableWindow15.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow15.Name = "dockableWindow15";
             this.dockableWindow15.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow15.Size = new System.Drawing.Size(636, 346);
-            this.dockableWindow15.TabIndex = 68;
+            this.dockableWindow15.TabIndex = 54;
             // 
             // dockableWindow16
             // 
-            this.dockableWindow16.Controls.Add(this.m_paneTranscripts);
+            this.dockableWindow16.Controls.Add(this.m_paneScripts);
             this.dockableWindow16.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow16.Name = "dockableWindow16";
             this.dockableWindow16.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow16.Size = new System.Drawing.Size(636, 346);
-            this.dockableWindow16.TabIndex = 69;
+            this.dockableWindow16.TabIndex = 55;
             // 
             // dockableWindow17
             // 
-            this.dockableWindow17.Controls.Add(this.m_paneSource);
-            this.dockableWindow17.Location = new System.Drawing.Point(2, 2);
+            this.dockableWindow17.Controls.Add(this.m_paneTranscripts);
+            this.dockableWindow17.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow17.Name = "dockableWindow17";
             this.dockableWindow17.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow17.Size = new System.Drawing.Size(976, 281);
-            this.dockableWindow17.TabIndex = 70;
+            this.dockableWindow17.Size = new System.Drawing.Size(1036, 342);
+            this.dockableWindow17.TabIndex = 56;
             // 
             // dockableWindow18
             // 
-            this.dockableWindow18.Controls.Add(this.m_paneResults);
+            this.dockableWindow18.Controls.Add(this.m_paneSource);
             this.dockableWindow18.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow18.Name = "dockableWindow18";
             this.dockableWindow18.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow18.Size = new System.Drawing.Size(976, 281);
-            this.dockableWindow18.TabIndex = 71;
+            this.dockableWindow18.TabIndex = 57;
             // 
             // dockableWindow6
             // 
-            this.dockableWindow6.Controls.Add(this.m_paneScriptReview);
+            this.dockableWindow6.Controls.Add(this.m_paneResults);
             this.dockableWindow6.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow6.Name = "dockableWindow6";
             this.dockableWindow6.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow6.Size = new System.Drawing.Size(638, 281);
-            this.dockableWindow6.TabIndex = 72;
+            this.dockableWindow6.TabIndex = 58;
             // 
             // dockableWindow7
             // 
-            this.dockableWindow7.Controls.Add(this.m_paneErrors);
+            this.dockableWindow7.Controls.Add(this.m_paneScriptReview);
             this.dockableWindow7.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow7.Name = "dockableWindow7";
             this.dockableWindow7.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow7.Size = new System.Drawing.Size(636, 346);
-            this.dockableWindow7.TabIndex = 73;
+            this.dockableWindow7.TabIndex = 59;
             // 
             // dockableWindow9
             // 
-            this.dockableWindow9.Controls.Add(this.m_paneDiagnostics);
+            this.dockableWindow9.Controls.Add(this.m_paneErrors);
             this.dockableWindow9.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow9.Name = "dockableWindow9";
             this.dockableWindow9.Owner = this.m_ctrlUltraDockManager;
             this.dockableWindow9.Size = new System.Drawing.Size(976, 281);
-            this.dockableWindow9.TabIndex = 74;
+            this.dockableWindow9.TabIndex = 60;
             // 
             // dockableWindow13
             // 
-            this.dockableWindow13.Controls.Add(this.m_paneObjections);
-            this.dockableWindow13.Location = new System.Drawing.Point(2, 2);
+            this.dockableWindow13.Controls.Add(this.m_paneDiagnostics);
+            this.dockableWindow13.Location = new System.Drawing.Point(-10000, 2);
             this.dockableWindow13.Name = "dockableWindow13";
             this.dockableWindow13.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow13.Size = new System.Drawing.Size(976, 240);
-            this.dockableWindow13.TabIndex = 75;
+            this.dockableWindow13.Size = new System.Drawing.Size(1036, 666);
+            this.dockableWindow13.TabIndex = 61;
             // 
             // windowDockingArea1
             // 
@@ -2058,13 +2071,14 @@ namespace FTI.Trialmax.TmaxManager
             this.windowDockingArea1.Controls.Add(this.dockableWindow7);
             this.windowDockingArea1.Controls.Add(this.dockableWindow9);
             this.windowDockingArea1.Controls.Add(this.dockableWindow18);
+            this.windowDockingArea1.Controls.Add(this.dockableWindow13);
             this.windowDockingArea1.Dock = System.Windows.Forms.DockStyle.Top;
             this.windowDockingArea1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.windowDockingArea1.Location = new System.Drawing.Point(306, 26);
             this.windowDockingArea1.Name = "windowDockingArea1";
             this.windowDockingArea1.Owner = this.m_ctrlUltraDockManager;
             this.windowDockingArea1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.windowDockingArea1.Size = new System.Drawing.Size(980, 310);
+            this.windowDockingArea1.Size = new System.Drawing.Size(1001, 695);
             this.windowDockingArea1.TabIndex = 10;
             // 
             // windowDockingArea3
@@ -2078,40 +2092,39 @@ namespace FTI.Trialmax.TmaxManager
             this.windowDockingArea3.Size = new System.Drawing.Size(100, 100);
             this.windowDockingArea3.TabIndex = 43;
             // 
-            // dockableWindow19
+            // windowDockingArea5
             // 
-            this.dockableWindow19.Controls.Add(this.m_paneRegistration);
-            this.dockableWindow19.Location = new System.Drawing.Point(2, 247);
-            this.dockableWindow19.Name = "dockableWindow19";
-            this.dockableWindow19.Owner = this.m_ctrlUltraDockManager;
-            this.dockableWindow19.Size = new System.Drawing.Size(976, 162);
-            this.dockableWindow19.TabIndex = 76;
+            this.windowDockingArea5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.windowDockingArea5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windowDockingArea5.Location = new System.Drawing.Point(4, 4);
+            this.windowDockingArea5.Name = "windowDockingArea5";
+            this.windowDockingArea5.Owner = this.m_ctrlUltraDockManager;
+            this.windowDockingArea5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.windowDockingArea5.Size = new System.Drawing.Size(1206, 158);
+            this.windowDockingArea5.TabIndex = 0;
             // 
-            // windowDockingArea4
+            // windowDockingArea7
             // 
-            this.windowDockingArea4.Controls.Add(this.dockableWindow13);
-            this.windowDockingArea4.Controls.Add(this.dockableWindow19);
-            this.windowDockingArea4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.windowDockingArea4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.windowDockingArea4.Location = new System.Drawing.Point(306, 336);
-            this.windowDockingArea4.Name = "windowDockingArea4";
-            this.windowDockingArea4.Owner = this.m_ctrlUltraDockManager;
-            this.windowDockingArea4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.windowDockingArea4.Size = new System.Drawing.Size(980, 416);
-            this.windowDockingArea4.TabIndex = 53;
+            this.windowDockingArea7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.windowDockingArea7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windowDockingArea7.Location = new System.Drawing.Point(4, 4);
+            this.windowDockingArea7.Name = "windowDockingArea7";
+            this.windowDockingArea7.Owner = this.m_ctrlUltraDockManager;
+            this.windowDockingArea7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.windowDockingArea7.Size = new System.Drawing.Size(1032, 403);
+            this.windowDockingArea7.TabIndex = 0;
             // 
             // TmaxManagerForm
             // 
             this.AccessibleName = "";
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(1571, 856);
+            this.ClientSize = new System.Drawing.Size(1766, 941);
             this.Controls.Add(this._TmaxManagerFormAutoHideControl);
             this.Controls.Add(this.m_ctrlMainFillPanel);
             this.Controls.Add(this._TmaxManagerFormUnpinnedTabAreaLeft);
             this.Controls.Add(this._TmaxManagerFormUnpinnedTabAreaTop);
             this.Controls.Add(this._TmaxManagerFormUnpinnedTabAreaBottom);
             this.Controls.Add(this._TmaxManagerFormUnpinnedTabAreaRight);
-            this.Controls.Add(this.windowDockingArea4);
             this.Controls.Add(this.windowDockingArea1);
             this.Controls.Add(this.windowDockingArea2);
             this.Controls.Add(this.windowDockingArea6);
@@ -2135,6 +2148,7 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow4.ResumeLayout(false);
             this.dockableWindow5.ResumeLayout(false);
             this.dockableWindow12.ResumeLayout(false);
+            this.dockableWindow19.ResumeLayout(false);
             this.dockableWindow8.ResumeLayout(false);
             this.dockableWindow10.ResumeLayout(false);
             this.dockableWindow11.ResumeLayout(false);
@@ -2149,8 +2163,6 @@ namespace FTI.Trialmax.TmaxManager
             this.dockableWindow9.ResumeLayout(false);
             this.dockableWindow13.ResumeLayout(false);
             this.windowDockingArea1.ResumeLayout(false);
-            this.dockableWindow19.ResumeLayout(false);
-            this.windowDockingArea4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2182,6 +2194,7 @@ namespace FTI.Trialmax.TmaxManager
         private Panes.RegistrationPane m_paneRegistration;
         private Infragistics.Win.UltraWinDock.WindowDockingArea windowDockingArea3;
         private Infragistics.Win.UltraWinDock.DockableWindow dockableWindow19;
-        private Infragistics.Win.UltraWinDock.WindowDockingArea windowDockingArea4;
+        private Infragistics.Win.UltraWinDock.WindowDockingArea windowDockingArea5;
+        private Infragistics.Win.UltraWinDock.WindowDockingArea windowDockingArea7;
     }
 }

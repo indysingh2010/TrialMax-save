@@ -35,7 +35,7 @@ namespace FTI.Trialmax.Panes
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Location = new System.Drawing.Point(35, 13);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(440, 360);
             this.panel1.TabIndex = 2;
@@ -48,7 +48,7 @@ namespace FTI.Trialmax.Panes
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.panel1);
             this.Name = "RegistrationPane";
-            this.Size = new System.Drawing.Size(860, 509);
+            this.Size = new System.Drawing.Size(448, 366);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.RegistrationPane_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.RegistrationPane_DragEnter);
             this.ResumeLayout(false);

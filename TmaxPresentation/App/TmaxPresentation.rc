@@ -215,12 +215,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "FTI Consulting"
             VALUE "FileDescription", "TrialMax Courtroom Presentation"
-            VALUE "FileVersion", "7.0.48.3077"
+            VALUE "FileVersion", "7.0.0.0"
             VALUE "InternalName", "TmaxPresentation"
             VALUE "LegalCopyright", "Copyright (C) FTI Consulting"
             VALUE "OriginalFilename", "TmaxPresentation.exe"
             VALUE "ProductName", "TrialMax Courtroom Presentation"
-            VALUE "ProductVersion", "7.0.48.3077"
+            VALUE "ProductVersion", "7.1.0.0"
         END
     END
     BLOCK "VarFileInfo"

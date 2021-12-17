@@ -465,12 +465,57 @@ In TmaxCaseDatabase.cs set m_cfRegisterProgress.Finished = true; when starting
 <== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-04-use-embedded-regform
 
 * Fix: Media conflicts do not show in Registration Progress form
+* Click Cancel on Reg form should not close dialog (RegProgress.cs)
+<== git add . && git commit -m "Use embedded regform"
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-07-use-embedded-regform
 
-<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-06-use-embedded-regform-save1
+* Add a Cancelled property to reg form and test it from TmxCaseDatabase.cs
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-07-use-embedded-regform-save1
 
-* Click Cancel while registering should not close dialog (RegProgress.cs)
-  And should send a cancelled event
-  TmaxCaseDatabase.cs should hook and handle the cancel by setting m_cancelled? = true
+* Add callback event in reg form
+  Hook and handle callback in TmaxCaseDatabase.cs to complete cleanup
+* Partial fix of the hang on clicking cancel while registering
+  GsPdfManager.cs cleaned up
+  TmaxCaseDatabase.cs hangs if we call regThread.join  
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-10-use-embedded-regform-save2
 
-  
+* Remove SetRegisterProgress method and replace with m_cfRegisterProgress.Status in TmaxCaseDatabase.cs
+* Revert back to using parallel tasks in MuPdfManager.cs
+* Use Yellow and orange colors to show cancelled registration
+* Change Dock manager visual properties
+  DragWindowStyle LayeredWindow -> LayeredWindowWithIndicators
+  WindowStyle Default -> Office2003
+* Layout changed
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-11-use-embedded-regform-save3
+
+* Write Activity reports A01-A03
+
+* Fix error: The database was created with a newer version of TrialMax.
+  TmaxPresentation: 7.0 Database: 7.1
+  Update _wVerMinor in App.cpp
+
+* Code tidy: new EventHandler(x) -> x
+* Change window size to be 16:9 - 1080 *0.9
+* Showregserver on by default
+* Check conflict messages - ok
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-15-use-embedded-regform-save3
+
+* Report conflicts OnConflict() TmaxCaseDatase.cs:13437
+* Display colored status on complete or cancelled RegProgress.cs:775
+* Beep on Registration complete only if elapsed time is > 600 seconds RegProgress.cs: 659
+* Full build from clean
+<== git add . && git commit -m "Use embedded regform update"
+<== DSYNC c:\dev\TrialMax-B03 b:\dev\TrialMax-B03-21-12-17-use-embedded-regform-update
+
+* Fixed cause of Exception thrown error
+  Cause is splash screen background thread attempting to update a UI progress bar
+  Disabled the thread
+<== git add . && git commit --amend -m "Use embedded regform update"
+<== DSYNC c:\FTI\TrialMax-B03 b:\FTI\TrialMax-B03-21-12-18-use-embedded-regform-update
+
+
+
+TODO
+* For small files less than 20 pages post processing of png files starts with a one second delay
+* PDF files are copied to a temp directory- is this needed
 

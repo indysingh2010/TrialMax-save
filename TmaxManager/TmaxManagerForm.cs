@@ -359,7 +359,7 @@ namespace FTI.Trialmax.TmaxManager
         private CObjectionsPane m_paneObjections;
         private CScriptReviewPane m_paneScriptReview;
         private CObjectionPropertiesPane m_paneObjectionProperties;
-        private bool m_showRegServer = false;
+        private bool m_showRegServer = true;
 
         #endregion Infragistics Docking Internals
 
@@ -387,6 +387,9 @@ namespace FTI.Trialmax.TmaxManager
                 try
                 {
                     SetSplashMessage("Loading TmaxManager");
+                    // DISABLED This thread causes about 30 exceptions thrown errors
+                    // Exception thrown: 'system.invalidoperationexception' in system.windows.forms.dll
+                    // Cause is splash screen background thread attempting to update a UI progress bar
                     Thread splashThread = new Thread(new ThreadStart(this.SplashThreadProc));
                     splashThread.Start();
                 }
@@ -396,7 +399,7 @@ namespace FTI.Trialmax.TmaxManager
 
             }// if(m_ctrlSplashScreen != null)
 
-            //	Connect to the local event source
+            // Connect to the local event source
             m_tmaxEventSource.Name = "TrialMax Application";
             m_tmaxEventSource.ErrorEvent += new FTI.Shared.Trialmax.ErrorEventHandler(this.OnError);
             m_tmaxEventSource.DiagnosticEvent += new FTI.Shared.Trialmax.DiagnosticEventHandler(this.OnDiagnostic);
@@ -1354,7 +1357,7 @@ namespace FTI.Trialmax.TmaxManager
             tmaxDatabase.EventSource.DiagnosticEvent += new FTI.Shared.Trialmax.DiagnosticEventHandler(this.OnDiagnostic);
             tmaxDatabase.InternalUpdateEvent += new CTmaxCaseDatabase.DatabaseEventHandler(this.OnDbInternalUpdate);
             tmaxDatabase.TmaxCommandEvent += new FTI.Shared.Trialmax.TmaxCommandHandler(this.OnTmaxCommand);
-            tmaxDatabase.RegistrationComplete += this.OnRegistrationComplete;
+            tmaxDatabase.RegistrationCompleteEvent += this.OnRegistrationComplete;
 
             tmaxDatabase.MediaTypes = m_tmaxMediaTypes;
             tmaxDatabase.SourceTypes = m_tmaxSourceTypes;
@@ -1400,6 +1403,7 @@ namespace FTI.Trialmax.TmaxManager
                 }
 
                 SetUltraPaneVisible(TmaxAppPanes.Viewer, true, false);  // bring to front
+                SetUltraPaneVisible(TmaxAppPanes.Source, true, false);  // bring to front
                 SetUltraPaneVisible(TmaxAppPanes.Media, true, true);  // bring to front and active
                 // Leaving these visible:  Binders, Media, FilteredTree  | Viewer, Scripts, Transcripts, Source
 
@@ -5118,8 +5122,6 @@ namespace FTI.Trialmax.TmaxManager
         {
             try
             {
-                SetUltraPaneVisible(TmaxAppPanes.Media, true, false);
-                SetUltraPaneVisible(TmaxAppPanes.Source, true, false);
                 SetUltraPaneVisible(TmaxAppPanes.Binders, true, false);
                 SetUltraPaneVisible(TmaxAppPanes.FilteredTree, true, false);
                 SetUltraPaneVisible(TmaxAppPanes.Viewer, true, false);
@@ -5133,11 +5135,9 @@ namespace FTI.Trialmax.TmaxManager
                 SetUltraPaneVisible(TmaxAppPanes.Objections, true, false);
                 SetUltraPaneVisible(TmaxAppPanes.ObjectionProperties, true, false);
                 SetUltraPaneVisible(TmaxAppPanes.ScriptReview, true, false);
-
-                if (m_showRegServer)
-                {
-                    SetUltraPaneVisible(TmaxAppPanes.RegistrationServer, true, false);
-                }
+                SetUltraPaneVisible(TmaxAppPanes.RegistrationServer, true, false);
+                SetUltraPaneVisible(TmaxAppPanes.Source, true, false);  // bring to front
+                SetUltraPaneVisible(TmaxAppPanes.Media, true, false);
 
                 SetPaneStates();
             }

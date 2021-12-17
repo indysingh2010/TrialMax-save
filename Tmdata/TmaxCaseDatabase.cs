@@ -266,9 +266,6 @@ namespace FTI.Trialmax.Database
 		/// <summary>Registration source type associated with the source folder</summary>
 		private FTI.Shared.Trialmax.RegSourceTypes m_eRegSourceType = RegSourceTypes.NoSource;		
 
-		/// <summary>Flag to indicate registration cancelled by the user</summary>
-		private bool m_bRegisterCancelled = false;		
-
 		/// <summary>Flag to indicate warning should be displayed if Adobe converter is not found</summary>
 		private bool m_bRegisterWarnAdobe = false;		
 
@@ -422,11 +419,12 @@ namespace FTI.Trialmax.Database
         /// <summary>Leadtools CodecsImageInfo to get PDF info</summary>
         private GhostscriptRasterizer m_rasterizer = null;
 
-        /// <summary>Thread that does the entire Registration for PDF Imports</summary>
-        private static Thread RegThread = null;
+		/// <summary>Thread that does the entire Registration for PDF Imports</summary>
+		//private static Thread m_regThread = null;
+		private Thread m_regThread = null;
 
-        /// <summary>List that will contain un-completed tasks</summary>
-        private List<CTmaxPDFManager> ConversionTasksArray = null;
+		/// <summary>List that will contain un-completed tasks</summary>
+		private List<CTmaxPDFManager> ConversionTasksArray = null;
 
         /// <summary>Lock for accessing ConverstionTasksArray above</summary>
         //private static object lockConversionTasksArray = true;
@@ -444,9 +442,6 @@ namespace FTI.Trialmax.Database
 		private bool m_wasDuplicate = false;
 		/// <summary>current file was a duplicate, resolved automatically or using dialog</summary>
 		private string m_strOrigDesiredId;
-
-
-
 
 		/// <summary>Local variable to store user input in Waveform message box</summary>
 		private bool GenerateWaveFormForAll = false;
@@ -466,9 +461,12 @@ namespace FTI.Trialmax.Database
 		/// <summary>This event is fired to propagate command events back to the application</summary>
 		public event FTI.Shared.Trialmax.TmaxCommandHandler TmaxCommandEvent;
 
-		/// <summary>This event is fired when registration is complete</summary>
+		/// <summary>This event is signaled when registration is complete</summary>
 		public delegate void RegistrationCompleteEvenHandler(object source, CTmaxSourceFolder sourceFolder);
-		public event RegistrationCompleteEvenHandler RegistrationComplete;
+		public event RegistrationCompleteEvenHandler RegistrationCompleteEvent;
+
+		/// <summary>This is set when the CancelledEventHandler is called</summary>
+		private bool m_cancelled = false;
 
 		/// <summary>Constructor</summary>
 		public CTmaxCaseDatabase()
@@ -491,7 +489,8 @@ namespace FTI.Trialmax.Database
 			SetHandlers(m_tmaxExportObjectionsManager.EventSource);
 
 		}// public CTmaxCaseDatabase()
-		
+
+	
 		/// <summary>This method is called to populate the database with the specified number of primary records</summary>
 		/// <param name="iPrimaries">The number of primaries to be added</param>
 		///	<remarks>This method is provided as a tool for development and testing</remarks>
@@ -1280,7 +1279,7 @@ namespace FTI.Trialmax.Database
 			//	Are there any files in the source folder?
 			if(tmaxSource.Files.Count > 0)
 			{
-				if(m_bRegisterCancelled) return true;
+				if(m_cancelled) return true;
 										
 				//	Get the primary exchange object for this folder
 				if((dxPrimary = CreatePrimary(tmaxSource)) != null)
@@ -1314,7 +1313,7 @@ namespace FTI.Trialmax.Database
 					//	Is this a PowerPoint presentation?
 					if(tmaxSource.SourceType == RegSourceTypes.Powerpoint)
 					{
-                        if (ExportSlides(dxPrimary, tmaxSource) == false || m_bRegisterCancelled == true)
+                        if (ExportSlides(dxPrimary, tmaxSource) == false || m_cancelled == true)
                         {
                             if ((dxPrimary != null))
                             {
@@ -1334,8 +1333,9 @@ namespace FTI.Trialmax.Database
 					{
 						//	Add each of the secondary records
 						AddSource_2(tmaxSource, dxPrimary, 1);
-                        // WIP: Send RegistrationComplete EVENT HERE
-                        RegistrationComplete?.Invoke(this, tmaxSource);
+						// WIP: Send RegistrationComplete EVENT HERE
+						Console.WriteLine("Registered " + tmaxSource.Path);
+                        RegistrationCompleteEvent?.Invoke(this, tmaxSource);
 					}
 
 				}// if((dxPrimary = CreatePrimary(tmaxSource)) != null)
@@ -1347,7 +1347,7 @@ namespace FTI.Trialmax.Database
             {
                 try
                 {
-                    if (m_bRegisterCancelled == false)
+                    if (m_cancelled == false)
                     {
                         AddSourceAgs variables = new AddSourceAgs();
                         variables.tmaxSource = tmaxSource;
@@ -1365,7 +1365,7 @@ namespace FTI.Trialmax.Database
 
             //Task.WaitAll(PdfTasks.ToArray());
 
-            return m_bRegisterCancelled;
+            return m_cancelled;
 		
 		}// public bool AddSource(CTmaxSourceFolder tmaxSource)
 
@@ -1380,7 +1380,7 @@ namespace FTI.Trialmax.Database
             try
             {
                 AddSourceAgs args = (AddSourceAgs)arguments;
-                if (m_bRegisterCancelled == false)
+                if (m_cancelled == false)
                 {
                     AddSource(args.tmaxSubFolder);
 
@@ -1398,6 +1398,7 @@ namespace FTI.Trialmax.Database
                 FireError(this, "AddSource", this.ExBuilder.Message(ERROR_CASE_DATABASE_ADD_SOURCE_EX), Ex);
             }
         }
+
 		/// <summary>This method will add the specified case codes to the database</summary>
 		/// <param name="tmaxCaseCodes">The collection of codes to be added</param>
 		/// <param name="tmaxInsertAt">The object that defines where the new objects are to be inserted</param>
@@ -2492,7 +2493,7 @@ namespace FTI.Trialmax.Database
 					for(int i = 1; i <= lSlides; i++)
 					{
 						//	Has the user canceled?
-						if(m_bRegisterCancelled) return true;
+						if(m_cancelled) return true;
 						
 						//	Create a new secondary
 						if((dxSecondary = CreateSecondary(dxPrimary, tmaxFile)) != null)
@@ -2512,10 +2513,10 @@ namespace FTI.Trialmax.Database
 							{
 								//	Get the full path to the exported image
 								strSlide = GetFileSpec(dxSecondary);
-								
+
 								//	Update the progress form
-								// SetRegisterProgress("Exporting " + strSlide);
-								if(m_bRegisterCancelled) return true;
+								// m_cfRegisterProgress.Status = "Exporting " + strSlide;
+								if (m_cancelled) return true;
 								
 								//	Export the image
 								Presentation.Export((int)dxSecondary.MultipageId, strSlide);
@@ -2577,7 +2578,7 @@ namespace FTI.Trialmax.Database
 													Args.PageNumber,
 													Args.TotalPages,
 													System.IO.Path.GetFileName(Args.PageFilename));
-						SetRegisterProgress(strMsg);
+						m_cfRegisterProgress.Status = strMsg;
 					}
 					
 				}// if(Args.Event == TmxEvents.SavedPage)
@@ -2596,7 +2597,7 @@ namespace FTI.Trialmax.Database
             if(Args != null)
             {
                 //	Notify the registration status form if it exists and the operation has not been cancelled
-                if((m_cfRegisterProgress != null) && (m_bRegisterCancelled == false))
+                if((m_cfRegisterProgress != null) && (m_cancelled == false))
                 {
                     Args.Show = false; // Don't use the application popup
                     m_cfRegisterProgress.OnError(this,Args);
@@ -5519,7 +5520,7 @@ namespace FTI.Trialmax.Database
 		/// <param name="strProgress">The progress text</param>
 		public void OnDepoLogProgress(object objSender, string strProgress)
 		{
-			SetRegisterProgress(strProgress);
+			m_cfRegisterProgress.Status = strProgress;
 		}
 		
 		/// <summary>This method handles all Diagnostic events received by the database</summary>
@@ -5621,7 +5622,43 @@ namespace FTI.Trialmax.Database
 			return true;
 			
 		}// Open(string strFolder, string strUser)
-		
+
+
+		/// <summary>This method is called when user clicks on the cancel button</summary>
+		public void regForm_CanceledEventHandler(object sender, EventArgs e)
+		{
+			var threadId = Thread.CurrentThread.ManagedThreadId;
+			m_cancelled = true;
+			if (m_regThread == null)
+				return;
+
+			Cursor.Current = Cursors.WaitCursor;
+			try
+			{
+				//  Stop any running tasks
+				if (ConversionTasksArray != null)
+				{
+					for (int i = 0; i < ConversionTasksArray.Count; i++)
+					{
+						ConversionTasksArray[i].StopConversionProcess();
+					}
+					ConversionTasksArray = null;
+				}
+				// Wait for any tasks/threads to be stopped
+				// TODO This hangs, however the task proc does end so it it is not needed
+				//m_regThread.Join();   
+				//m_regThread = null;
+			}
+			catch (Exception Ex)
+			{
+				logDetailed.Error(Ex.ToString());
+			}
+			finally
+			{
+				Cursor.Current = Cursors.Default;
+			}
+		}
+
 		/// <summary>This method will register the source files provided by the caller</summary>
 		/// <param name="tmaxSource">The parent source folder containing the files to be registered</param>
 		/// <param name="tmaxParameters">The parameters passed with the event that triggered the registration</param>
@@ -5632,8 +5669,10 @@ namespace FTI.Trialmax.Database
 			// WIP: USE PROVIDED REG FROM
 			m_cfRegisterProgress = regForm;
 			m_cfRegisterProgress.Finished = false;
+			m_cancelled = false;
+			m_cfRegisterProgress.CancelledEvent += regForm_CanceledEventHandler;
 
-			long			lFiles;
+			long lFiles;
 			CTmaxParameter	paramSourceType = null;
 			
 			//	Make sure the database is open
@@ -5688,15 +5727,15 @@ namespace FTI.Trialmax.Database
             try
             {
                 //	Run the registration in it's own thread
-                if (RegThread != null)
+                if (m_regThread != null)
                 {
-                    RegThread.Abort();
-                    RegThread = null;
+					m_regThread.Abort();
+					m_regThread = null;
                 }
-                RegThread = new Thread(new ThreadStart(this.RegisterThreadProc));
+				m_regThread = new Thread(new ThreadStart(this.RegisterThreadProc));
 
-                
-                RegThread.Start();
+
+				m_regThread.Start();
             }
             catch (System.Exception Ex)
             {
@@ -5706,6 +5745,8 @@ namespace FTI.Trialmax.Database
 
 			// WIP: RETURN IMMEDIATELY USING EMBEDDED REG FORM
 			return true;
+			// <=== ======== END OF THE LINE HERE =============
+			// Finish up is done in RegisterThreadProc or in regForm_CanceledEventHandler
 
 			//	Open the progress form
 			if (m_cfRegisterProgress != null)
@@ -5713,12 +5754,12 @@ namespace FTI.Trialmax.Database
 				//	Show modal to prevent returning until finished or canceled
 				if (m_cfRegisterProgress.ShowDialog() == DialogResult.Cancel)
                 {
-                    m_bRegisterCancelled = true;
+					m_cancelled = true;
                     Cursor.Current = Cursors.WaitCursor;
                     try
                     {
                         //  Now we need to check if any tasks are pending. If there are then we need to signal each task to stop processing and perform cleanp.
-                        if (RegThread != null)
+                        if (m_regThread != null)
                         {
                             //lock (lockConversionTasksArray)
                             //{
@@ -5730,9 +5771,9 @@ namespace FTI.Trialmax.Database
                                     }
                                     ConversionTasksArray = null;
                                 }
-                            //}
-                            RegThread.Join();   // We need to wait for all tasks to be stopped (if any) and then proceed so proper cleanup is done.
-                            RegThread = null;
+							//}
+							m_regThread.Join();   // We need to wait for all tasks to be stopped (if any) and then proceed so proper cleanup is done.
+							m_regThread = null;
                         }
                     }
                     catch (Exception Ex)
@@ -5746,10 +5787,10 @@ namespace FTI.Trialmax.Database
                 }
                 else
                 {
-                    if (RegThread != null)
+                    if (m_regThread != null)
                     {
-                        RegThread.Join();   // We need to wait for all tasks to be stopped (if any) and then proceed so proper cleanup is done.
-                        RegThread = null;
+						m_regThread.Join();   // We need to wait for all tasks to be stopped (if any) and then proceed so proper cleanup is done.
+						m_regThread = null;
                     }
                 }
 				
@@ -5757,7 +5798,7 @@ namespace FTI.Trialmax.Database
 				m_cfRegisterProgress.Dispose();
 				m_cfRegisterProgress = null;
 
-                if (m_bRegisterCancelled)
+                if (m_cancelled)
                 {
                     FireCommand(TmaxCommands.RefreshCodes);
                 }
@@ -5766,7 +5807,7 @@ namespace FTI.Trialmax.Database
 			//	Clear this flag before returning
 			m_tmaxSourceTypes.UseMultiPageTIFF = false;
 
-            return !m_bRegisterCancelled;
+            return !m_cancelled;
 		}
 		
 		/// <summary>This method will reorder the child records of the specified parent</summary>
@@ -8529,7 +8570,7 @@ namespace FTI.Trialmax.Database
 			Debug.Assert(tmaxSource.Files != null);
 			Debug.Assert(tmaxSource.SubFolders != null);
 
-			SetRegisterProgress("Merging source files ...");
+			m_cfRegisterProgress.Status = "Merging source files ...";
 			
 			//	Drill down into the subfolders to pull up all their files
 			foreach(CTmaxSourceFolder tmaxFolder in tmaxSource.SubFolders)
@@ -8537,7 +8578,7 @@ namespace FTI.Trialmax.Database
 				try
 				{
 					//	Did the user cancel?
-					if(m_bRegisterCancelled == true) break;
+					if(m_cancelled == true) break;
 					
 					MergeSource(tmaxFolder, tmaxSource);
 				}
@@ -8724,7 +8765,7 @@ namespace FTI.Trialmax.Database
 			foreach(CTmaxSourceFolder tmaxFolder in tmaxSource.SubFolders)
 			{
 				//	Did the user cancel?
-				if(m_bRegisterCancelled == true) break;
+				if(m_cancelled == true) break;
 					
 				MergeSource(tmaxFolder, tmaxTarget);
 			}
@@ -8746,8 +8787,8 @@ namespace FTI.Trialmax.Database
 			Debug.Assert(tmaxSource != null);
 			Debug.Assert(tmaxSource.Files != null);
 			Debug.Assert(tmaxSource.SubFolders != null);
-		
-			SetRegisterProgress("Reorganizing source files ...");
+
+			m_cfRegisterProgress.Status = "Reorganizing source files ...";
 			
 			//	Split all the subfolders first
 			//
@@ -8756,7 +8797,7 @@ namespace FTI.Trialmax.Database
 			foreach(CTmaxSourceFolder O in tmaxSource.SubFolders)
 			{
 				//	Did the user cancel
-				if(m_bRegisterCancelled == true) break;
+				if(m_cancelled == true) break;
 				
 				SetOnePerFile(O, eSourceType);
 			
@@ -8765,7 +8806,7 @@ namespace FTI.Trialmax.Database
 			try
 			{
 				//	Stop here if the user cancelled or if there are no files
-				if((tmaxSource.Files.Count == 0) || (m_bRegisterCancelled == true))
+				if((tmaxSource.Files.Count == 0) || (m_cancelled == true))
 					return true;
 				
 				//	Get the descriptor for the requested source type
@@ -9067,74 +9108,84 @@ namespace FTI.Trialmax.Database
 		/// <remarks>This method runs in a local worker thread executed by the Register() method</remarks>
 		private void RegisterThreadProc()
 		{
-            try
-            {
-                Debug.Assert(m_RegSourceFolder != null);
-                if (ConversionTasksArray == null)
-                {
-                    //lock (lockConversionTasksArray)
-                    //{
-                        if (ConversionTasksArray == null)
-                        {
-                            ConversionTasksArray = new List<CTmaxPDFManager>();
-                        }
-                    //}
-                }
-                //	Are we merging all source files into a single primary media object?
-                if ((m_tmaxRegisterOptions != null) && (m_tmaxRegisterOptions.MediaCreation == RegMediaCreations.Merge))
-                {
-                    //	Search for the first folder that contains at least 1 file
-                    //	or more than one subfolder
-                    while ((m_RegSourceFolder.Files.Count == 0) && (m_RegSourceFolder.SubFolders.Count == 1))
-                        m_RegSourceFolder = m_RegSourceFolder.SubFolders[0];
+			//Console.WriteLine("THREADPROC: START");
+			try
+			{
+				Debug.Assert(m_RegSourceFolder != null);
+				if (ConversionTasksArray == null)
+				{
+					if (ConversionTasksArray == null)
+					{
+						ConversionTasksArray = new List<CTmaxPDFManager>();
+					}
+				}
+				//	Are we merging all source files into a single primary media object?
+				if ((m_tmaxRegisterOptions != null) && (m_tmaxRegisterOptions.MediaCreation == RegMediaCreations.Merge))
+				{
+					//	Search for the first folder that contains at least 1 file
+					//	or more than one subfolder
+					while ((m_RegSourceFolder.Files.Count == 0) && (m_RegSourceFolder.SubFolders.Count == 1))
+						m_RegSourceFolder = m_RegSourceFolder.SubFolders[0];
 
-                    //	Merge the files
-                    MergeSource(m_RegSourceFolder);
+					//	Merge the files
+					MergeSource(m_RegSourceFolder);
 
-                    //	Set the folder type information
-                    SetSourceTypes(m_RegSourceFolder, m_eRegSourceType);
-                }
-                //	Are we splitting all the files into individual media objects?
-                else if ((m_tmaxRegisterOptions != null) && (m_tmaxRegisterOptions.MediaCreation == RegMediaCreations.Split))
-                {
-                    //	Create one folder for each file
-                    SetOnePerFile(m_RegSourceFolder, m_eRegSourceType);
-                }
-                else
-                {
-                    //	Set the media types
-                    SetSourceTypes(m_RegSourceFolder, m_eRegSourceType);
-                }
+					//	Set the folder type information
+					SetSourceTypes(m_RegSourceFolder, m_eRegSourceType);
+				}
+				//	Are we splitting all the files into individual media objects?
+				else if ((m_tmaxRegisterOptions != null) && (m_tmaxRegisterOptions.MediaCreation == RegMediaCreations.Split))
+				{
+					//	Create one folder for each file
+					SetOnePerFile(m_RegSourceFolder, m_eRegSourceType);
+				}
+				else
+				{
+					//	Set the media types
+					SetSourceTypes(m_RegSourceFolder, m_eRegSourceType);
+				}
 
-                // Count total number of pages in all the files that needs to be converted
-                m_totalPages = 0;
-                m_cfRegisterProgress.CompletedPages = 0;
-                logDetailed.Info("********************************* STARTING REGISTRATION PROCESS *********************************");
-                logUser.Info("********************************* STARTING REGISTRATION PROCESS *********************************");
-                CalculateTotalPages(m_RegSourceFolder);
-                m_cfRegisterProgress.TotalPages = m_totalPages*2;//33% Detection 33% extraction and 33% conversion;
-                SetRegisterProgress("Registration in progress ...");
-                this.GenerateWaveFormForAll = false;
-                //	Add the new records to the database
-                if ((m_RegSourceFolder != null) && (m_bRegisterCancelled == false))
-                    AddSource(m_RegSourceFolder);
+				// Count total number of pages in all the files that needs to be converted
+				m_totalPages = 0;
+				m_cfRegisterProgress.CompletedPages = 0;
+				logDetailed.Info("********************************* STARTING REGISTRATION PROCESS *********************************");
+				logUser.Info("********************************* STARTING REGISTRATION PROCESS *********************************");
+				CalculateTotalPages(m_RegSourceFolder);
+				m_cfRegisterProgress.TotalPages = m_totalPages * 2;//33% Detection 33% extraction and 33% conversion;
+				m_cfRegisterProgress.Status = "Registration in progress ...";
+				this.GenerateWaveFormForAll = false;
+				//	Add the new records to the database
+				if ((m_RegSourceFolder != null) && (m_cancelled == false))
+					AddSource(m_RegSourceFolder);
 
-                //	Notify the progress form
-                if ((m_cfRegisterProgress != null) && (m_bRegisterCancelled == false))
-                {
-                    m_cfRegisterProgress.CompletedPages = m_totalPages * 2; //Same as above;
-                    m_cfRegisterProgress.Finished = true;
-                    SetRegisterProgress("Registration complete");
-                }
-            }
-            catch (Exception Ex)
-            {
-                logDetailed.Error(Ex.ToString());
-            }
-
+				//	Notify the progress form
+				if ((m_cfRegisterProgress != null))
+				{
+					if (!m_cancelled)
+					{
+						m_cfRegisterProgress.CompletedPages = m_totalPages * 2; // 100%
+						m_cfRegisterProgress.Finished = true;
+						m_cfRegisterProgress.Status = "Registration complete";
+					}
+					else
+                    {
+						//m_cfRegisterProgress.CompletedPages = m_totalPages * 1;	// 50%
+						m_cfRegisterProgress.Finished = true;
+						m_cfRegisterProgress.Status = "REGISTRATION CANCELLED";
+					}
+				}
+			}
+			catch (Exception Ex)
+			{
+				logDetailed.Error(Ex.ToString());
+			}
+			finally {
+				//Console.WriteLine("THREADPROC: END");
+				m_regThread = null;
+			}
 		}// private void RegisterThreadProc()
 
-        private void  CalculateTotalPages(CTmaxSourceFolder tmaxSource)
+		private void  CalculateTotalPages(CTmaxSourceFolder tmaxSource)
         {
 
             Debug.Assert(tmaxSource != null);
@@ -9175,7 +9226,7 @@ namespace FTI.Trialmax.Database
             //	Add each subfolder
             foreach (CTmaxSourceFolder tmaxSubFolder in tmaxSource.SubFolders)
             {
-                if (m_bRegisterCancelled == false)
+                if (m_cancelled == false)
                 {
                     CalculateTotalPages(tmaxSubFolder);
 
@@ -9940,7 +9991,7 @@ namespace FTI.Trialmax.Database
 			foreach(CTmaxSourceFile tmaxFile in tmaxSource.Files)
 			{
 				//	Check to see if the user cancelled the operation before adding the next file
-				if(m_bRegisterCancelled) return true;
+				if(m_cancelled) return true;
 				
 				//	Get a secondary exchange object for this file
 				if((dxSecondary = CreateSecondary(dxPrimary, tmaxFile)) != null)
@@ -10017,7 +10068,7 @@ namespace FTI.Trialmax.Database
 							if((tmaxSource.SourceType != RegSourceTypes.Adobe) &&
 							   (tmaxSource.SourceType != RegSourceTypes.MultiPageTIFF))
                                 UpdateProgressBar(null, null); // StepProgressCompleted();
-							// SetRegisterProgress("Added: " + tmaxFile.Path);
+							// m_cfRegisterProgress.Status = "Added: " + tmaxFile.Path;
 						
 						}
 						
@@ -10138,7 +10189,7 @@ namespace FTI.Trialmax.Database
                     MessageBox.Show(missingFileInfo, "Add Audio Waveform", MessageBoxButtons.OK);
 
 				//	The user may have cancelled the file transfer
-				if(m_bRegisterCancelled == false)
+				if(m_cancelled == false)
 					return dxPrimary.Add(dxTranscript);	
 			}
 			catch(System.Exception Ex)
@@ -10471,7 +10522,7 @@ namespace FTI.Trialmax.Database
 			if(TransferSource(dxPrimary, tmaxSource.Files[0], true) == false) return false;
 			
 			//	The user may have cancelled during the file transfer
-			if(m_bRegisterCancelled == true) return false;
+			if(m_cancelled == true) return false;
 
 			//	Add secondary objects for each slide to the database
 			if(ExportSlides(dxPrimary) == false) return false;
@@ -10493,7 +10544,7 @@ namespace FTI.Trialmax.Database
 				//	Now we add new source file objects to make it look like there is one file for each slide
 				for(int i = 1; i < lSlides; i++)
 				{
-                    if (m_bRegisterCancelled == true) return false;
+                    if (m_cancelled == true) return false;
 					tmaxFile = new CTmaxSourceFile(GetFileSpec(dxPrimary.Secondaries[i]));
 					tmaxFile.IPrimary   = dxPrimary;
 					tmaxFile.ISecondary = dxPrimary.Secondaries[i];
@@ -10507,8 +10558,8 @@ namespace FTI.Trialmax.Database
 
 			//	Update the progress form
             UpdateProgressBar(null, null);
-			//SetRegisterProgress("Added: " + tmaxSource.Files[0].Path);
-			
+			//m_cfRegisterProgress.Status = "Added: " + tmaxSource.Files[0].Path;
+
 			return true;
 		}
 		
@@ -10540,7 +10591,7 @@ namespace FTI.Trialmax.Database
             //	Make sure the target folder exists
 			if(CreateFolder(TmaxMediaTypes.Page, strTarget, true) == false)
 			{
-                if (!m_bRegisterCancelled)
+                if (!m_cancelled)
                     FireError(this,"ExportAdobe",this.ExBuilder.Message(ERROR_CASE_DATABASE_PDF_CREATE_TARGET_FAILED,strTarget));
 				return 0; 
 			}
@@ -10550,7 +10601,7 @@ namespace FTI.Trialmax.Database
                 // Start the PDF Manager and provide the data needed for conversion
                 CTmaxPDFManager PDFManager = new CTmaxPDFManager(strAdobeFileSpec.ToLower(), strTarget.ToLower(), m_tmaxRegisterOptions.OutputType, m_tmaxRegisterOptions.UseCustomDPI ? m_tmaxRegisterOptions.CustomDPI : (short)0, m_tmaxRegisterOptions.DisableCustomDither);
                 PDFManager.notifyRegOptionsForm += new EventHandler(UpdateProgressBar);
-                if (m_bRegisterCancelled == true)
+                if (m_cancelled == true)
                     return iPages;
                 //lock (lockConversionTasksArray)
                 //{
@@ -10566,7 +10617,7 @@ namespace FTI.Trialmax.Database
                 {
                     Console.WriteLine("File completed un - successfully" + strAdobeFileSpec.ToLower());
                     logUser.Error(Path.GetFileName(strAdobeFileSpec) + "                Status: UnSuccessful");
-                    if (!m_bRegisterCancelled)
+                    if (!m_cancelled)
                         FireError(this, "ExportAdobe", this.ExBuilder.Message(ERROR_CASE_DATABASE_EXPORT_ADOBE_EX, strAdobeFileSpec));
                     return iPages;
                 }
@@ -10601,11 +10652,11 @@ namespace FTI.Trialmax.Database
                                 //	Update the progress form
                                 if (iFile > 1)
                                 {
-                                    // Previously the Progress status was updated as follows. But in the new implementation, since multiple files could complete
-                                    // at once, we have removed the functionality of showing the Progress status and now only Progress bar is maintained
-                                    // SetRegisterProgress("Exported " + System.IO.Path.GetFileName(strAdobeFileSpec) + " page " + (iFile - 1).ToString());
-                                }
-                                iPages = iFile - 1;
+									// Previously the Progress status was updated as follows. But in the new implementation, since multiple files could complete
+									// at once, we have removed the functionality of showing the Progress status and now only Progress bar is maintained
+									// m_cfRegisterProgress.Status = "Exported " + System.IO.Path.GetFileName(strAdobeFileSpec) + " page " + (iFile - 1).ToString();
+								}
+								iPages = iFile - 1;
                                 break;
                             }
 
@@ -10679,11 +10730,11 @@ namespace FTI.Trialmax.Database
 			if(strFileSpec.Length == 0) return false;
 
 			//	Update the progress form
-			// SetRegisterProgress("Exporting " + System.IO.Path.GetFileName(strFileSpec) + " pages ...");
+			// m_cfRegisterProgress.Status = "Exporting " + System.IO.Path.GetFileName(strFileSpec) + " pages ...";
 
-            //------------------------------------------------------------------------------//
-            
-            bool isDuplicate = Directory.Exists(strTarget.ToLower());
+			//------------------------------------------------------------------------------//
+
+			bool isDuplicate = Directory.Exists(strTarget.ToLower());
 
             string strNewName = string.Empty;
             lock (lockForConflictForm)
@@ -13205,7 +13256,7 @@ namespace FTI.Trialmax.Database
 			Debug.Assert(tmaxSource.Files != null);
 			Debug.Assert(tmaxSource.SubFolders != null);
 
-			SetRegisterProgress("Setting source media types ...");
+			m_cfRegisterProgress.Status = "Setting source media types ...";
 			
 			//	Do we need to check the files to determine the types?
 			if((eSourceType == RegSourceTypes.AllFiles) || (eSourceType == RegSourceTypes.NoSource))
@@ -13219,7 +13270,7 @@ namespace FTI.Trialmax.Database
 			{
 				try
 				{
-					if(m_bRegisterCancelled == true) return true;
+					if(m_cancelled == true) return true;
 
 					SetSourceTypes(tmaxSubFolder, eSourceType);
 				}
@@ -13344,7 +13395,7 @@ namespace FTI.Trialmax.Database
 			while(bSuccessful == false)
 			{
 				//	Don't bother if the operation has been cancelled
-				if(m_bRegisterCancelled == true)
+				if(m_cancelled == true)
 					break;
 					
 				//	Attempt to update the media id
@@ -13387,7 +13438,6 @@ namespace FTI.Trialmax.Database
 					}
 				
 				}// if(bResolved == true)
-				
 			}
 			else
 			{
@@ -13416,9 +13466,9 @@ namespace FTI.Trialmax.Database
 			
 			try
 			{
-				if(m_bRegisterCancelled == true) return true;
-				
-				SetRegisterProgress("Grouping source files ...");
+				if(m_cancelled == true) return true;
+
+				m_cfRegisterProgress.Status = "Grouping source files ...";
 
 				//	Create the temporary collection to hold the new folders
 				tmaxFolders = new CTmaxSourceFolders();
@@ -13631,9 +13681,9 @@ namespace FTI.Trialmax.Database
 			SetHandlers(depoLog.XmlDeposition.EventSource);
 			
 			Cursor.Current = Cursors.WaitCursor;
-			
+
 			//	Perform the conversion
-			SetRegisterProgress("Converting " + tmaxDeposition.Files[0].Path);
+			m_cfRegisterProgress.Status = "Converting " + tmaxDeposition.Files[0].Path;
 			if(depoLog.Convert(tmaxDeposition.Files[0].Path) == false)
 			{
 				Cursor.Current = Cursors.Default;
@@ -13648,8 +13698,8 @@ namespace FTI.Trialmax.Database
 			if(strFilename.EndsWith(".") == false)
 				strFilename += ".";
 			strFilename += CXmlDeposition.GetExtension();
-			
-			SetRegisterProgress("Saving converted log to XML");
+
+			m_cfRegisterProgress.Status = "Saving converted log to XML";
 			if(depoLog.XmlDeposition.Save(strFilename) == true)
 			{
 				bSuccessful = true;
@@ -13909,7 +13959,7 @@ namespace FTI.Trialmax.Database
             }
             catch (System.Exception Ex)
             {
-                if (!m_bRegisterCancelled)
+                if (!m_cancelled)
                     FireError(this, "CreatePrimary", this.ExBuilder.Message(ERROR_CASE_DATABASE_CREATE_PRIMARY_FOLDER_EX, tmaxSource.Path), Ex);
             }
 			
@@ -14370,9 +14420,9 @@ namespace FTI.Trialmax.Database
 				tmaxSplitter = null;
 				return false;
 			}
-			
+
 			//	Update the progress form
-			SetRegisterProgress("Splitting " + System.IO.Path.GetFileName(strFileSpec) + " pages ...");
+			m_cfRegisterProgress.Status = "Splitting " + System.IO.Path.GetFileName(strFileSpec) + " pages ...";
 			
 			try
 			{
@@ -14421,7 +14471,7 @@ namespace FTI.Trialmax.Database
 						iPageNumber,
 						System.IO.Path.GetFileName(strSourceFileSpec),
 						System.IO.Path.GetFileName(strPageFileSpec));
-					SetRegisterProgress(strMsg);
+					m_cfRegisterProgress.Status = strMsg;
 				}
 			}
 			catch
@@ -14613,7 +14663,7 @@ namespace FTI.Trialmax.Database
 			// WIP: CreateRegisterProgress USE EXISTING regForm
 
 			//	Clear the cancellation flag
-			m_bRegisterCancelled = false;
+			m_cancelled = false;
 			
 			try
 			{
@@ -14781,22 +14831,6 @@ namespace FTI.Trialmax.Database
 		
 		}// private string GetAdjustedForeignBarcode(string strText)
 		
-		/// <summary>This method is called to update the progress form's status message</summary>
-		/// <param name="strStatus">The new status message</param>
-		private void SetRegisterProgress(string strStatus)
-		{
-			try
-			{
-				if((m_cfRegisterProgress != null) && (m_cfRegisterProgress.IsDisposed == false))
-				{
-					m_cfRegisterProgress.Status = strStatus;
-				}
-			}
-			catch
-			{
-			}
-			
-		}// private void SetRegisterProgress(string strStatus)
 		
 		/// <summary>This method is called to update the validation progress form</summary>
 		/// <param name="strStatus">The new status message</param>
@@ -14867,15 +14901,7 @@ namespace FTI.Trialmax.Database
         /// <summary>This method is fired when TmaxPDFManager to update the progress form's completed pages value</summary>
         private void UpdateProgressBar(object sender, EventArgs e)
         {
-            try
-            {
-                if ((m_cfRegisterProgress != null) && (m_cfRegisterProgress.IsDisposed == false))
-                    m_cfRegisterProgress.CompletedPages = m_cfRegisterProgress.CompletedPages + 1;
-            }
-            catch
-            {
-            }
-
+			m_cfRegisterProgress.CompletedPages++;
         }
 
 		/// <summary>This method will get the collection of scenes referenced by the specified record</summary> 
@@ -15066,7 +15092,7 @@ namespace FTI.Trialmax.Database
 					//	NOTE:	ERROR_CANCELED is defined in Winerror.h as 1223, fAnyOperationsAborted not always non-zero on cancel
 					if((iError == 1223) || (opStruct.fAnyOperationsAborted != 0))
 					{
-						m_bRegisterCancelled = true;
+						m_cancelled = true;
 						if((m_cfRegisterProgress != null) && (m_cfRegisterProgress.IsDisposed == false))
 							m_cfRegisterProgress.Cancel();
 					}
@@ -15750,9 +15776,9 @@ namespace FTI.Trialmax.Database
 			
 				MessageBox.Show(strMsg, "Activation Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
-			
+
 			//	Cancel the registration if active
-			m_bRegisterCancelled = true;
+			m_cancelled = true;
 			if((m_cfRegisterProgress != null) && (m_cfRegisterProgress.IsDisposed == false))
 				m_cfRegisterProgress.Cancel();
 			

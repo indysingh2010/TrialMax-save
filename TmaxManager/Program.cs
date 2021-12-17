@@ -20,10 +20,11 @@ namespace FTI.Trialmax.TmaxManager
             lst.Remove("/multi");
             string[] newArgs = lst.ToArray();
 
-            bool multiInstance = args.Any("/multi".Contains);
+            //bool multiInstance = args.Any("/multi".Contains);
+            bool multiInstance = true;
 
-                try
-                {
+            try
+            {
                 //	Activate previous instance if there is one
                 if (!multiInstance && CTmaxInstanceManager.GetPrevInstance(TmaxApplications.TmaxManager) == true)
                 {

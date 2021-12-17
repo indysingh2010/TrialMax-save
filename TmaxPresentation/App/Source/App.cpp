@@ -75,7 +75,7 @@ static char THIS_FILE[] = __FILE__;
 //				
 //------------------------------------------------------------------------------
 const WORD	_wVerMajor = 7;	//	Used for database version checking
-const WORD	_wVerMinor = 0;	//	Used for database version checking
+const WORD	_wVerMinor = 1;	//	Used for database version checking
 
 //------------------------------------------------------------------------------
 //	GLOBALS

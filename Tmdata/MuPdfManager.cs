@@ -106,7 +106,7 @@ namespace FTI.Trialmax.Database
                 if (!DoConvert)
                     return false;
                 string path = m_outputPath + "\\";
-                bool useSingleThread = true;
+                bool useSingleThread = false;
                 // WIP: USE SINGLE THREAD
                 // Don't create new tasks
                 if (useSingleThread)
