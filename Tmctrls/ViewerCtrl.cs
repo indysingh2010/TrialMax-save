@@ -468,8 +468,14 @@ namespace FTI.Trialmax.Controls
         /// <returns>Duration of the video file</returns>
         public double GetDuration(string strFileName)
         {
-            return ((CTmxMovie)m_aViewers[(int)TmaxMediaViewers.Tmmovie]).GetDuration(strFileName);
-        }// public double GetDuration(string strFileName)
+			// ISFIX 2021-12-23
+			if (string.IsNullOrEmpty(strFileName))
+            {
+				return 0;
+            }
+			return ((CTmxMovie)m_aViewers[(int)TmaxMediaViewers.Tmmovie]).GetDuration(strFileName);
+
+		}// public double GetDuration(string strFileName)
 
 		/// <summary>This function is called to cue the active file</summary>
 		/// <param name="eMode">The enumerated cue mode</param>

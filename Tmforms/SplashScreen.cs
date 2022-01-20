@@ -89,12 +89,17 @@ namespace FTI.Trialmax.Forms
 		/// <summary>Called to step the progress bar to indicate activity</summary>
 		public void StepProgress()
 		{
-			if((m_ctrlProgress != null) && (m_ctrlProgress.IsDisposed == false))
+			m_ctrlProgress.Value = m_ctrlProgress.Value;
+			m_ctrlProgress.PerformStep();
+			return;
+
+
+			if ((m_ctrlProgress != null) && (m_ctrlProgress.IsDisposed == false))
 			{
 				try
 				{
-					if(m_ctrlProgress.Value == m_ctrlProgress.Maximum)
-						m_ctrlProgress.Value = m_ctrlProgress.Minimum;
+					//if(m_ctrlProgress.Value == m_ctrlProgress.Maximum)
+					//	m_ctrlProgress.Value = m_ctrlProgress.Minimum;
 
 					m_ctrlProgress.PerformStep();
 					
@@ -165,17 +170,18 @@ namespace FTI.Trialmax.Forms
             this.m_ctrlProgress.Appearance = appearance1;
             this.m_ctrlProgress.BorderStyle = Infragistics.Win.UIElementBorderStyle.None;
             this.m_ctrlProgress.Dock = System.Windows.Forms.DockStyle.Fill;
-            appearance2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            appearance2.BackColor2 = System.Drawing.Color.Gray;
+            appearance2.BackColor = System.Drawing.Color.Red;
+            appearance2.BackColor2 = System.Drawing.Color.Red;
             appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump;
             appearance2.ForeColor = System.Drawing.Color.White;
             appearance2.TextHAlignAsString = "Left";
             this.m_ctrlProgress.FillAppearance = appearance2;
             this.m_ctrlProgress.Location = new System.Drawing.Point(0, 240);
+            this.m_ctrlProgress.Maximum = 37;
             this.m_ctrlProgress.Name = "m_ctrlProgress";
             this.m_ctrlProgress.PercentFormat = "";
             this.m_ctrlProgress.Size = new System.Drawing.Size(320, 20);
-            this.m_ctrlProgress.Step = 2;
+            this.m_ctrlProgress.Step = 1;
             this.m_ctrlProgress.TabIndex = 2;
             this.m_ctrlProgress.Text = "[Formatted]";
             this.m_ctrlProgress.UseOsThemes = Infragistics.Win.DefaultableBoolean.False;
@@ -197,7 +203,6 @@ namespace FTI.Trialmax.Forms
             this.Text = "SplashScreen";
             ((System.ComponentModel.ISupportInitialize)(this.m_ctrlPictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
 		}// private void InitializeComponent()
 		

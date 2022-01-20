@@ -514,8 +514,25 @@ In TmaxCaseDatabase.cs set m_cfRegisterProgress.Finished = true; when starting
 <== DSYNC c:\FTI\TrialMax-B03 b:\FTI\TrialMax-B03-21-12-18-use-embedded-regform-update
 
 
+* Port build environment to new laptop machine 
+  Install Infragistics library
 
-TODO
-* For small files less than 20 pages post processing of png files starts with a one second delay
-* PDF files are copied to a temp directory- is this needed
+* Fix exception on startup.
+  In ViewCtrl.cs return 0 in function GetDuration return 0 if fileName is ""
+* Fix progress of splash screen
+  Change FillAppearance.BackColor and FillAppearance.BackColor2 to red to make progress bar more visible
+  Was 64,64,64, Black
+  In SplashScreen.cs change Step to 1 and Maximum to 37  (was 2,100) to increment progress faster and to prevent wrap-around
+  In SplashScreen.cs.StepProgress simplified code
 
++ Investigation of Presentation error message on laptop "Attempted an unsupported operation"
+  Test by uploading to web and downloading to virtual PC on desktop
++ Investigation of error message
+  Windows Defender SmartScreen prevented an unregognized app from starting. Running this app might put your PC at risk.
++ For small files less than 20 pages post processing of png files starts with a one second delay
++ PDF files are copied to a temp directory- is this needed
+
+* mk.bat updated to addpath to w:\FTI\bin
+
+<== git add . && git commit -m "Fix splash screen progress bar"
+<== DSYNC W:\FTI\TrialMax-B03 b:\FTI\TrialMax-B03-22-01-20-splash-screen-fix

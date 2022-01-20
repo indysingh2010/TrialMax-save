@@ -382,22 +382,12 @@ namespace FTI.Trialmax.TmaxManager
 
             //	Start the splash screen thread
             m_ctrlSplashScreen = splashScreen;
-            if (m_ctrlSplashScreen != null)
-            {
-                try
-                {
-                    SetSplashMessage("Loading TmaxManager");
-                    // DISABLED This thread causes about 30 exceptions thrown errors
-                    // Exception thrown: 'system.invalidoperationexception' in system.windows.forms.dll
-                    // Cause is splash screen background thread attempting to update a UI progress bar
-                    Thread splashThread = new Thread(new ThreadStart(this.SplashThreadProc));
-                    splashThread.Start();
-                }
-                catch
-                {
-                }
-
-            }// if(m_ctrlSplashScreen != null)
+            SetSplashMessage("Loading TmaxManager");
+            // DISABLED This thread causes about 30 exceptions thrown errors
+            // Exception thrown: 'system.invalidoperationexception' in system.windows.forms.dll
+            // Cause is splash screen background thread attempting to update a UI progress bar
+            //Thread splashThread = new Thread(new ThreadStart(this.SplashThreadProc));
+            //splashThread.Start();
 
             // Connect to the local event source
             m_tmaxEventSource.Name = "TrialMax Application";
