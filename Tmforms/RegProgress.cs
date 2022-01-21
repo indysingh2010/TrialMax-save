@@ -338,7 +338,7 @@ namespace FTI.Trialmax.Forms
             this.m_ctrlDescription.Name = "m_ctrlDescription";
             this.m_ctrlDescription.Size = new System.Drawing.Size(420, 20);
             this.m_ctrlDescription.TabIndex = 2;
-            this.m_ctrlDescription.Text = "Description";
+            this.m_ctrlDescription.Text = "Progress";
             this.m_ctrlDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.m_ctrlDescription.UseMnemonic = false;
             // 

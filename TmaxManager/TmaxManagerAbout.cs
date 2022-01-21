@@ -92,6 +92,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_ctrlStatusBar = new Infragistics.Win.UltraWinStatusBar.UltraStatusBar();
             this.m_ctrlShowHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.m_ctrlPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ctrlStatusBar)).BeginInit();
             this.SuspendLayout();
             // 
             // m_ctrlPicture
@@ -101,8 +102,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_ctrlPicture.Image = ((System.Drawing.Image)(resources.GetObject("m_ctrlPicture.Image")));
             this.m_ctrlPicture.Location = new System.Drawing.Point(0, 0);
             this.m_ctrlPicture.Name = "m_ctrlPicture";
-            this.m_ctrlPicture.Size = new System.Drawing.Size(320, 240);
-            this.m_ctrlPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.m_ctrlPicture.Size = new System.Drawing.Size(481, 344);
             this.m_ctrlPicture.TabIndex = 1;
             this.m_ctrlPicture.TabStop = false;
             // 
@@ -116,7 +116,7 @@ namespace FTI.Trialmax.TmaxManager
             appearance1.TextHAlignAsString = "Left";
             this.m_ctrlStatusBar.Appearance = appearance1;
             this.m_ctrlStatusBar.Dock = System.Windows.Forms.DockStyle.None;
-            this.m_ctrlStatusBar.Location = new System.Drawing.Point(0, 217);
+            this.m_ctrlStatusBar.Location = new System.Drawing.Point(0, 321);
             this.m_ctrlStatusBar.Name = "m_ctrlStatusBar";
             this.m_ctrlStatusBar.Size = new System.Drawing.Size(220, 23);
             this.m_ctrlStatusBar.TabIndex = 2;
@@ -128,7 +128,7 @@ namespace FTI.Trialmax.TmaxManager
             this.m_ctrlShowHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.m_ctrlShowHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.m_ctrlShowHistory.ForeColor = System.Drawing.Color.White;
-            this.m_ctrlShowHistory.Location = new System.Drawing.Point(220, 217);
+            this.m_ctrlShowHistory.Location = new System.Drawing.Point(381, 321);
             this.m_ctrlShowHistory.Name = "m_ctrlShowHistory";
             this.m_ctrlShowHistory.Size = new System.Drawing.Size(100, 23);
             this.m_ctrlShowHistory.TabIndex = 3;
@@ -140,7 +140,7 @@ namespace FTI.Trialmax.TmaxManager
             // CAboutForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(320, 240);
+            this.ClientSize = new System.Drawing.Size(481, 344);
             this.Controls.Add(this.m_ctrlShowHistory);
             this.Controls.Add(this.m_ctrlStatusBar);
             this.Controls.Add(this.m_ctrlPicture);
@@ -151,6 +151,7 @@ namespace FTI.Trialmax.TmaxManager
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About";
             ((System.ComponentModel.ISupportInitialize)(this.m_ctrlPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ctrlStatusBar)).EndInit();
             this.ResumeLayout(false);
 
 		}

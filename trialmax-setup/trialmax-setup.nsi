@@ -4,7 +4,7 @@ RequestExecutionLevel user 	# start at user level to prevent UAC prompt, this ca
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "TrialMax"
-!define PRODUCT_VERSION "7.1"
+!define PRODUCT_VERSION "11.0"
 !define PRODUCT_PUBLISHER "FTI Consulting"
 !define PRODUCT_WEB_SITE "http://www.trialmax.com"
 
@@ -53,14 +53,18 @@ SetShellVarContext all
 
 ; MUI Settings
 !define MUI_ABORTWARNING
-!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
-!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
+#!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
+#!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
+!define MUI_ICON "trialmax-setup-icon.ico"
+!define MUI_UNICON "trialmax-setup-icon.ico"
+
 
 #!define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH		# This is how to expand the bitmap to size in file
 # This is how to set a bitmap
-!define MUI_WELCOMEFINISHPAGE_BITMAP "installer-splash.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "trialmax-setup-image.bmp"
 #!define MUI_WELCOMEFINISHPAGE_BITMAP "c:\dev\TrialMax\Common\Resources\TM7splash_.bmp"
 #!define MUI_WELCOMEFINISHPAGE_BITMAP "${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp"
+
 #!define MUI_WELCOMEPAGE_TITLE  "CUSTOM TITLE HERE"
 #!define MUI_WELCOMEPAGE_TEXT  "CUSTOM TEXT HERE"
 
@@ -118,13 +122,13 @@ ShowInstDetails show
 ShowUnInstDetails show
 
 #Icon "${PACKAGE}\App\AppInfo\appicon.ico"
-#VIProductVersion 1.2.3.4	# requied, must be x.x.x.x appears vileverison in properties,details ?
-VIProductVersion "${PRODUCT_VERSION}.0.0"	# requied, must be x.x.x.x appears vileverison in properties,details ?
+Icon "trialmax-setup-icon.ico"
+VIProductVersion "${PRODUCT_VERSION}.0.0"	# requied, must be x.x.x.x appears in FileVerison in properties details
+VIAddVersionKey FileVersion "3.4.5.6"  # required, but value is ignored
 VIAddVersionKey ProductName "${PRODUCT_NAME}"
 VIAddVersionKey CompanyName "FTI Consulting"
 VIAddVersionKey LegalCopyright "FTI Consulting"
 VIAddVersionKey FileDescription "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-VIAddVersionKey FileVersion 4.5.6.7  # required, but value ignored
 VIAddVersionKey ProductVersion ${PRODUCT_VERSION}
 
 

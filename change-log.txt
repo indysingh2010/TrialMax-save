@@ -534,5 +534,58 @@ In TmaxCaseDatabase.cs set m_cfRegisterProgress.Finished = true; when starting
 
 * mk.bat updated to addpath to w:\FTI\bin
 
-<== git add . && git commit -m "Fix splash screen progress bar"
-<== DSYNC W:\FTI\TrialMax-B03 b:\FTI\TrialMax-B03-22-01-20-splash-screen-fix
+<== git add . && git commit --amend -m "Fix splash screen progress bar"
+<== DSYNC C:\FTI\TrialMax-B03 b:\FTI\TrialMax-B03-22-01-20-splash-screen-fix
+
+* Change verison number to 11.0.0 in files:
+  TmaxManager\AssemblyInfo.cs
+  TmaxPresentation\App\Source\App.cpp  (Used for database version checking)
+  TmaxPresentation\App\TmaxPresentation.rc (File properties)
+  
+* Update installer bitmap in trialmax-setup.nsi
+* Update installer icon in trialmax-setup.nsi
+
+* Update splash screen image
+  Open TmForms, SplashScreen.cs, click image, Properties, Image, ..., 
+  Clear, then Import, choose image - gets copied to resx file
+  Resize form
+  Change FillAppearance.BackColor and FillAppearance.BackColor2 to if needed
+  Using red to make progress bar more visible Was 64,64,64, Black
+  Temporarily change Value to 10 to make color visible
+  Change Max value to 47 (was 37)
+  
+* Update icon
+  Copy Trialmax.ico to Trialmax-11.ico
+  Edit icon - 32-bit images are not editable, 
+  Create each new image size in 24 bit and paste from 32-bit
+  TmaxManager, properties, Application, Icon, and pick new file
+  Cannot readd the same file as it says name already exists
+<== git add . && git commit -m "Version-11"
+<== DSYNC C:\FTI\TrialMax-B03 b:\FTI\TrialMax-B03-22-01-21-Version-11
+
+* Title bar text changed to remove verison '7'
+  in TmaxManagerForm.cs:SetControlStates
+* Icon changed to replace yellow background with original white
+* About box image updated
+* Duplicate page when registering a large test file
+  - test file is W:\FTI\download\download7-registration-error\P0002-registration-error.pdf
+  - page 2235 left as PNG and is duplicated on page 2236 as TIF
+  - Aslo display an error message about the extra page in the registration server on completion
+  - Cannot reproduce. One time IO or database glitch perhaps
+
+* Add Registration Server to View menu
+  Add handler and enum
+  Duplicate code for SearchResults -> RegistrationServer (4 locations)
+  Add Menu in designer
+  Type=State Button, Caption=Registration Server, Key=ToggleRegistrationServer, Category=View
+  Add this to InitializePanes
+  m_aPanes[(int)TmaxAppPanes.RegistrationServer] = m_paneRegistration;
+
+* Fix exception in TmaxRegistry.cs.GetComponent
+  Error caused by failure to fetch registry entries for the TmaxViewe.exe
+  Tmshared built non-optimized for debugging
+  Full build including installer
+* Changed text Description -> Progress in RegProgress.cs
+<== git add . && git commit --amend -m "Version-11"
+<== DSYNC C:\FTI\TrialMax-B03 b:\FTI\TrialMax-B03-22-02-02-Version-11
+

@@ -195,7 +195,11 @@ namespace FTI.Shared.Trialmax
 					bSuccessful = true;
 					
 					//	Set the component values
-					try { tmaxComponent.Description = rkComponent.GetValue("Description").ToString(); }
+					try {
+						object value = rkComponent.GetValue("Description");
+						if (value == null) return false;
+						tmaxComponent.Description = value.ToString();
+					}
 					catch { bSuccessful = false; }
 				
 					try { tmaxComponent.Version = rkComponent.GetValue("Version").ToString(); }

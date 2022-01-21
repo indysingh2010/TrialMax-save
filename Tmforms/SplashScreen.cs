@@ -155,8 +155,7 @@ namespace FTI.Trialmax.Forms
             this.m_ctrlPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("m_ctrlPictureBox.Image")));
             this.m_ctrlPictureBox.Location = new System.Drawing.Point(0, 0);
             this.m_ctrlPictureBox.Name = "m_ctrlPictureBox";
-            this.m_ctrlPictureBox.Size = new System.Drawing.Size(320, 240);
-            this.m_ctrlPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.m_ctrlPictureBox.Size = new System.Drawing.Size(477, 322);
             this.m_ctrlPictureBox.TabIndex = 1;
             this.m_ctrlPictureBox.TabStop = false;
             // 
@@ -170,27 +169,28 @@ namespace FTI.Trialmax.Forms
             this.m_ctrlProgress.Appearance = appearance1;
             this.m_ctrlProgress.BorderStyle = Infragistics.Win.UIElementBorderStyle.None;
             this.m_ctrlProgress.Dock = System.Windows.Forms.DockStyle.Fill;
-            appearance2.BackColor = System.Drawing.Color.Red;
-            appearance2.BackColor2 = System.Drawing.Color.Red;
+            appearance2.BackColor = System.Drawing.Color.Brown;
+            appearance2.BackColor2 = System.Drawing.Color.Black;
             appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump;
             appearance2.ForeColor = System.Drawing.Color.White;
             appearance2.TextHAlignAsString = "Left";
             this.m_ctrlProgress.FillAppearance = appearance2;
-            this.m_ctrlProgress.Location = new System.Drawing.Point(0, 240);
-            this.m_ctrlProgress.Maximum = 37;
+            this.m_ctrlProgress.Location = new System.Drawing.Point(0, 322);
+            this.m_ctrlProgress.Maximum = 47;
             this.m_ctrlProgress.Name = "m_ctrlProgress";
             this.m_ctrlProgress.PercentFormat = "";
-            this.m_ctrlProgress.Size = new System.Drawing.Size(320, 20);
+            this.m_ctrlProgress.Size = new System.Drawing.Size(477, 31);
             this.m_ctrlProgress.Step = 1;
             this.m_ctrlProgress.TabIndex = 2;
             this.m_ctrlProgress.Text = "[Formatted]";
             this.m_ctrlProgress.UseOsThemes = Infragistics.Win.DefaultableBoolean.False;
+            this.m_ctrlProgress.Value = 10;
             // 
             // CFSplashScreen
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(320, 260);
+            this.ClientSize = new System.Drawing.Size(477, 353);
             this.ControlBox = false;
             this.Controls.Add(this.m_ctrlProgress);
             this.Controls.Add(this.m_ctrlPictureBox);

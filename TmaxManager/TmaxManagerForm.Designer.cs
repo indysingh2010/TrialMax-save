@@ -100,6 +100,7 @@ namespace FTI.Trialmax.TmaxManager
             Infragistics.Win.UltraWinToolbars.StateButtonTool stateButtonTool6 = new Infragistics.Win.UltraWinToolbars.StateButtonTool("ToggleMediaViewer", "");
             Infragistics.Win.UltraWinToolbars.StateButtonTool stateButtonTool7 = new Infragistics.Win.UltraWinToolbars.StateButtonTool("ToggleScriptBuilder", "");
             Infragistics.Win.UltraWinToolbars.StateButtonTool stateButtonTool8 = new Infragistics.Win.UltraWinToolbars.StateButtonTool("ToggleScriptReview", "");
+            Infragistics.Win.UltraWinToolbars.StateButtonTool stateButtonTool39 = new Infragistics.Win.UltraWinToolbars.StateButtonTool("ToggleRegistrationServer", "");
             Infragistics.Win.UltraWinToolbars.StateButtonTool stateButtonTool9 = new Infragistics.Win.UltraWinToolbars.StateButtonTool("ToggleTuner", "");
             Infragistics.Win.UltraWinToolbars.StateButtonTool stateButtonTool10 = new Infragistics.Win.UltraWinToolbars.StateButtonTool("ToggleTranscripts", "");
             Infragistics.Win.UltraWinToolbars.StateButtonTool stateButtonTool11 = new Infragistics.Win.UltraWinToolbars.StateButtonTool("ToggleCodes", "");
@@ -271,6 +272,7 @@ namespace FTI.Trialmax.TmaxManager
             Infragistics.Win.Appearance appearance54 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool100 = new Infragistics.Win.UltraWinToolbars.ButtonTool("ShowActiveUsers");
             Infragistics.Win.Appearance appearance55 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.StateButtonTool stateButtonTool40 = new Infragistics.Win.UltraWinToolbars.StateButtonTool("ToggleRegistrationServer", "");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TmaxManagerForm));
             this.m_paneRegistration = new FTI.Trialmax.Panes.RegistrationPane();
             this.m_paneTuner = new FTI.Trialmax.Panes.CTunePane();
@@ -1110,18 +1112,18 @@ namespace FTI.Trialmax.TmaxManager
             this._TmaxManagerFormUnpinnedTabAreaLeft.Name = "_TmaxManagerFormUnpinnedTabAreaLeft";
             this._TmaxManagerFormUnpinnedTabAreaLeft.Owner = this.m_ctrlUltraDockManager;
             this._TmaxManagerFormUnpinnedTabAreaLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this._TmaxManagerFormUnpinnedTabAreaLeft.Size = new System.Drawing.Size(0, 852);
+            this._TmaxManagerFormUnpinnedTabAreaLeft.Size = new System.Drawing.Size(0, 915);
             this._TmaxManagerFormUnpinnedTabAreaLeft.TabIndex = 1;
             // 
             // _TmaxManagerFormUnpinnedTabAreaRight
             // 
             this._TmaxManagerFormUnpinnedTabAreaRight.Dock = System.Windows.Forms.DockStyle.Right;
             this._TmaxManagerFormUnpinnedTabAreaRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._TmaxManagerFormUnpinnedTabAreaRight.Location = new System.Drawing.Point(1805, 26);
+            this._TmaxManagerFormUnpinnedTabAreaRight.Location = new System.Drawing.Point(1766, 26);
             this._TmaxManagerFormUnpinnedTabAreaRight.Name = "_TmaxManagerFormUnpinnedTabAreaRight";
             this._TmaxManagerFormUnpinnedTabAreaRight.Owner = this.m_ctrlUltraDockManager;
             this._TmaxManagerFormUnpinnedTabAreaRight.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this._TmaxManagerFormUnpinnedTabAreaRight.Size = new System.Drawing.Size(0, 852);
+            this._TmaxManagerFormUnpinnedTabAreaRight.Size = new System.Drawing.Size(0, 915);
             this._TmaxManagerFormUnpinnedTabAreaRight.TabIndex = 2;
             // 
             // _TmaxManagerFormUnpinnedTabAreaTop
@@ -1132,18 +1134,18 @@ namespace FTI.Trialmax.TmaxManager
             this._TmaxManagerFormUnpinnedTabAreaTop.Name = "_TmaxManagerFormUnpinnedTabAreaTop";
             this._TmaxManagerFormUnpinnedTabAreaTop.Owner = this.m_ctrlUltraDockManager;
             this._TmaxManagerFormUnpinnedTabAreaTop.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this._TmaxManagerFormUnpinnedTabAreaTop.Size = new System.Drawing.Size(1805, 0);
+            this._TmaxManagerFormUnpinnedTabAreaTop.Size = new System.Drawing.Size(1766, 0);
             this._TmaxManagerFormUnpinnedTabAreaTop.TabIndex = 3;
             // 
             // _TmaxManagerFormUnpinnedTabAreaBottom
             // 
             this._TmaxManagerFormUnpinnedTabAreaBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._TmaxManagerFormUnpinnedTabAreaBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._TmaxManagerFormUnpinnedTabAreaBottom.Location = new System.Drawing.Point(0, 878);
+            this._TmaxManagerFormUnpinnedTabAreaBottom.Location = new System.Drawing.Point(0, 941);
             this._TmaxManagerFormUnpinnedTabAreaBottom.Name = "_TmaxManagerFormUnpinnedTabAreaBottom";
             this._TmaxManagerFormUnpinnedTabAreaBottom.Owner = this.m_ctrlUltraDockManager;
             this._TmaxManagerFormUnpinnedTabAreaBottom.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this._TmaxManagerFormUnpinnedTabAreaBottom.Size = new System.Drawing.Size(1805, 0);
+            this._TmaxManagerFormUnpinnedTabAreaBottom.Size = new System.Drawing.Size(1766, 0);
             this._TmaxManagerFormUnpinnedTabAreaBottom.TabIndex = 4;
             // 
             // _TmaxManagerFormAutoHideControl
@@ -1338,6 +1340,7 @@ namespace FTI.Trialmax.TmaxManager
             stateButtonTool6,
             stateButtonTool7,
             stateButtonTool8,
+            stateButtonTool39,
             stateButtonTool9,
             stateButtonTool10,
             stateButtonTool11,
@@ -1650,6 +1653,8 @@ namespace FTI.Trialmax.TmaxManager
             buttonTool100.SharedPropsInternal.AppearancesSmall.Appearance = appearance55;
             buttonTool100.SharedPropsInternal.Caption = "&Show Active Users ...";
             buttonTool100.SharedPropsInternal.Category = "Tools";
+            stateButtonTool40.SharedPropsInternal.Caption = "Registration Server";
+            stateButtonTool40.SharedPropsInternal.Category = "View";
             this.m_ctrlUltraToolbarManager.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
             popupMenuTool6,
             buttonTool13,
@@ -1732,7 +1737,8 @@ namespace FTI.Trialmax.TmaxManager
             buttonTool96,
             stateButtonTool38,
             buttonTool97,
-            buttonTool100});
+            buttonTool100,
+            stateButtonTool40});
             this.m_ctrlUltraToolbarManager.BeforeToolbarListDropdown += new Infragistics.Win.UltraWinToolbars.BeforeToolbarListDropdownEventHandler(this.OnUltraBeforeToolbarListDropdown);
             this.m_ctrlUltraToolbarManager.BeforeToolDropdown += new Infragistics.Win.UltraWinToolbars.BeforeToolDropdownEventHandler(this.OnUltraToolPopup);
             this.m_ctrlUltraToolbarManager.ToolClick += new Infragistics.Win.UltraWinToolbars.ToolClickEventHandler(this.OnUltraToolClick);

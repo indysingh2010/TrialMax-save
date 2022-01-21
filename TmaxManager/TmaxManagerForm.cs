@@ -108,6 +108,7 @@ namespace FTI.Trialmax.TmaxManager
             ToggleObjectionProperties,
             ToggleScriptReview,
             ToggleSearchResults,
+            ToggleRegistrationServer,
             ToggleErrorMessages,
             ToggleVersions,
             ToggleDiagnostics,
@@ -1161,97 +1162,82 @@ namespace FTI.Trialmax.TmaxManager
             switch (eCommand)
             {
                 case AppCommands.ToggleSourceExplorer:
-
                     ePane = TmaxAppPanes.Source;
                     break;
 
                 case AppCommands.ToggleMediaTree:
-
                     ePane = TmaxAppPanes.Media;
                     break;
 
                 case AppCommands.ToggleBinders:
-
                     ePane = TmaxAppPanes.Binders;
                     break;
 
                 case AppCommands.ToggleFilteredTree:
-
                     ePane = TmaxAppPanes.FilteredTree;
                     break;
 
                 case AppCommands.ToggleMediaViewer:
-
                     ePane = TmaxAppPanes.Viewer;
                     break;
 
                 case AppCommands.ToggleProperties:
-
                     ePane = TmaxAppPanes.Properties;
                     break;
 
                 case AppCommands.ToggleScriptBuilder:
-
                     ePane = TmaxAppPanes.Scripts;
                     break;
 
                 case AppCommands.ToggleTranscripts:
-
                     ePane = TmaxAppPanes.Transcripts;
                     break;
 
                 case AppCommands.ToggleTuner:
-
                     ePane = TmaxAppPanes.Tuner;
                     break;
 
                 case AppCommands.ToggleCodes:
-
                     ePane = TmaxAppPanes.Codes;
                     break;
 
                 case AppCommands.ToggleSearchResults:
-
                     ePane = TmaxAppPanes.Results;
                     break;
 
-                case AppCommands.ToggleErrorMessages:
+                case AppCommands.ToggleRegistrationServer:
+                    ePane = TmaxAppPanes.RegistrationServer;
+                    break;
 
+                case AppCommands.ToggleErrorMessages:
                     ePane = TmaxAppPanes.Errors;
                     break;
 
                 case AppCommands.ToggleVersions:
-
                     ePane = TmaxAppPanes.Versions;
                     break;
 
                 case AppCommands.ToggleDiagnostics:
-
                     ePane = TmaxAppPanes.Diagnostics;
                     break;
 
                 case AppCommands.ToggleObjections:
-
                     ePane = TmaxAppPanes.Objections;
                     break;
 
                 case AppCommands.ToggleObjectionProperties:
-
                     ePane = TmaxAppPanes.ObjectionProperties;
                     break;
 
                 case AppCommands.ToggleScriptReview:
-
                     ePane = TmaxAppPanes.ScriptReview;
                     break;
 
                 case AppCommands.HelpContents:
-
                     ePane = TmaxAppPanes.Help;
                     break;
 
                 default:
-
                     break;
 
             }// switch(GetCommand(ultraTool.Key))
@@ -1629,6 +1615,7 @@ namespace FTI.Trialmax.TmaxManager
                 m_aPanes[(int)TmaxAppPanes.Transcripts] = m_paneTranscripts;
                 m_aPanes[(int)TmaxAppPanes.Tuner] = m_paneTuner;
                 m_aPanes[(int)TmaxAppPanes.Results] = m_paneResults;
+                m_aPanes[(int)TmaxAppPanes.RegistrationServer] = m_paneRegistration;
                 m_aPanes[(int)TmaxAppPanes.Help] = m_paneHelp;
                 m_aPanes[(int)TmaxAppPanes.Versions] = m_paneVersions;
                 m_aPanes[(int)TmaxAppPanes.Codes] = m_paneCodes;
@@ -1728,7 +1715,7 @@ namespace FTI.Trialmax.TmaxManager
                 PopupMenu = (PopupMenuTool)m_ctrlUltraToolbarManager.Tools["FileMenu"];
 
                 PopupMenu.Settings.IsSideStripVisible = DefaultableBoolean.True;
-                PopupMenu.Settings.SideStripText = "TrialMax Manager 7";
+                PopupMenu.Settings.SideStripText = "TrialMax Manager";
                 PopupMenu.Settings.SideStripAppearance.ForeColor = Color.White;
                 PopupMenu.Settings.SideStripAppearance.BackColor = Color.WhiteSmoke;
                 PopupMenu.Settings.SideStripAppearance.BackColor2 = Color.Navy;
@@ -4068,6 +4055,11 @@ namespace FTI.Trialmax.TmaxManager
                 case AppCommands.ToggleSearchResults:
 
                     OnAppTogglePane(TmaxAppPanes.Results);
+                    break;
+
+                case AppCommands.ToggleRegistrationServer:
+
+                    OnAppTogglePane(TmaxAppPanes.RegistrationServer);
                     break;
 
                 case AppCommands.ToggleFilteredTree:
@@ -6737,9 +6729,9 @@ namespace FTI.Trialmax.TmaxManager
             if ((m_tmaxDatabase != null) && (m_tmaxDatabase.Primaries != null))
             {
                 if (m_tmaxDatabase.CaseName.Length > 0)
-                    this.Text = String.Format(" FTI TrialMax 7 - [{0}] - {1}", m_tmaxDatabase.CaseName, m_tmaxDatabase.Folder);
+                    this.Text = String.Format(" FTI TrialMax - [{0}] - {1}", m_tmaxDatabase.CaseName, m_tmaxDatabase.Folder);
                 else
-                    this.Text = String.Format(" FTI TrialMax 7 - {0}", m_tmaxDatabase.Folder);
+                    this.Text = String.Format(" FTI TrialMax - {0}", m_tmaxDatabase.Folder);
 
                 if ((ultraTool = GetUltraTool("LoadBarcode")) != null)
                     ultraTool.SharedProps.Enabled = true;
@@ -6748,7 +6740,7 @@ namespace FTI.Trialmax.TmaxManager
             }
             else
             {
-                this.Text = " FTI TrialMax 7";
+                this.Text = " FTI TrialMax";
 
                 if ((ultraTool = GetUltraTool("LoadBarcode")) != null)
                     ultraTool.SharedProps.Enabled = false;
@@ -6839,6 +6831,7 @@ namespace FTI.Trialmax.TmaxManager
                     case AppCommands.ToggleTuner:
                     case AppCommands.ToggleCodes:
                     case AppCommands.ToggleSearchResults:
+                    case AppCommands.ToggleRegistrationServer:
                     case AppCommands.ToggleErrorMessages:
                     case AppCommands.ToggleVersions:
                     case AppCommands.ToggleDiagnostics:

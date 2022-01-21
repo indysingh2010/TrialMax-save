@@ -7,7 +7,7 @@
     <ProjectGuid>{A7F6C20D-7C1D-4EE1-8E7E-3CD1919F8A1B}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>..\Common\Resources\Icons\Trialmax.ico</ApplicationIcon>
+    <ApplicationIcon>Trialmax.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>TmaxManager</AssemblyName>
@@ -148,6 +148,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Trialmax.ico" />
     <EmbeddedResource Include="licenses.licx" />
     <EmbeddedResource Include="MINIMALForm.resx">
       <DependentUpon>MINIMALForm.cs</DependentUpon>
@@ -196,7 +197,7 @@
     <Compile Include="TmaxManagerVersion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Content Include="Trialmax.ico" />
+    <Content Include="Trialmax-YELLOW.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
